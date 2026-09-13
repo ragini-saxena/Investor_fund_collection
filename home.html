@@ -1,0 +1,432 @@
+<!-- 
+    Investors Funds Collection S.A. - Clean Standalone HTML5 Page
+    Pure semantic HTML with Tailwind CSS
+-->
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Investors Funds Collection S.A. | Invest in the Future of Haiti</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow:
+        6px 0 #fff, 12px 0 #fff, 18px 0 #fff,
+        3px 4px #fff, 9px 4px #fff, 15px 4px #fff,
+        21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px
+      }
+
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-[#D92534] selection:text-white">
+  <div class="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-red-500 selection:text-white">
+    <!-- Top Navigation Header -->
+    <div data-include="header"></div>
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="relative bg-[#061C3D] text-white overflow-hidden py-12 sm:py-16 lg:py-20" id="home">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Same div: Left half screen (50%) & Right half space (50%) side-by-side -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <!-- Left Column Content: Exactly Half Space (50%) -->
+          <div class="flex flex-col items-start justify-center pr-0 sm:pr-4 lg:pr-8 w-full">
+            <span
+              class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#102A54] text-[#FF4D5E] border border-[#FF4D5E]/25 mb-6 sm:mb-8 shadow-xs">
+              EMPOWERING HAITIAN DEVELOPMENT
+            </span>
+            <h1
+              class="text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] font-black tracking-tight leading-[1.12] mb-5 text-white">
+              Invest in the Future of Haiti
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mb-8 font-normal">
+              Investors Funds Collection bridges the gap between capital and high-yielding local opportunities. Simple,
+              secure, and fully transparent short-term asset growth.
+            </p>
+            <div class="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+              <button
+                class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 bg-[#D92534] hover:bg-[#B91C1C] text-white font-bold text-sm sm:text-base rounded-lg transition-all shadow-md hover:shadow-lg text-center"
+                onclick="window.location.href='register (2).html'" type="button">
+                Become an Investor
+              </button>
+              <a class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 bg-[#061C3D] border border-[#23426F] hover:bg-[#0C2A56] text-white font-semibold text-sm sm:text-base rounded-lg transition-all text-center"
+                href="#secure-pathways">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0A234A] aspect-[4/3] sm:aspect-[16/11] lg:h-[420px]">
+              <img alt="Investors Funds Development Project in Haiti" class="w-full h-full object-cover object-center"
+                src="images/image%201.png" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#061C3D]/30 via-transparent to-transparent pointer-events-none">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 2: SECURE PATHWAYS (4 Feature Cards) -->
+    <section class="py-20 sm:py-24 bg-white" id="secure-pathways">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center w-full mx-auto mb-14 sm:mb-16 px-2">
+          <span class="text-[#D92534] font-bold text-xs sm:text-sm tracking-widest uppercase block mb-3">
+            SECURE PATHWAYS
+          </span>
+          <h2
+            class="text-[#061C3D] font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] tracking-tight leading-tight whitespace-nowrap">
+            Structured for Maximum Security &amp; Transparency
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-start">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center mb-6 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-[#061C3D] font-bold text-lg mb-3 leading-snug">
+              Investment Opportunity
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Gain secure, short-term high yields backed by robust diversified portfolios in agriculture, manufacturing,
+              and real estate imports.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-start">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center mb-6 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-[#061C3D] font-bold text-lg mb-3 leading-snug">
+              How It Works
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Deposit directly into vetted collection pools. Funds are pooled to finance local trade, producing rapid
+              turnaround and low default risk.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-start">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center mb-6 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-[#061C3D] font-bold text-lg mb-3 leading-snug">
+              Investment Process
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Open your account in 3 steps: Identity check, Choose secure pool tier, Sign backed digital covenant. Ready
+              in under 24 hours.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-start">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center mb-6 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                <path
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 class="text-[#061C3D] font-bold text-lg mb-3 leading-snug">
+              Contact Information
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Our localized support is available via WhatsApp, phone, and secure messaging. Reach us directly in
+              Port-au-Prince or online.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 3: BRIDGING COMMUNITIES (Key Metrics & Haitian Growth) -->
+    <section class="py-16 sm:py-20 bg-[#F9FBFE] border-y border-slate-100" id="about">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <!-- Left half space empty -->
+          <div aria-hidden="true" class="hidden sm:block"></div>
+          <!-- Right half space with content -->
+          <div class="w-full flex flex-col items-start pl-0 sm:pl-4 lg:pl-8">
+            <span class="text-[#D92534] font-bold text-xs sm:text-sm tracking-widest uppercase block mb-3">
+              BRIDGING COMMUNITIES
+            </span>
+            <h2
+              class="text-[#061C3D] font-extrabold text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] tracking-tight leading-tight mb-6">
+              Backed by Haitian Capital, Focused on Haitian Growth
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-10">
+              Whether you reside in Haiti or in the Diaspora (USA, Canada, France), we offer a secure framework under
+              which local entrepreneurs receive funding and you secure premium fixed-returns. No middlemen. Direct
+              community empowerment.
+            </p>
+            <div class="flex flex-wrap items-center gap-10 sm:gap-16 pt-2">
+              <div>
+                <div class="text-[#061C3D] font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-2">
+                  12-15%
+                </div>
+                <div class="text-slate-700 font-semibold text-sm sm:text-base">
+                  Expected Annual Return
+                </div>
+              </div>
+              <div>
+                <div class="text-[#061C3D] font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-2">
+                  3-6 Mo
+                </div>
+                <div class="text-slate-700 font-semibold text-sm sm:text-base">
+                  Flexible Capital Lockup
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 4: STAY INFORMED & LATEST INVESTOR ANNOUNCEMENTS -->
+    <section class="py-20 sm:py-24 bg-white" id="news">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-[#D92534] font-bold text-xs sm:text-sm tracking-widest uppercase block mb-3">
+              STAY INFORMED
+            </span>
+            <h2 class="text-[#061C3D] font-extrabold text-3xl sm:text-4xl tracking-tight leading-tight">
+              Latest Investor Announcements
+            </h2>
+          </div>
+          <a class="inline-flex items-center gap-2 text-[#061C3D] hover:text-[#D92534] font-bold text-sm tracking-wide transition-colors group"
+            href="#all-news">
+            <span>View All News</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+              stroke="currentColor" viewbox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <article
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-3" datetime="2025-10-12">
+                Oct 12, 2025
+              </time>
+              <h3 class="text-[#061C3D] font-bold text-lg sm:text-xl leading-snug mb-3">
+                Expansion of Port-au-Prince Logistic Fund
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                We have opened Phase 3 funding for the crucial maritime logistical hub. Targeting a steady 12% APR
+                short-term maturity yield.
+              </p>
+            </div>
+            <a class="text-[#061C3D] hover:text-[#D92534] font-bold text-sm inline-flex items-center gap-1.5 transition-colors"
+              href="#news-1">
+              <span>Read More</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-3" datetime="2025-09-28">
+                Sep 28, 2025
+              </time>
+              <h3 class="text-[#061C3D] font-bold text-lg sm:text-xl leading-snug mb-3">
+                Introducing Agricultural Crop Pool Partners
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Support local cocoa and coffee smallholders with secured cash flows. Insured return guarantees now open
+                for foreign backers.
+              </p>
+            </div>
+            <a class="text-[#061C3D] hover:text-[#D92534] font-bold text-sm inline-flex items-center gap-1.5 transition-colors"
+              href="#news-2">
+              <span>Read More</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article
+            class="bg-white rounded-2xl p-7 border border-slate-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+            <div>
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-3" datetime="2025-09-15">
+                Sep 15, 2025
+              </time>
+              <h3 class="text-[#061C3D] font-bold text-lg sm:text-xl leading-snug mb-3">
+                Haitian Diaspora Funding Surpasses Milestones
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Over $4.5M USD gathered in direct community investments since Q1. Thank you to our backers in Miami,
+                Boston, and Montreal.
+              </p>
+            </div>
+            <a class="text-[#061C3D] hover:text-[#D92534] font-bold text-sm inline-flex items-center gap-1.5 transition-colors"
+              href="#news-3">
+              <span>Read More</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div data-include="footer"></div>
+  </div>
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    document.addEventListener('click', function (e) {
+      const el = e.target.closest('a,button');
+      if (!el) return;
+      const text = (el.innerText || '').trim().replace(/\s+/g, ' ').toLowerCase();
+      const routes = {
+        'home': 'home.html', 'news': 'news.html', 'news & updates': 'news.html',
+        'about': 'home.html#about', 'about us': 'home.html#about', 'about information': 'home.html#about',
+        'contact': 'contact.html', 'contact us': 'contact.html',
+        'investor login': 'login investor.html', 'log in': 'login investor.html',
+        'dashboard': 'investor dashboard.html', 'my profile': 'investor profile.html',
+        'make investment': 'payment 1.html', 'new investment': 'payment 1.html',
+        'go to dashboard': 'investor dashboard.html', 'go to profile dashboard': 'investor profile.html',
+        'logout': 'login investor.html', 'register': 'register (2).html', 'signup': 'signup.html',
+        'admin dashboard': 'admin-dashboard.html', 'potential investors': 'admin-potential-investors.html',
+        'investors': 'admin-registered-investors.html', 'registered investors': 'admin-registered-investors.html',
+        'payments/funds': 'payments-funds.html', 'messages': 'contact-messaging.html',
+        'back to investors list': 'admin-registered-investors.html',
+        'payment receipt': 'payment receipt.html', 'receipt': 'payment receipt.html',
+        'payment received': 'payment-received.html', 'view all messages': 'contact-messaging.html'
+      };
+      if (routes[text] && (el.tagName === 'BUTTON' || el.getAttribute('href') === '#' || !el.getAttribute('href'))) {
+        e.preventDefault(); window.location.href = routes[text];
+      }
+    });
+  </script>
+  <script id="ifc-stable-navigation">
+    (function () {
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        const r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a class="flex items-center gap-3.5 group" href="home.html">
+      <div class="w-10 h-10 rounded-lg bg-[#061C3D] p-1.5 flex items-center justify-center shadow-xs">
+        <div class="w-full h-full rounded-sm flex overflow-hidden border border-white/20">
+          <div class="w-1/2 h-full bg-[#0038A8]"></div>
+          <div class="w-1/2 h-full bg-[#D21034]"></div>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-[#061C3D] font-extrabold text-lg leading-tight tracking-tight">Investors Funds</span>
+        <span class="text-[#D92534] font-bold text-[10px] tracking-widest uppercase">COLLECTION S.A.</span>
+      </div>
+    </a>
+    <!-- Center Navigation Links -->
+    <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-8">
+      <a class="relative text-[#061C3D] font-bold text-sm tracking-wide py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#D92534] after:rounded-full"
+        href="home.html" data-ifc-route="home.html">
+        Home
+      </a>
+      <a class="text-slate-600 hover:text-[#061C3D] font-medium text-sm tracking-wide transition-colors py-2"
+        href="news.html" data-ifc-route="news.html">
+        News
+      </a>
+      <a class="text-slate-600 hover:text-[#061C3D] font-medium text-sm tracking-wide transition-colors py-2"
+        href="home.html#about" data-ifc-route="home.html#about">
+        About
+      </a>
+      <a class="text-slate-600 hover:text-[#061C3D] font-medium text-sm tracking-wide transition-colors py-2"
+        href="contact.html" data-ifc-route="contact.html">
+        Contact Us
+      </a>
+    </nav>
+    <!-- Right Action Buttons -->
+    <div class="flex items-center gap-2.5 sm:gap-3">
+      <!-- Language Toolbar -->
+      <div aria-label="Language" class="ifc-language-toolbar" role="group">
+        <button class="ifc-language-option" data-ifc-lang="Creole" type="button">
+          <span aria-hidden="true" class="ifc-flag ht"></span><span>Creole</span>
+        </button>
+        <button class="ifc-language-option" data-ifc-lang="Français" type="button">
+          <span aria-hidden="true" class="ifc-flag fr"></span><span>Français</span>
+        </button>
+        <button class="ifc-language-option" data-ifc-lang="English" type="button">
+          <span aria-hidden="true" class="ifc-flag us"></span><span>English</span>
+        </button>
+      </div>
+      <!-- Share Button -->
+      <button
+        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-[#061C3D] hover:bg-[#0B254E] rounded-md transition-colors"
+        type="button">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path
+            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+        <span>Share</span>
+      </button>
+      <!-- Email Button -->
+      <a class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-[#061C3D] hover:bg-[#0B254E] rounded-md transition-colors"
+        href="mailto:contact@investorsfundscollection.ht">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+        <span>Email</span>
+      </a>
+      <!-- Log In Button -->
+      <button
+        class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-[#D92534] hover:bg-[#B91C1C] rounded-md transition-colors shadow-xs"
+        type="button" onclick="window.location.href='login investor.html'">
+        Log In
+      </button>
+    </div>
+  </div>
+</header>
