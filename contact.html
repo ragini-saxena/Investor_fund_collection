@@ -142,6 +142,7 @@
   <div data-include="footer"></div>
 
   <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
   <script>
     // Page-only behavior. Shared partial files remain untouched.
     (function () {
@@ -168,31 +169,29 @@
       });
 
       // The shared header is injected asynchronously. Highlight Contact without editing it.
-      const headerTarget = document.querySelector('[data-include="header"]');
-      if (headerTarget) {
-        const observer = new MutationObserver(function () {
-          const navLinks = headerTarget.querySelectorAll('nav a');
-          if (!navLinks.length) return;
+      function applyActiveContact() {
+        const navLinks = document.querySelectorAll('[data-include="header"] a');
+        if (!navLinks.length) return;
 
-          navLinks.forEach(function (link) {
-            const isContact = link.getAttribute('href') === 'contact.html';
-            link.classList.toggle('relative', isContact);
-            link.classList.toggle('font-bold', isContact);
-            link.classList.toggle('text-[#061C3D]', isContact);
-            link.classList.toggle('text-slate-600', !isContact);
-            link.classList.toggle('font-medium', !isContact);
-
-            if (isContact) {
-              link.classList.add("after:content-['']", 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
-            } else {
-              link.classList.remove("after:content-['']", 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
-            }
-          });
-
-          observer.disconnect();
+        navLinks.forEach(function (link) {
+          const isContact = link.getAttribute('href') === 'contact.html' || link.getAttribute('data-ifc-route') === 'contact.html';
+          if (isContact) {
+            link.className = "relative text-[#061C3D] font-bold text-sm tracking-wide py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#D92534] after:rounded-full";
+          } else if (link.getAttribute('href') === 'home.html' || link.getAttribute('data-ifc-route') === 'home.html') {
+            link.className = "text-slate-600 hover:text-[#061C3D] font-medium text-sm tracking-wide transition-colors py-2";
+          }
         });
-        observer.observe(headerTarget, { childList: true });
       }
+
+      const observer = new MutationObserver(function () {
+        const headerNav = document.querySelector('[data-include="header"] nav');
+        if (headerNav) {
+          applyActiveContact();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+      setTimeout(applyActiveContact, 150);
+      setTimeout(applyActiveContact, 450);
     })();
   </script>
 </body>

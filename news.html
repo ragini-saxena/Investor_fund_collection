@@ -26,224 +26,57 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
 </head>
 <body class="min-h-screen bg-white font-sans text-slate-900 antialiased selection:bg-[#D92534] selection:text-white flex flex-col justify-between">
 <div data-include="header"></div>
-<!-- NEWS HERO BANNER SECTION (Blue Header as in Screenshot 72) -->
+<!-- NEWS HERO BANNER SECTION -->
 <section class="bg-[#002D62] text-white py-14 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
 <div class="max-w-7xl mx-auto">
 <span class="text-[#FF4D5E] font-bold text-xs sm:text-sm tracking-widest uppercase block mb-3">
-                    INVESTORS FUNDS COLLECTION NEWS
-                </span>
+    INVESTORS FUNDS COLLECTION NEWS
+</span>
 <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-white">
-                    Market Updates &amp; Announcements
-                </h1>
+    Market Updates &amp; Announcements
+</h1>
 </div>
 </section>
-<!-- NEWS ARTICLES GRID SECTION (6-Column Grid matching Screenshot 72 & 73) -->
-<main class="py-12 sm:py-16 bg-[#FAFCFF]">
+<!-- NEWS ARTICLES GRID SECTION -->
+<main class="py-12 sm:py-16 bg-[#FAFCFF] flex-1">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<!-- 6 Column Cards Row -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-5" id="articlesGrid">
-<!-- Card 1: Expansion of Port-au-Prince -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Maritime Logistic Port" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-port-logistic.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
+<!-- 6 Column Cards Row Container -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-5 min-h-[360px]" id="articlesGrid">
+<!-- Cards rendered dynamically via JavaScript for functional pagination -->
 </div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-10-12">
-                                    Oct 12, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    Expansion of Port-au-Princ...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Opening Phase 3 funding for the crucial maritime lo...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('Expansion of Port-au-Prince Logistic Fund', 'Oct 12, 2025', 'images/news-port-logistic.jpg', 'Opening Phase 3 funding for the crucial maritime logistical hub. Targeting a steady 12% APR short-term maturity yield with secured customs warehouse collateral and export receivables guarantees.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-<!-- Card 2: Quarterly Performance -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Quarterly Performance Review Meeting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-quarterly-performance.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
-</div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-10-05">
-                                    Oct 05, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    Quarterly Performance...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Our Q3 portfolio review is finalized. Verified transparen...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('Quarterly Performance &amp; Growth Review', 'Oct 05, 2025', 'images/news-quarterly-performance.jpg', 'Our Q3 portfolio review is finalized. Verified transparency and dividend distributions completed for all active investment pools. Over 98.4% on-time repayment rate across our commercial small-business portfolio in Haiti.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-<!-- Card 3: Introducing Agricultural Crop -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Agricultural Crop Sun Drying" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-agriculture-cocoa.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
-</div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-09-28">
-                                    Sep 28, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    Introducing Agricultural C...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Direct support avenues for coffee and cocoa farmers...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('Introducing Agricultural Crop Pool Partners', 'Sep 28, 2025', 'images/news-agriculture-cocoa.jpg', 'Direct support avenues for coffee and cocoa farmers across Grand'Anse and the North. Secured short-term harvest collateral guarantees attractive quarterly yields while empowering sustainable local agricultural ecosystems.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-<!-- Card 4: Haitian Diaspora Funding -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Haitian Diaspora Investor Meeting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-diaspora-funding.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
-</div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-09-15">
-                                    Sep 15, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    Haitian Diaspora Fun...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Direct contribution from community leaders in Florida a...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('Haitian Diaspora Funding Surpasses Milestones', 'Sep 15, 2025', 'images/news-diaspora-funding.jpg', 'Direct contribution from community leaders in Florida, Montreal, and New York driving new liquidity into small-to-medium domestic enterprises. Reaching over $4.5M in cumulative capital deployments.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-<!-- Card 5: New Digital Portal Launch -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Mobile Digital Investment Portal App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-digital-portal.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
-</div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-09-02">
-                                    Sep 02, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    New Digital Portal Launch...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Our secure web-application platform makes tracking an...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('New Digital Portal Launch for Real-Time Tracking', 'Sep 02, 2025', 'images/news-digital-portal.jpg', 'Our secure web-application platform makes tracking and pool monitoring instantaneous with automated monthly return statements, direct bank wire reconciliation, and comprehensive digital certificates.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-<!-- Card 6: Cap-Haïtien Urban Construction -->
-<article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
-<div>
-<!-- Card Image -->
-<div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-<img alt="Cap-Haïtien Historic Architecture Corridor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="images/news-cap-haitien.jpg" onerror="this.onerror=null;this.src='images/image%201.png';"/>
-</div>
-<!-- Content -->
-<div class="p-4 sm:p-5">
-<time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-08-22">
-                                    Aug 22, 2025
-                                </time>
-<h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">
-                                    Cap-Haïtien Urban Constr...
-                                </h2>
-<p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">
-                                    Capital completely gathered for the historic district dev...
-                                </p>
-</div>
-</div>
-<!-- Card Action -->
-<div class="px-4 sm:px-5 pb-5">
-<button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('Cap-Haïtien Urban Construction Facilities', 'Aug 22, 2025', 'images/news-cap-haitien.jpg', 'Capital completely gathered for the historic district development corridor in Cap-Haïtien. Groundbreaking ceremony scheduled with regional stakeholders, creating over 250 local specialized construction positions.')" type="button">
-<span>Read More</span>
-<span aria-hidden="true" class="font-normal">↗</span>
-</button>
-</div>
-</article>
-</div>
-<!-- PAGINATION CONTROLS (Screenshot 73: < [1] [2] [3] >) -->
+<!-- PAGINATION CONTROLS -->
 <div class="flex items-center justify-center gap-2 mt-12 sm:mt-16">
 <!-- Previous Arrow -->
-<button class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs" id="prevPageBtn" onclick="changePage(currentPage - 1)" title="Previous Page" type="button">
-                        ‹
-                    </button>
+<button class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs disabled:opacity-40 disabled:cursor-not-allowed" id="prevPageBtn" onclick="changePage(currentPage - 1)" title="Previous Page" type="button">
+    ‹
+</button>
 <!-- Page 1 (Active by default) -->
 <button class="w-10 h-10 rounded-lg bg-[#061C3D] text-white flex items-center justify-center text-sm font-bold shadow-xs cursor-pointer" id="pageBtn-1" onclick="changePage(1)" type="button">
-                        1
-                    </button>
+    1
+</button>
 <!-- Page 2 -->
 <button class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs" id="pageBtn-2" onclick="changePage(2)" type="button">
-                        2
-                    </button>
+    2
+</button>
 <!-- Page 3 -->
 <button class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs" id="pageBtn-3" onclick="changePage(3)" type="button">
-                        3
-                    </button>
+    3
+</button>
 <!-- Next Arrow -->
 <button class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs" id="nextPageBtn" onclick="changePage(currentPage + 1)" title="Next Page" type="button">
-                        ›
-                    </button>
+    ›
+</button>
 </div>
 </div>
 </main>
-</div>
-<!-- SECTION 5: FOOTER (Exact same footer as Home Page as requested) -->
+<!-- SECTION 5: FOOTER -->
 <div data-include="footer"></div>
+
 <!-- INTERACTIVE MODALS -->
 <!-- Login Modal -->
 <div class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4" id="loginModal">
 <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
-<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('loginModal')">×</button>
+<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('loginModal')">&times;</button>
 <span class="text-[#D92534] font-bold text-xs uppercase tracking-wider block mb-1">Secure Portal Access</span>
 <h3 class="text-2xl font-black text-[#061C3D] mb-2">Investor Portal Login</h3>
 <p class="text-slate-600 text-sm mb-6">Enter your registered email and credential password to access your active pools.</p>
@@ -260,10 +93,11 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
 </form>
 </div>
 </div>
+
 <!-- Share Modal -->
 <div class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4" id="shareModal">
 <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 relative text-center">
-<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('shareModal')">x</button>
+<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('shareModal')">&times;</button>
 <h3 class="text-xl font-black text-[#061C3D] mb-3">Share Market Updates</h3>
 <p class="text-slate-600 text-xs mb-5">Spread the news about verified returns and announcements in Haiti.</p>
 <div class="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-600 mb-4 overflow-hidden">
@@ -272,10 +106,11 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
 </div>
 </div>
 </div>
+
 <!-- Email Modal -->
 <div class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4" id="emailModal">
 <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
-<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('emailModal')">×</button>
+<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold cursor-pointer" onclick="closeModal('emailModal')">&times;</button>
 <h3 class="text-2xl font-black text-[#061C3D] mb-2">Contact Press &amp; Relations</h3>
 <p class="text-slate-600 text-sm mb-6">Have an inquiry regarding our latest announcements or disclosures?</p>
 <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent successfully! Our communications officer will respond shortly.'); closeModal('emailModal');">
@@ -295,10 +130,11 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
 </form>
 </div>
 </div>
+
 <!-- Article Detail Modal -->
 <div class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4" id="articleModal">
 <div class="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative overflow-hidden">
-<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl font-bold cursor-pointer" onclick="closeModal('articleModal')">×</button>
+<button class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl font-bold cursor-pointer" onclick="closeModal('articleModal')">&times;</button>
 <div class="mb-5 rounded-xl overflow-hidden aspect-[16/9] bg-slate-100 hidden" id="modalArticleImageWrap">
 <img alt="Article cover" class="w-full h-full object-cover" id="modalArticleImage" src=""/>
 </div>
@@ -311,12 +147,165 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
 </div>
 </div>
 
-<!-- Page-level News interactions. Shared header/footer remain in Shivam's partials. -->
- <script src="js/include.js"></script>
+<!-- Scripts -->
+<script src="js/include.js"></script>
 <script src="js/translations.js"></script>
 <script>
 (function () {
-  let currentPage = 1;
+  const articlesData = {
+    1: [
+      {
+        title: "Expansion of Port-au-Prince Logistic Fund",
+        date: "Oct 12, 2025",
+        shortTitle: "Expansion of Port-au-Princ...",
+        summary: "Opening Phase 3 funding for the crucial maritime lo...",
+        fullText: "Opening Phase 3 funding for the crucial maritime logistical hub. Targeting a steady 12% APR short-term maturity yield with secured customs warehouse collateral and export receivables guarantees.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Quarterly Performance & Growth Review",
+        date: "Oct 05, 2025",
+        shortTitle: "Quarterly Performance...",
+        summary: "Our Q3 portfolio review is finalized. Verified transparen...",
+        fullText: "Our Q3 portfolio review is finalized. Verified transparency and dividend distributions completed for all active investment pools. Over 98.4% on-time repayment rate across our commercial small-business portfolio in Haiti.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Introducing Agricultural Crop Pool Partners",
+        date: "Sep 28, 2025",
+        shortTitle: "Introducing Agricultural C...",
+        summary: "Direct support avenues for coffee and cocoa farmers...",
+        fullText: "Direct support avenues for coffee and cocoa farmers across Grand'Anse and the North. Secured short-term harvest collateral guarantees attractive quarterly yields while empowering sustainable local agricultural ecosystems.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Haitian Diaspora Funding Surpasses Milestones",
+        date: "Sep 15, 2025",
+        shortTitle: "Haitian Diaspora Fun...",
+        summary: "Direct contribution from community leaders in Florida a...",
+        fullText: "Direct contribution from community leaders in Florida, Montreal, and New York driving new liquidity into small-to-medium domestic enterprises. Reaching over $4.5M in cumulative capital deployments.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "New Digital Portal Launch for Real-Time Tracking",
+        date: "Sep 02, 2025",
+        shortTitle: "New Digital Portal Launch...",
+        summary: "Our secure web-application platform makes tracking an...",
+        fullText: "Our secure web-application platform makes tracking and pool monitoring instantaneous with automated monthly return statements, direct bank wire reconciliation, and comprehensive digital certificates.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Cap-Haïtien Urban Construction Facilities",
+        date: "Aug 22, 2025",
+        shortTitle: "Cap-Haïtien Urban Constr...",
+        summary: "Capital completely gathered for the historic district dev...",
+        fullText: "Capital completely gathered for the historic district development corridor in Cap-Haïtien. Groundbreaking ceremony scheduled with regional stakeholders, creating over 250 local specialized construction positions.",
+        image: "images/image%201.png"
+      }
+    ],
+    2: [
+      {
+        title: "Solar Energy Grid Financing Initiative in Les Cayes",
+        date: "Aug 10, 2025",
+        shortTitle: "Solar Energy Grid Financ...",
+        summary: "Financing community renewable mini-grids and clean...",
+        fullText: "Financing community renewable mini-grids and clean energy infrastructure for commercial cooling in Les Cayes. Providing reliable power while generating attractive indexed utility returns.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Annual General Assembly & Dividend Distribution",
+        date: "Jul 29, 2025",
+        shortTitle: "Annual General Assembly...",
+        summary: "Annual general assembly concluded with audited distri...",
+        fullText: "Annual general assembly concluded with audited distribution plans approved unanimously. Verified capital returns dispatched directly to registered investor bank accounts.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Partnership with Regional Credit Unions Finalized",
+        date: "Jul 14, 2025",
+        shortTitle: "Partnership with Credit Un...",
+        summary: "Formalized agreements with regional financial credit inst...",
+        fullText: "Formalized agreements with regional financial credit institutions to expand liquidity corridors and improve escrow security for domestic commercial loan syndications.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Micro-Enterprise Working Capital Expansion",
+        date: "Jun 30, 2025",
+        shortTitle: "Micro-Enterprise Working...",
+        summary: "Supporting 120+ retail and distribution merchants acr...",
+        fullText: "Supporting 120+ retail and distribution merchants across Jacmel and Hinche with short-cycle revolving credit lines backed by high-velocity consumer goods turnover.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Digital Payment Gateway Integration Announcement",
+        date: "Jun 18, 2025",
+        shortTitle: "Digital Payment Gateway...",
+        summary: "Instant mobile wallet top-ups and international wire sy...",
+        fullText: "Instant mobile wallet top-ups and international wire synchronization are now active, reducing friction for global diaspora contributors and institutional partners.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Haiti Infrastructure & Export Development Summary",
+        date: "May 27, 2025",
+        shortTitle: "Haiti Infrastructure &amp; Exp...",
+        summary: "Detailed mid-year analysis on export growth, supply ch...",
+        fullText: "Detailed mid-year analysis on export growth, supply chain improvements, and risk mitigation strategies implemented across all active portfolio funds.",
+        image: "images/image%201.png"
+      }
+    ],
+    3: [
+      {
+        title: "Clean Water & Irrigation Capital Deployed",
+        date: "May 12, 2025",
+        shortTitle: "Clean Water &amp; Irrigation...",
+        summary: "Deploying targeted capital for agricultural water infras...",
+        fullText: "Deploying targeted capital for agricultural water infrastructure across the Artibonite valley, boosting crop yields and farm resilience during dry seasons.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Financial Literacy Workshops Across Municipalities",
+        date: "Apr 25, 2025",
+        shortTitle: "Financial Literacy Worksh...",
+        summary: "Empowering local business owners with bookkeeping, go...",
+        fullText: "Empowering local business owners with bookkeeping, governance, and capital planning courses in partnership with municipal chambers of commerce.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Q1 Financial Audit and Compliance Certification",
+        date: "Apr 08, 2025",
+        shortTitle: "Q1 Financial Audit Certific...",
+        summary: "Independent certified audit report confirmed zero defau...",
+        fullText: "Independent certified audit report confirmed zero default events across all institutional investment facilities with full regulatory compliance verification.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Sustainable Fishery Financing Initiative in Jérémie",
+        date: "Mar 20, 2025",
+        shortTitle: "Sustainable Fishery Financ...",
+        summary: "Modern cold storage and vessel equipment financing f...",
+        fullText: "Modern cold storage and vessel equipment financing for coastal artisanal fishing cooperatives, securing dependable local food supply lines.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Mobile App Beta Testing Opens for Investors",
+        date: "Mar 05, 2025",
+        shortTitle: "Mobile App Beta Testing...",
+        summary: "First round of user access granted for real-time mobile...",
+        fullText: "First round of user access granted for real-time mobile portfolio telemetry, biometric authentication, and automated statement exports.",
+        image: "images/image%201.png"
+      },
+      {
+        title: "Foundation of Investors Funds Collection S.A.",
+        date: "Feb 14, 2025",
+        shortTitle: "Foundation of IFC S.A....",
+        summary: "Marking the founding anniversary and commitment to...",
+        fullText: "Marking the founding anniversary and commitment to high-impact, transparent wealth generation for investors in Haiti and worldwide.",
+        image: "images/image%201.png"
+      }
+    ]
+  };
+
+  window.currentPage = 1;
 
   window.openModal = function (id) {
     const modal = document.getElementById(id);
@@ -353,10 +342,49 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
     window.openModal('articleModal');
   };
 
+  window.renderArticles = function (page) {
+    const grid = document.getElementById('articlesGrid');
+    if (!grid) return;
+    const articles = articlesData[page] || articlesData[1];
+
+    grid.innerHTML = articles.map(function (item, idx) {
+      const safeTitle = (item.title || '').replace(/'/g, "\\'");
+      const safeDate = (item.date || '').replace(/'/g, "\\'");
+      const safeImg = (item.image || 'images/image%201.png').replace(/'/g, "\\'");
+      const safeContent = (item.fullText || '').replace(/'/g, "\\'");
+
+      return `
+      <article class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+            <img alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="${item.image}" onerror="this.onerror=null;this.src='images/image%201.png';"/>
+          </div>
+          <div class="p-4 sm:p-5">
+            <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2">${item.date}</time>
+            <h2 class="text-[#061C3D] font-bold text-sm sm:text-base leading-snug mb-2 line-clamp-2">${item.shortTitle || item.title}</h2>
+            <p class="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-4">${item.summary || item.fullText}</p>
+          </div>
+        </div>
+        <div class="px-4 sm:px-5 pb-5">
+          <button class="text-[#061C3D] hover:text-[#D92534] font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition-colors cursor-pointer group-hover:underline" onclick="openArticleModal('${safeTitle}', '${safeDate}', '${safeImg}', '${safeContent}')" type="button">
+            <span>Read More</span>
+            <span aria-hidden="true" class="font-normal">↗</span>
+          </button>
+        </div>
+      </article>`;
+    }).join('');
+
+    // Trigger translation re-run if available
+    if (window.IFCTranslate && typeof window.IFCTranslate.applyToElement === 'function') {
+      window.IFCTranslate.applyToElement(grid);
+    }
+  };
+
   window.changePage = function (page) {
     if (page < 1 || page > 3) return;
-    currentPage = page;
+    window.currentPage = page;
 
+    // Update buttons
     for (let i = 1; i <= 3; i++) {
       const btn = document.getElementById('pageBtn-' + i);
       if (!btn) continue;
@@ -365,32 +393,68 @@ body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSyste
         : 'w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-[#061C3D] hover:border-slate-300 flex items-center justify-center text-sm font-semibold transition-colors cursor-pointer shadow-xs';
     }
 
+    const prevBtn = document.getElementById('prevPageBtn');
+    const nextBtn = document.getElementById('nextPageBtn');
+    if (prevBtn) prevBtn.disabled = (page === 1);
+    if (nextBtn) nextBtn.disabled = (page === 3);
+
+    // Re-render cards
+    renderArticles(page);
+
     window.scrollTo({ top: 320, behavior: 'smooth' });
   };
 
+  // Close modals on backdrop click
   document.addEventListener('click', function (event) {
-    ['shareModal', 'emailModal', 'articleModal'].forEach(function (id) {
+    ['loginModal', 'shareModal', 'emailModal', 'articleModal'].forEach(function (id) {
       const modal = document.getElementById(id);
       if (modal && event.target === modal) modal.classList.add('hidden');
     });
   });
 
-  // Keep Shivam's shared header untouched while making News the active page.
-  document.addEventListener('DOMContentLoaded', function () {
-    const activateNews = function () {
-      const links = document.querySelectorAll('[data-include="header"] a');
-      links.forEach(function (link) {
-        link.classList.remove('relative', 'text-[#061C3D]', 'font-bold', 'after:content-['']', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
-        if (link.getAttribute('href') === 'news.html') {
-          link.classList.add('relative', 'text-[#061C3D]', 'font-bold', 'after:content-['']', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
-        }
+  // Highlight active News link once header partial is loaded
+  function applyActiveHeaderState() {
+    const navLinks = document.querySelectorAll('[data-include="header"] a');
+    if (!navLinks || navLinks.length === 0) return;
+
+    navLinks.forEach(function (link) {
+      const href = link.getAttribute('href');
+      const route = link.getAttribute('data-ifc-route');
+      if (href === 'news.html' || route === 'news.html') {
+        link.className = "relative text-[#061C3D] font-bold text-sm tracking-wide py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#D92534] after:rounded-full";
+      } else if (href === 'home.html' || route === 'home.html') {
+        link.className = "text-slate-600 hover:text-[#061C3D] font-medium text-sm tracking-wide transition-colors py-2";
+      }
+    });
+
+    // Wire up header share button if present
+    const headerShareBtn = document.querySelector('[data-include="header"] button svg path[d*="M8.684"]')?.closest('button');
+    if (headerShareBtn && !headerShareBtn.dataset.bound) {
+      headerShareBtn.dataset.bound = 'true';
+      headerShareBtn.addEventListener('click', function() {
+        openModal('shareModal');
       });
-    };
-    setTimeout(activateNews, 50);
-    setTimeout(activateNews, 250);
+    }
+  }
+
+  const observer = new MutationObserver(function () {
+    const headerLoaded = document.querySelector('[data-include="header"] nav');
+    if (headerLoaded) {
+      applyActiveHeaderState();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    renderArticles(1);
+    const prevBtn = document.getElementById('prevPageBtn');
+    if (prevBtn) prevBtn.disabled = true;
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    setTimeout(applyActiveHeaderState, 100);
+    setTimeout(applyActiveHeaderState, 400);
   });
 })();
-
 </script>
 </body>
 </html>
+
