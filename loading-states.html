@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Loading States | Investors Funds Collection S.A.</title>
+<meta content="Investors Funds Collection S.A. - SaaS loading visual systems and content shimmers" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style id="ifc-language-toolbar">
+.ifc-language-toolbar{
+  display:flex;align-items:flex-end;gap:8px;
+  padding:6px 8px;
+  background:rgba(255,255,255,.96);
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(6,28,61,.10);
+}
+.ifc-language-option{
+  width:82px;
+  min-width:82px;
+  border:1px solid #dbe3ee;
+  background:#fff;
+  color:#475569;
+  border-radius:8px;
+  padding:6px 7px 7px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;cursor:pointer;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  font:700 11px/1.1 Arial,sans-serif;
+}
+.ifc-language-option:hover{
+  background:#eef5ff;
+  border-color:#8fb5e8;
+  color:#061c3d;
+  transform:translateY(-1px);
+}
+.ifc-language-option.is-selected{
+  background:#061c3d;
+  border-color:#061c3d;
+  color:#fff;
+}
+.ifc-flag{
+  width:34px;height:24px;border-radius:3px;
+  overflow:hidden;display:block;position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.ifc-flag.ht{
+  background:linear-gradient(to bottom,#0038a8 0 50%,#d21034 50% 100%);
+}
+.ifc-flag.fr{
+  background:linear-gradient(to right,#0055a4 0 33.33%,#fff 33.33% 66.66%,#ef4135 66.66% 100%);
+}
+.ifc-flag.us{
+  background:repeating-linear-gradient(to bottom,#b22234 0 9%,#fff 9% 18%);
+}
+.ifc-flag.us:before{
+  content:"";position:absolute;left:0;top:0;width:48%;height:54%;
+  background:#3c3b6e;
+}
+.ifc-flag.us:after{
+  content:"";position:absolute;left:5px;top:3px;width:2px;height:2px;
+  background:#fff;box-shadow:
+  6px 0 #fff,12px 0 #fff,18px 0 #fff,
+  3px 4px #fff,9px 4px #fff,15px 4px #fff,
+  21px 4px #fff,6px 8px #fff,12px 8px #fff,18px 8px #fff;
+}
+@media(max-width:700px){
+ .ifc-language-toolbar{gap:5px;padding:5px}
+ .ifc-language-option{width:68px;min-width:68px}
+}
+</style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased font-sans min-h-screen flex flex-col">
+  <div data-include="header"></div>
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 sm:px-12 py-8 sm:py-10 space-y-8">
+<!-- Row 1: Top Two Cards (Large Spinner & Payment Processing) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+<!-- Card 1: Loading System Resources -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-12 flex flex-col items-center justify-center text-center shadow-xs min-h-[260px]">
+<div class="relative w-12 h-12 mb-6">
+<div class="w-12 h-12 rounded-full border-4 border-slate-100"></div>
+<div class="absolute top-0 left-0 w-12 h-12 rounded-full border-4 border-transparent border-t-[#0a234f] border-r-[#0a234f] animate-spin"></div>
+</div>
+<h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 tracking-tight">
+          Loading System Resources...
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 font-normal">
+          Fetching Investors Funds operational data
+        </p>
+</div>
+<!-- Card 2: Payment Processing State -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 flex flex-col justify-between shadow-xs min-h-[260px]">
+<div class="space-y-5">
+<!-- Light Blue Info Box -->
+<div class="w-full px-4 py-3.5 rounded-xl bg-[#eff6ff] border border-blue-100 text-[#2563eb] text-xs sm:text-sm font-semibold flex items-center gap-2.5">
+<div class="w-4 h-4 rounded-full border border-[#2563eb] flex items-center justify-center text-[10px] font-bold shrink-0">
+              i
+            </div>
+<span>Processing Payment...</span>
+</div>
+<!-- Transaction payload status with spinner -->
+<div class="flex items-center gap-3 px-1 py-1">
+<div class="relative w-5 h-5 shrink-0">
+<div class="w-5 h-5 rounded-full border-2 border-slate-200"></div>
+<div class="absolute top-0 left-0 w-5 h-5 rounded-full border-2 border-transparent border-t-[#0284c7] border-r-[#0284c7] animate-spin"></div>
+</div>
+<span class="text-xs sm:text-sm font-semibold text-slate-800">
+              Sending transaction payload to national vault
+            </span>
+</div>
+</div>
+<!-- Inactive/Loading Button -->
+<div class="pt-6">
+<button class="w-full py-3 px-5 rounded-xl bg-[#f1f5f9] text-slate-400 text-xs sm:text-sm font-semibold text-center cursor-not-allowed border border-slate-200/80" disabled="" type="button">
+            Processing Secure Payment ($500.00)
+          </button>
+</div>
+</div>
+</div>
+<!-- Row 2: 4 Skeleton Metric / KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+<div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-xs">
+<div class="flex items-center justify-between">
+<div class="h-3 w-20 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-4 w-4 rounded-md bg-slate-200/70 animate-pulse"></div>
+</div>
+<div class="h-7 w-28 rounded-xl bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-xs">
+<div class="flex items-center justify-between">
+<div class="h-3 w-20 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-4 w-4 rounded-md bg-slate-200/70 animate-pulse"></div>
+</div>
+<div class="h-7 w-28 rounded-xl bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-xs">
+<div class="flex items-center justify-between">
+<div class="h-3 w-20 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-4 w-4 rounded-md bg-slate-200/70 animate-pulse"></div>
+</div>
+<div class="h-7 w-28 rounded-xl bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 space-y-4 shadow-xs">
+<div class="flex items-center justify-between">
+<div class="h-3 w-20 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-4 w-4 rounded-md bg-slate-200/70 animate-pulse"></div>
+</div>
+<div class="h-7 w-28 rounded-xl bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+</div>
+<!-- Row 3: Investors Database Shimmer & Action Loading States -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+<!-- Left Panel: Investors Database Shimmer Table -->
+<div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs">
+<h2 class="text-base sm:text-lg font-bold text-slate-900 mb-6">
+          Investors Database
+        </h2>
+<!-- Table Header Labels -->
+<div class="flex items-center justify-between text-[11px] font-bold text-slate-400 tracking-wider uppercase border-b border-slate-100 pb-3">
+<span class="w-1/2">INVESTOR NAME</span>
+<div class="w-1/2 flex items-center justify-between pl-4">
+<span>CAPITAL COMMITTED</span>
+<span>STATUS</span>
+</div>
+</div>
+<!-- 4 Shimmer Rows -->
+<div class="divide-y divide-slate-100/80 pt-2 space-y-3">
+<div class="pt-3 pb-1 flex items-center justify-between">
+<div class="w-1/2 space-y-2">
+<div class="h-3 w-36 sm:w-44 rounded-full bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/50 animate-pulse"></div>
+</div>
+<div class="w-1/2 flex items-center justify-between pl-4">
+<div class="h-3.5 w-24 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-6 w-16 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+</div>
+<div class="pt-3 pb-1 flex items-center justify-between">
+<div class="w-1/2 space-y-2">
+<div class="h-3 w-40 sm:w-48 rounded-full bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-28 rounded-full bg-slate-200/50 animate-pulse"></div>
+</div>
+<div class="w-1/2 flex items-center justify-between pl-4">
+<div class="h-3.5 w-24 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-6 w-16 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+</div>
+<div class="pt-3 pb-1 flex items-center justify-between">
+<div class="w-1/2 space-y-2">
+<div class="h-3 w-32 sm:w-40 rounded-full bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-20 rounded-full bg-slate-200/50 animate-pulse"></div>
+</div>
+<div class="w-1/2 flex items-center justify-between pl-4">
+<div class="h-3.5 w-24 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-6 w-16 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+</div>
+<div class="pt-3 pb-1 flex items-center justify-between">
+<div class="w-1/2 space-y-2">
+<div class="h-3 w-36 sm:w-44 rounded-full bg-slate-200/80 animate-pulse"></div>
+<div class="h-2.5 w-24 rounded-full bg-slate-200/50 animate-pulse"></div>
+</div>
+<div class="w-1/2 flex items-center justify-between pl-4">
+<div class="h-3.5 w-24 rounded-full bg-slate-200/70 animate-pulse"></div>
+<div class="h-6 w-16 rounded-full bg-slate-200/60 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Action Loading States -->
+<div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs space-y-6">
+<h2 class="text-base sm:text-lg font-bold text-slate-900">
+          Action Loading States
+        </h2>
+<div class="space-y-4">
+<!-- Button 1: Uploading Document... -->
+<button class="w-full py-3.5 px-5 rounded-xl bg-[#476685] hover:bg-[#3d5771] text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-3 shadow-xs transition-all cursor-pointer" type="button">
+<div class="relative w-4 h-4 shrink-0">
+<div class="w-4 h-4 rounded-full border-2 border-white/30"></div>
+<div class="absolute top-0 left-0 w-4 h-4 rounded-full border-2 border-transparent border-t-white border-r-white animate-spin"></div>
+</div>
+<span>Uploading Document...</span>
+</button>
+<!-- Button 2: Broadcasting Alert... -->
+<button class="w-full py-3.5 px-5 rounded-xl bg-[#dc4c5e] hover:bg-[#c93f50] text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-3 shadow-xs transition-all cursor-pointer" type="button">
+<div class="relative w-4 h-4 shrink-0">
+<div class="w-4 h-4 rounded-full border-2 border-white/30"></div>
+<div class="absolute top-0 left-0 w-4 h-4 rounded-full border-2 border-transparent border-t-white border-r-white animate-spin"></div>
+</div>
+<span>Broadcasting Alert...</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+  <div data-include="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    // System-state pages are reusable UI references, so no public nav item is active.
+    const headerTarget = document.querySelector('[data-include="header"]');
+    if (headerTarget) {
+      const observer = new MutationObserver(function () {
+        const links = headerTarget.querySelectorAll('nav a');
+        links.forEach(function (link) {
+          link.classList.remove('font-bold', 'text-[#061C3D]');
+          link.classList.add('font-medium', 'text-slate-600');
+          link.classList.remove("after:content-['']", 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
+        });
+        observer.disconnect();
+      });
+      observer.observe(headerTarget, { childList: true });
+    }
+    // Page-only routing for controls that intentionally do not have a direct href.
+    document.addEventListener('click', function (e) {
+      const el = e.target.closest('a,button');
+      if (!el || el.hasAttribute('data-ifc-lang')) return;
+      const routes = {
+        'dashboard': 'investor dashboard.html',
+        'my profile': 'investor profile.html',
+        'make investment': 'payment 1.html',
+        'new investment': 'payment 1.html',
+        'go to dashboard': 'investor dashboard.html',
+        'go to profile dashboard': 'investor profile.html',
+        'logout': 'login investor.html',
+        'register': 'register (2).html',
+        'signup': 'signup.html',
+        'investor login': 'login investor.html',
+        'log in': 'login investor.html'
+      };
+      const text = (el.innerText || '').trim().replace(/\s+/g, ' ').toLowerCase();
+      if (routes[text] && (el.tagName === 'BUTTON' || el.getAttribute('href') === '#' || !el.getAttribute('href'))) {
+        e.preventDefault();
+        window.location.href = routes[text];
+      }
+    });
+  </script>
+</body>
+</html>

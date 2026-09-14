@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become an Investor - Investors Funds Collection S.A.</title>
+  <meta name="description" content="Create your secure investor profile to explore tailored high-yield opportunities in local Haitian imports and industries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif}</style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-[#D92534] selection:text-white">
+  <div data-include="header"></div>
+
+  <main class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div class="w-full max-w-xl mx-auto">
+      <div class="flex items-center justify-center gap-3 mb-4" id="stepIndicator">
+        <div class="flex items-center gap-1.5">
+          <div class="w-7 h-1.5 rounded-full bg-[#D92534]" id="pill1"></div>
+          <div class="w-7 h-1.5 rounded-full bg-slate-200 transition-colors" id="pill2"></div>
+        </div>
+        <span class="text-xs sm:text-sm font-bold text-[#061C3D] tracking-wide" id="stepText">Step 1 of 2</span>
+      </div>
+
+      <div class="text-center mb-8 sm:mb-10">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-[#002D62] tracking-tight mb-3">Become an Investor</h1>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg mx-auto" id="stepSubtitle">Create your secure investor profile to explore tailored high-yield opportunities in local Haitian imports and industries.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl">
+        <form class="space-y-6" id="step1Form">
+          <div><label class="block text-sm font-bold text-slate-800 mb-2" for="regFirstName">First Name</label><input class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/20 focus:border-[#002D62] focus:bg-white transition-all" id="regFirstName" placeholder="e.g. Jean" required type="text" /></div>
+          <div><label class="block text-sm font-bold text-slate-800 mb-2" for="regLastName">Last Name</label><input class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/20 focus:border-[#002D62] focus:bg-white transition-all" id="regLastName" placeholder="e.g. Dupuy" required type="text" /></div>
+          <div><label class="block text-sm font-bold text-slate-800 mb-2" for="regEmail">Email Address</label><input class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/20 focus:border-[#002D62] focus:bg-white transition-all" id="regEmail" placeholder="e.g. jean.dupuy@example.com" required type="email" /></div>
+          <div><label class="block text-sm font-bold text-slate-800 mb-2" for="regWhatsapp">WhatsApp Number</label><input class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/20 focus:border-[#002D62] focus:bg-white transition-all" id="regWhatsapp" placeholder="e.g. +509 3700 0000" required type="tel" /></div>
+          <div><label class="block text-sm font-bold text-slate-800 mb-2" for="regPhone">Phone Number</label><input class="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#002D62]/20 focus:border-[#002D62] focus:bg-white transition-all" id="regPhone" placeholder="e.g. +1 (305) 555-0199" required type="tel" /></div>
+          <div class="pt-2"><button class="w-full py-4 px-6 rounded-xl bg-[#061C3D] hover:bg-[#0A254D] active:scale-[0.99] text-white font-bold text-base tracking-wide shadow-md transition-all cursor-pointer flex items-center justify-center gap-2" type="submit"><span>Continue to Step 2</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button></div>
+          <div class="text-center pt-2"><p class="text-xs text-slate-500">Already have an active investor profile? <a class="font-bold text-[#002D62] hover:text-[#D92534] transition-colors" href="login investor.html">Investor Login</a></p></div>
+        </form>
+
+        <div class="hidden space-y-3 sm:space-y-3.5" id="step2Form">
+          <div class="space-y-3 sm:space-y-3.5" id="rangeList">
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$100–$200" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$100–$200</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$300–$500" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$300–$500</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$600–$800" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$600–$800</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$900–$1,000" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$900–$1,000</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border-2 border-[#061C3D] bg-white shadow-xs transition-all cursor-pointer flex items-center gap-3.5" data-range="$1,100–$1,500" tabindex="0" role="radio" aria-checked="true"><div class="radio-indicator w-5 h-5 rounded-full border-2 border-[#061C3D] flex items-center justify-center shrink-0"><div class="w-2.5 h-2.5 rounded-full bg-[#061C3D]"></div></div><span class="text-base sm:text-lg font-bold tracking-tight text-[#061C3D]">$1,100–$1,500</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$1,600–$2,000" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$1,600–$2,000</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$2,100–$2,500" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$2,100–$2,500</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$2,600–$3,000" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$2,600–$3,000</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$3,100–$5,000" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$3,100–$5,000</span></div>
+            <div class="range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5" data-range="$5,100 or more" tabindex="0" role="radio" aria-checked="false"><div class="radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0"></div><span class="text-base sm:text-lg font-bold tracking-tight text-slate-800">$5,100 or more</span></div>
+          </div>
+
+          <div class="mt-6 p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200/90 text-center"><span class="text-slate-700 font-semibold text-sm sm:text-base">Selected Amount Range: </span><span class="text-[#D92534] font-bold text-sm sm:text-base ml-1" id="selectedDisplay">$1,100–$1,500 USD</span></div>
+          <div class="mt-6 flex flex-row items-center gap-4"><button class="flex-1 py-3.5 px-6 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 active:scale-[0.99] text-slate-700 font-bold text-center text-sm sm:text-base transition-colors cursor-pointer" id="backBtn" type="button">Back</button><button class="flex-1 py-3.5 px-6 rounded-xl bg-[#D92534] hover:bg-[#C51628] active:scale-[0.99] text-white font-bold text-center text-sm sm:text-base transition-all cursor-pointer shadow-sm flex items-center justify-center gap-2" id="completeRegBtn" type="button"><span>Submit Investment Proposal</span></button></div>
+        </div>
+
+        <div class="hidden text-left space-y-6" id="regSuccessCard">
+          <div class="w-16 h-16 rounded-full bg-[#E7F8F0] flex items-center justify-center mx-auto mb-5"><svg class="w-8 h-8 text-[#00BA88]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          <div class="text-center"><h2 class="text-2xl sm:text-3xl font-extrabold text-[#002D62] tracking-tight mb-2">Registration Successful!</h2><p class="text-slate-500 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">Thank you for applying. Your application has been logged under our secured commercial registry covenants.</p></div>
+          <div class="border border-slate-200 rounded-xl p-5 sm:p-6 text-center bg-white"><div class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">SECURED INVESTOR ID</div><div class="text-3xl sm:text-4xl font-extrabold text-[#D92534] tracking-wider" id="displayId">IFC-8291-HT</div></div>
+          <div class="text-left mb-6"><h3 class="text-base sm:text-lg font-bold text-[#002D62] mb-2">Onboarding Summary</h3><div class="divide-y divide-slate-100">
+            <div class="py-3 sm:py-3.5 flex justify-between items-center gap-4 text-sm"><span class="text-slate-500 font-medium">Full Name</span><span class="text-slate-900 font-bold text-right" id="summaryName">Jean Dupuy</span></div>
+            <div class="py-3 sm:py-3.5 flex justify-between items-center gap-4 text-sm"><span class="text-slate-500 font-medium">WhatsApp</span><span class="text-slate-900 font-bold text-right" id="summaryWhatsapp">+509 3701 9922</span></div>
+            <div class="py-3 sm:py-3.5 flex justify-between items-center gap-4 text-sm"><span class="text-slate-500 font-medium">Registered Email</span><span class="text-slate-900 font-bold text-right break-all" id="summaryEmail">jean.dupuy@example.com</span></div>
+            <div class="py-3 sm:py-3.5 flex justify-between items-center gap-4 text-sm"><span class="text-slate-500 font-medium">Investment Category</span><span class="text-slate-900 font-bold text-right" id="summaryCategory">$1,100–$1,500 USD</span></div>
+            <div class="py-3 sm:py-3.5 flex justify-between items-center gap-4 text-sm"><span class="text-slate-500 font-medium">Confirmation Date</span><span class="text-slate-900 font-bold text-right">Oct 24, 2026</span></div>
+          </div></div>
+          <div class="bg-[#FFF5F5] border border-red-100 rounded-xl p-4 sm:p-5 flex items-start gap-3.5 text-left mb-6"><svg class="w-5 h-5 text-[#D92534] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 2.502 1.732 2.502z" stroke-linecap="round" stroke-linejoin="round"></path></svg><p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Please save your <strong class="text-[#D92534] font-bold">Investor ID</strong> securely. You will need it to login, manage short-term growth pools, or sign backed covenants.</p></div>
+          <div class="space-y-3"><a class="block w-full py-3.5 px-6 rounded-xl bg-[#002D62] hover:bg-[#001E42] active:scale-[0.99] text-white font-bold text-center text-sm sm:text-base shadow-sm transition-all" href="login investor.html">Go to Profile Dashboard</a><button class="block w-full py-3.5 px-6 rounded-xl bg-white hover:bg-slate-50 active:scale-[0.99] border border-slate-200 text-slate-700 font-bold text-center text-sm sm:text-base transition-colors cursor-pointer" id="printConfirmation" type="button">Download Confirmation PDF</button></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    (function(){
+      'use strict';
+      let currentSelectedRange = '$1,100–$1,500';
+      const $ = (id) => document.getElementById(id);
+
+      function highlightRange(el){
+        document.querySelectorAll('#rangeList .range-option').forEach(function(opt){
+          opt.className='range-option px-5 py-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all cursor-pointer flex items-center gap-3.5';
+          opt.setAttribute('aria-checked','false');
+          const radio=opt.querySelector('.radio-indicator');
+          if(radio){radio.className='radio-indicator w-5 h-5 rounded-full border border-slate-300 flex items-center justify-center shrink-0';radio.innerHTML='';}
+          const text=opt.querySelector('span');
+          if(text) text.className='text-base sm:text-lg font-bold tracking-tight text-slate-800';
+        });
+        el.className='range-option px-5 py-4 rounded-xl border-2 border-[#061C3D] bg-white shadow-xs transition-all cursor-pointer flex items-center gap-3.5';
+        el.setAttribute('aria-checked','true');
+        const radio=el.querySelector('.radio-indicator');
+        if(radio){radio.className='radio-indicator w-5 h-5 rounded-full border-2 border-[#061C3D] flex items-center justify-center shrink-0';radio.innerHTML='<div class="w-2.5 h-2.5 rounded-full bg-[#061C3D]"></div>';}
+        const text=el.querySelector('span');
+        if(text) text.className='text-base sm:text-lg font-bold tracking-tight text-[#061C3D]';
+      }
+
+      function selectRange(val, el){
+        currentSelectedRange=val;
+        highlightRange(el);
+        $('selectedDisplay').innerText=val+' USD';
+      }
+
+      $('step1Form').addEventListener('submit',function(e){
+        e.preventDefault();
+        if(!this.checkValidity()){this.reportValidity();return;}
+        this.classList.add('hidden');
+        $('step2Form').classList.remove('hidden');
+        $('pill2').classList.remove('bg-slate-200'); $('pill2').classList.add('bg-[#D92534]');
+        $('stepText').innerText='Step 2 of 2';
+        document.querySelector('main h1').innerText='Select Your Investment Amount';
+        $('stepSubtitle').innerText='Please select the amount you wish to invest. Your selection helps us customize backing opportunities suited to your portfolio targets.';
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+
+      document.querySelectorAll('#rangeList .range-option').forEach(function(el){
+        el.addEventListener('click',function(){selectRange(this.dataset.range,this);});
+        el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectRange(this.dataset.range,this);}});
+      });
+
+      $('backBtn').addEventListener('click',function(){
+        $('step2Form').classList.add('hidden'); $('step1Form').classList.remove('hidden');
+        $('pill2').classList.remove('bg-[#D92534]'); $('pill2').classList.add('bg-slate-200');
+        $('stepText').innerText='Step 1 of 2';
+        document.querySelector('main h1').innerText='Become an Investor';
+        $('stepSubtitle').innerText='Create your secure investor profile to explore tailored high-yield opportunities in local Haitian imports and industries.';
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+
+      $('completeRegBtn').addEventListener('click',function(){
+        const btn=this; btn.disabled=true; btn.innerHTML='<span class="animate-pulse">Submitting Proposal...</span>';
+        window.setTimeout(function(){
+          $('step2Form').classList.add('hidden'); $('stepIndicator').classList.add('hidden'); $('stepSubtitle').classList.add('hidden');
+          const num=Math.floor(1000+Math.random()*9000); $('displayId').innerText='IFC-'+num+'-HT';
+          $('summaryName').innerText=(($('regFirstName').value||'Jean')+' '+($('regLastName').value||'Dupuy')).trim();
+          $('summaryWhatsapp').innerText=$('regWhatsapp').value||'+509 3701 9922';
+          $('summaryEmail').innerText=$('regEmail').value||'jean.dupuy@example.com';
+          $('summaryCategory').innerText=currentSelectedRange+' USD';
+          $('regSuccessCard').classList.remove('hidden');
+          window.scrollTo({top:0,behavior:'smooth'});
+        },700);
+      });
+
+      $('printConfirmation').addEventListener('click',function(){window.print();});
+
+      const headerTarget=document.querySelector('[data-include="header"]');
+      if(headerTarget){
+        const observer=new MutationObserver(function(){
+          const navLinks=headerTarget.querySelectorAll('nav a'); if(!navLinks.length)return;
+          navLinks.forEach(function(link){
+            const active=link.getAttribute('href')==='register (2).html';
+            link.classList.toggle('font-bold',active); link.classList.toggle('text-[#061C3D]',active); link.classList.toggle('text-slate-600',!active); link.classList.toggle('font-medium',!active);
+          });
+          observer.disconnect();
+        }); observer.observe(headerTarget,{childList:true});
+      }
+    })();
+  </script>
+</body>
+</html>
