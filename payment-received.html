@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Payment Received - Investors Funds Collection S.A.</title>
+  <meta content="Payment confirmation and funds allocation receipt for Investors Funds Collection S.A."
+    name="description" />
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow: 6px 0 #fff, 12px 0 #fff, 18px 0 #fff, 3px 4px #fff, 9px 4px #fff, 15px 4px #fff, 21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px
+      }
+
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px
+      }
+    }
+
+    @keyframes scale-check {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .animate-check {
+      animation: scale-check 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col selection:bg-[#D92534] selection:text-white">
+
+  <!-- Shared Header -->
+  <div data-include="header"></div>
+
+  <!-- Main Content Area: Centered Receipt Card -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex flex-col items-center justify-center">
+    
+    <!-- Success Card Container -->
+    <div class="w-full bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 lg:p-12 shadow-md relative overflow-hidden">
+      
+      <!-- Top Decorative Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#0038A8] via-[#D92534] to-[#0B7A4B]"></div>
+
+      <!-- Circular Checkmark Badge with Pulse Glow -->
+      <div class="flex justify-center mb-6 pt-2">
+        <div class="relative">
+          <div class="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center animate-check shadow-inner">
+            <div class="w-14 h-14 rounded-full bg-[#0B7A4B] flex items-center justify-center text-white shadow-md">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+          </div>
+          <span class="absolute -bottom-1 -right-1 flex h-6 w-6">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-6 w-6 bg-emerald-500 text-white text-[10px] font-bold items-center justify-center">✓</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <div class="text-center mb-9 max-w-lg mx-auto">
+        <span class="inline-block text-xs font-extrabold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider mb-2.5">
+          Escrow Allocation Confirmed
+        </span>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#061C3D] tracking-tight">
+          Payment Received
+        </h1>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 font-normal leading-relaxed">
+          Thank you. Your capital has been successfully received, verified, and placed into the sovereign-backed escrow pool.
+        </p>
+      </div>
+
+      <!-- Transaction Details Box -->
+      <div class="bg-[#F8FAFC] rounded-2xl p-6 sm:p-7 mb-8 border border-slate-200 divide-y divide-slate-100">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 gap-2">
+          <span class="text-xs sm:text-sm text-slate-500 font-medium">Committed Investment Principal</span>
+          <span class="text-xl sm:text-2xl font-black text-[#061C3D]" id="confirmedAmount">$5,000.00 USD</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 text-xs sm:text-sm">
+          <div>
+            <span class="text-slate-500 block text-xs">Investor ID Number</span>
+            <span class="font-bold text-slate-900 mt-0.5 inline-block">IFC-9827-HT</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block text-xs">Transaction Registry ID</span>
+            <span class="font-mono font-bold text-slate-900 mt-0.5 inline-block">TXN-2026-9827-01</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block text-xs">Date / Time of Escrow Lock</span>
+            <span class="font-semibold text-slate-800 mt-0.5 inline-block" id="transactionDate">October 26, 2025 • 14:32 UTC</span>
+          </div>
+          <div>
+            <span class="text-slate-500 block text-xs">Targeted Portfolio Pool</span>
+            <span class="font-semibold text-[#061C3D] mt-0.5 inline-block">Port-au-Prince Logistic Hub Fund</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-4 gap-3">
+          <span class="text-xs sm:text-sm text-slate-500 font-medium">Digital Covenant Status</span>
+          <span class="inline-flex items-center gap-1.5 font-bold text-[#137333] bg-[#E6F4EA] border border-emerald-200 px-3 py-1 rounded-full text-xs self-start sm:self-auto">
+            <span class="w-2 h-2 rounded-full bg-[#137333]"></span>
+            Active Covenant #COV-HT-2026-8891-BNC
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Legal Protection Note -->
+      <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-4.5 mb-8 flex items-start gap-3 text-xs text-blue-900 leading-relaxed">
+        <svg class="w-5 h-5 text-[#1E40AF] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div>
+          <span class="font-bold text-[#061C3D]">Sovereign Escrow Guarantee:</span>
+          Under Article 14 of the Haitian Diaspora Capital Framework, your allocated capital remains insured in segregated depository accounts at Banque Nationale de Crédit (BNC). Official certificates are legally registered.
+        </div>
+      </div>
+
+      <!-- Action Buttons Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <button type="button" data-ifc-route="payment receipt.html"
+          class="w-full h-13 bg-[#061C3D] hover:bg-[#0B254E] active:bg-[#041228] text-white font-bold text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>View Official Escrow Receipt</span>
+        </button>
+
+        <button type="button" onclick="downloadCovenantDoc(this)"
+          class="w-full h-13 bg-white hover:bg-slate-50 active:bg-slate-100 border border-slate-300 text-slate-800 font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span id="downloadBtnText">Download Signed Covenant (PDF)</span>
+        </button>
+
+        <button type="button" data-ifc-route="investor dashboard.html"
+          class="w-full h-12 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <span>Go to Investor Dashboard</span>
+          <span>→</span>
+        </button>
+
+        <button type="button" data-ifc-route="payment 1.html"
+          class="w-full h-12 bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-semibold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <span>+ Make Another Investment</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    // Initialize dynamic amount if stored from payment 1.html
+    document.addEventListener('DOMContentLoaded', function () {
+      const storedAmount = sessionStorage.getItem('ifc_last_amount');
+      if (storedAmount) {
+        const val = parseFloat(storedAmount);
+        if (!isNaN(val)) {
+          document.getElementById('confirmedAmount').textContent = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(val);
+        }
+      }
+
+      // Display formatted current date (consistent with hardcoded style: "Month DD, YYYY • HH:MM UTC")
+      const now = new Date();
+      const datePart = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const timePart = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' });
+      document.getElementById('transactionDate').textContent = `${datePart} • ${timePart} UTC`;
+    });
+
+    function downloadCovenantDoc(btn) {
+      const origText = document.getElementById('downloadBtnText').textContent;
+      document.getElementById('downloadBtnText').textContent = 'Generating PDF Certificate…';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('downloadBtnText').textContent = 'Downloaded Certificate ✓';
+        btn.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-800');
+        alert('Investors Funds Collection S.A.\n\nSigned Digital Covenant Certificate #COV-HT-2026-8891-BNC generated successfully.');
+        setTimeout(() => {
+          document.getElementById('downloadBtnText').textContent = origText;
+          btn.disabled = false;
+          btn.classList.remove('bg-emerald-50', 'border-emerald-300', 'text-emerald-800');
+        }, 2500);
+      }, 900);
+    }
+  </script>
+
+  <script id="ifc-stable-navigation">
+    (function () {
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        const r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+
+</html>
