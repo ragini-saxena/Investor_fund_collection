@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor Login - Investors Funds Collection S.A.</title>
+  <meta name="description" content="Secure access to your short-term high-yield account at Investors Funds Collection S.A." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .form-input-bg { background-color: #F8FAFC; }
+    .form-input-bg:focus { background-color: #FFFFFF; }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col">
+  <div data-include="header"></div>
+
+  <main class="flex-1 py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div class="w-full max-w-[500px]">
+      <section class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-sm">
+        <div class="flex justify-center mb-5">
+          <div class="w-14 h-14 rounded-2xl bg-[#061C3D] p-2 flex items-center justify-center shadow-xs">
+            <div class="w-full h-full rounded-sm flex overflow-hidden border border-white/20">
+              <div class="w-1/2 h-full bg-[#0038A8]"></div>
+              <div class="w-1/2 h-full bg-[#D21034]"></div>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] text-center tracking-tight mb-2">Investor Login</h1>
+        <p class="text-slate-500 text-xs sm:text-sm text-center leading-relaxed mb-8">Secure access to your short-term high-yield account.</p>
+
+        <form class="space-y-5" id="portalLoginForm" novalidate>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="investorId">INVESTOR ID NUMBER</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400" aria-hidden="true">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 form-input-bg text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all" id="investorId" name="investorId" placeholder="e.g. IFC-9827-HT" autocomplete="username" required type="text" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2" for="contactInfo">EMAIL, WHATSAPP OR PHONE</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400" aria-hidden="true">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 form-input-bg text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all" id="contactInfo" name="contactInfo" placeholder="e.g. investor@example.com or +509 ..." autocomplete="email" required type="text" />
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button class="w-full py-3.5 px-6 rounded-xl bg-[#D92534] hover:bg-[#B91C1C] active:scale-[0.99] text-white font-bold text-sm sm:text-base tracking-wide shadow-md transition-all cursor-pointer flex items-center justify-center gap-2" id="enterSecurePortalBtn" type="submit">
+              <span>Enter Secure Portal</span>
+            </button>
+          </div>
+
+          <div class="py-2.5 px-4 rounded-xl bg-[#F0F4F9] border border-blue-100/70 flex items-center justify-center gap-2 text-xs font-bold text-[#061C3D]">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            <span>256-bit Encrypted Connection S.A.</span>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between text-xs sm:text-sm gap-4">
+            <button class="font-semibold text-[#002D62] hover:text-[#061C3D] hover:underline cursor-pointer" id="forgotIdBtn" type="button">Forgot ID?</button>
+            <div class="text-slate-500 text-right"><span>Need Help? </span><a class="font-bold text-[#D92534] hover:text-[#B91C1C] hover:underline" href="contact.html">Contact Us</a></div>
+          </div>
+
+          <div class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium text-center mt-4" id="loginSuccessNotice" role="status" aria-live="polite">
+            Secure authentication successful. Your portal access request has been recorded.
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <div class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4" id="forgotIdModal" role="dialog" aria-modal="true" aria-labelledby="forgotIdTitle">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold text-[#061C3D]" id="forgotIdTitle">Recover Investor ID</h2>
+        <button class="text-slate-400 hover:text-slate-600 text-xl font-bold" id="closeForgotId" type="button" aria-label="Close">×</button>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">Enter your registered email address or WhatsApp phone number below to request recovery instructions.</p>
+      <form class="space-y-3" id="recoveryForm">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1" for="recoveryContact">Registered Email or Phone</label>
+          <input class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#061C3D]" id="recoveryContact" placeholder="investor@example.com or +509 ..." required type="text" />
+        </div>
+        <button class="w-full py-2.5 bg-[#061C3D] hover:bg-[#0A2754] text-white font-bold rounded-lg text-sm transition-colors mt-2" type="submit">Send Recovery Instructions</button>
+        <p class="hidden text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg p-3" id="recoveryNotice" role="status">Recovery instructions request submitted.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm items-center justify-center p-4" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold text-[#061C3D]" id="shareTitle">Share Investor Portal</h2>
+        <button class="text-slate-400 hover:text-slate-600 text-xl font-bold" id="closeShare" type="button" aria-label="Close">×</button>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">Copy the current investor portal page link for authorized participants.</p>
+      <div class="flex items-center gap-2">
+        <input class="w-full px-3 py-2 text-xs bg-slate-100 border border-slate-300 rounded-lg text-slate-700" id="shareUrlInput" readonly type="text" />
+        <button class="px-3 py-2 bg-[#061C3D] text-white text-xs font-bold rounded-lg hover:bg-[#0A2754]" id="copyShareUrl" type="button">Copy</button>
+      </div>
+      <p class="hidden text-xs text-emerald-700 mt-3" id="copyNotice" role="status">Portal link copied.</p>
+    </div>
+  </div>
+
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('portalLoginForm');
+      const button = document.getElementById('enterSecurePortalBtn');
+      const success = document.getElementById('loginSuccessNotice');
+      const forgotModal = document.getElementById('forgotIdModal');
+      const shareModal = document.getElementById('shareModal');
+
+      function openModal(modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeModal(modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      document.getElementById('forgotIdBtn').addEventListener('click', function () {
+        openModal(forgotModal);
+        document.getElementById('recoveryContact').focus();
+      });
+
+      document.getElementById('closeForgotId').addEventListener('click', function () { closeModal(forgotModal); });
+      document.getElementById('closeShare').addEventListener('click', function () { closeModal(shareModal); });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        button.disabled = true;
+        button.innerHTML = '<span class="animate-pulse">Authenticating...</span>';
+        window.setTimeout(function () {
+          button.innerHTML = '<span>Authenticated</span>';
+          button.classList.remove('bg-[#D92534]', 'hover:bg-[#B91C1C]');
+          button.classList.add('bg-emerald-600');
+          success.classList.remove('hidden');
+        }, 700);
+      });
+
+      document.getElementById('recoveryForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!this.checkValidity()) { this.reportValidity(); return; }
+        document.getElementById('recoveryNotice').classList.remove('hidden');
+        this.reset();
+      });
+
+      const headerTarget = document.querySelector('[data-include="header"]');
+      const setupHeader = function () {
+        const shareButton = headerTarget && headerTarget.querySelector('button[title="Share Page"]');
+        if (shareButton) {
+          shareButton.addEventListener('click', function () {
+            document.getElementById('shareUrlInput').value = window.location.href;
+            openModal(shareModal);
+          });
+        }
+      };
+      if (headerTarget) {
+        const observer = new MutationObserver(function () {
+          setupHeader();
+          observer.disconnect();
+        });
+        observer.observe(headerTarget, { childList: true });
+      }
+
+      document.getElementById('copyShareUrl').addEventListener('click', async function () {
+        const input = document.getElementById('shareUrlInput');
+        try {
+          await navigator.clipboard.writeText(input.value);
+          document.getElementById('copyNotice').classList.remove('hidden');
+        } catch (error) {
+          input.select();
+          document.execCommand('copy');
+          document.getElementById('copyNotice').classList.remove('hidden');
+        }
+      });
+
+      [forgotModal, shareModal].forEach(function (modal) {
+        modal.addEventListener('click', function (event) {
+          if (event.target === modal) closeModal(modal);
+        });
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeModal(forgotModal);
+          closeModal(shareModal);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

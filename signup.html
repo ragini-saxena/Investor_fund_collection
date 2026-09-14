@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investors Funds Collection S.A. - Secured Onboarding Confirmation</title>
+  <meta name="description" content="Secured onboarding confirmation for Investors Funds Collection S.A." />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; }
+    .hero-shadow { box-shadow: 0 4px 6px rgba(0,0,0,.05); }
+    .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+    @media print {
+      header, footer, .no-print { display: none !important; }
+      body { background: #fff !important; }
+      main { padding: 0 !important; }
+      .print-card { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#f4f6f8] text-[#333]">
+  <div data-include="header"></div>
+
+  <main class="flex-1 px-5 py-10 sm:py-12 lg:py-14">
+    <div class="mx-auto max-w-[1100px]">
+      <section class="hero-shadow mb-7 rounded-xl bg-[#061C3D] px-5 py-10 text-center text-white sm:px-8">
+        <div class="mx-auto mb-4 flex h-12 w-12 flex-col items-center justify-center gap-1 rounded-lg bg-white p-1.5" aria-hidden="true">
+          <span class="h-1 w-[22px] rounded-sm bg-[#D92534]"></span>
+          <span class="h-1 w-[22px] rounded-sm bg-[#061C3D]"></span>
+          <span class="h-1 w-[22px] rounded-sm bg-[#061C3D]"></span>
+        </div>
+        <h1 class="text-2xl font-bold sm:text-[28px]">Secured Onboarding Confirmation</h1>
+      </section>
+
+      <section class="grid gap-6 lg:grid-cols-2">
+        <article class="print-card card-shadow rounded-xl border border-gray-200 bg-white p-7 sm:p-[30px]">
+          <div class="mb-5 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#e6f4ea]">
+            <span class="text-[22px] font-bold text-[#137333]" aria-hidden="true">✓</span>
+          </div>
+          <h2 class="mb-3 text-[22px] font-bold text-gray-900">Registration Successful!</h2>
+          <p class="mb-6 text-sm leading-6 text-gray-600">
+            Thank you, your wish to participate as an investor has been received under our secured commercial registry covenants.
+          </p>
+
+          <div class="mb-6 rounded-lg border border-red-200 bg-[#fffefb] p-4 text-center">
+            <div class="mb-1 text-[11px] font-bold uppercase tracking-[.5px] text-gray-500">Secured Investor ID</div>
+            <div id="investorId" class="text-2xl font-extrabold tracking-wider text-[#D92534]">IFC-8291-HT</div>
+          </div>
+
+          <p class="mb-5 text-[13px] leading-6 text-gray-600">
+            Keep your ID in a safe place. You will need it to securely log in to access your sovereign account dashboard or authorize funds.<br><br>
+            <strong>We will contact you soon by email or WhatsApp to complete the investment.</strong>
+          </p>
+
+          <button id="profileBtn" type="button" class="no-print mb-3 w-full rounded-lg bg-[#061C3D] px-3 py-3 text-sm font-semibold text-white transition hover:bg-[#0b2a57] focus:outline-none focus:ring-2 focus:ring-[#061C3D]/30">
+            Go to Profile Dashboard
+          </button>
+          <button id="printBtn" type="button" class="no-print w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-300">
+            Download Confirmation PDF
+          </button>
+        </article>
+
+        <article class="print-card card-shadow rounded-xl border border-gray-200 bg-white p-7 sm:p-[30px]">
+          <div class="mb-5 flex items-center justify-between border-b border-gray-100 pb-3 text-xs text-gray-500">
+            <span>Email Notification Dispatch To: jean.dupuy@example.com</span>
+            <span class="rounded bg-gray-100 px-2 py-0.5 text-[11px]">Preview Mode</span>
+          </div>
+
+          <div class="mb-4 flex items-center gap-2 text-[13px] font-semibold text-[#061C3D]">
+            <span class="flex h-5 w-5 flex-col items-center justify-center gap-0.5 rounded-[3px] bg-[#061C3D] p-0.5" aria-hidden="true">
+              <i class="h-0.5 w-2.5 rounded-sm bg-white"></i><i class="h-0.5 w-2.5 rounded-sm bg-[#D92534]"></i><i class="h-0.5 w-2.5 rounded-sm bg-white"></i>
+            </span>
+            <span>Investors Funds Collection</span>
+          </div>
+
+          <div>
+            <h3 class="mb-2.5 text-lg font-bold text-gray-900">Welcome to the Sovereign Onboarding Pool</h3>
+            <p class="mb-3.5 text-[13px] leading-6 text-gray-600">Cher Jean Dupuy,</p>
+            <p class="mb-3.5 text-[13px] leading-6 text-gray-600">
+              We are proud to confirm that your wish to participate as an investor has been recorded securely under Haitian Commercial Covenants. Our national growth pools are designed to liberate and empower local industries.
+            </p>
+
+            <div class="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-3.5">
+              <div class="mb-2 flex justify-between text-xs">
+                <span class="text-gray-500">Allocated Investor ID:</span>
+                <strong class="font-semibold text-gray-900">IFC-8291-HT</strong>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-gray-500">Pledged Target Amount:</span>
+                <strong class="font-semibold text-[#D92534]">$1,100 – $1,500 USD</strong>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-6 border-t border-gray-100 pt-4 text-xs leading-5 text-gray-500">
+            One of our verified agents will reach out to you via WhatsApp or Email within the next business day to authorize your secured bank wire or card escrow configuration. Secured by Investors Funds Collection S.A., Pétion-Ville, Haiti.
+          </p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    (function () {
+      const profileBtn = document.getElementById('profileBtn');
+      const printBtn = document.getElementById('printBtn');
+
+      profileBtn.addEventListener('click', function () {
+        // The profile dashboard is not part of the current worked ZIP yet.
+        // Route the user to the existing investor login until that page is added.
+        window.location.href = 'login investor.html';
+      });
+
+      printBtn.addEventListener('click', function () {
+        window.print();
+      });
+    })();
+  </script>
+</body>
+</html>

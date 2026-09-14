@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Error States | Investors Funds Collection S.A.</title>
+<meta content="Investors Funds Collection S.A. - Showcase of system errors, warnings, and form validations" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style id="ifc-language-toolbar">
+.ifc-language-toolbar{
+  display:flex;align-items:flex-end;gap:8px;
+  padding:6px 8px;
+  background:rgba(255,255,255,.96);
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(6,28,61,.10);
+}
+.ifc-language-option{
+  width:82px;
+  min-width:82px;
+  border:1px solid #dbe3ee;
+  background:#fff;
+  color:#475569;
+  border-radius:8px;
+  padding:6px 7px 7px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;cursor:pointer;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  font:700 11px/1.1 Arial,sans-serif;
+}
+.ifc-language-option:hover{
+  background:#eef5ff;
+  border-color:#8fb5e8;
+  color:#061c3d;
+  transform:translateY(-1px);
+}
+.ifc-language-option.is-selected{
+  background:#061c3d;
+  border-color:#061c3d;
+  color:#fff;
+}
+.ifc-flag{
+  width:34px;height:24px;border-radius:3px;
+  overflow:hidden;display:block;position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.ifc-flag.ht{
+  background:linear-gradient(to bottom,#0038a8 0 50%,#d21034 50% 100%);
+}
+.ifc-flag.fr{
+  background:linear-gradient(to right,#0055a4 0 33.33%,#fff 33.33% 66.66%,#ef4135 66.66% 100%);
+}
+.ifc-flag.us{
+  background:repeating-linear-gradient(to bottom,#b22234 0 9%,#fff 9% 18%);
+}
+.ifc-flag.us:before{
+  content:"";position:absolute;left:0;top:0;width:48%;height:54%;
+  background:#3c3b6e;
+}
+.ifc-flag.us:after{
+  content:"";position:absolute;left:5px;top:3px;width:2px;height:2px;
+  background:#fff;box-shadow:
+  6px 0 #fff,12px 0 #fff,18px 0 #fff,
+  3px 4px #fff,9px 4px #fff,15px 4px #fff,
+  21px 4px #fff,6px 8px #fff,12px 8px #fff,18px 8px #fff;
+}
+@media(max-width:700px){
+ .ifc-language-toolbar{gap:5px;padding:5px}
+ .ifc-language-option{width:68px;min-width:68px}
+}
+</style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased font-sans min-h-screen flex flex-col">
+  <div data-include="header"></div>
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 sm:px-12 py-10 sm:py-14 space-y-12">
+<!-- Section 1: System Alerts Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<!-- Left Column: Transaction & Auth Failure -->
+<div class="space-y-4">
+<h2 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+          Transaction &amp; Auth Failure
+        </h2>
+<!-- Banner 1: Invalid ID or contact information -->
+<div class="p-4 rounded-xl bg-[#fff5f5] border border-[#fecaca] text-[#dc2626] flex items-center gap-3 text-xs sm:text-[13.5px] font-medium shadow-xs">
+<svg class="w-4 h-4 shrink-0 text-[#dc2626]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Invalid ID number or contact information.</span>
+</div>
+<!-- Banner 2: Payment could not be processed -->
+<div class="p-4 rounded-xl bg-[#fff5f5] border border-[#fecaca] text-[#dc2626] flex items-center gap-3 text-xs sm:text-[13.5px] font-medium shadow-xs">
+<svg class="w-4 h-4 shrink-0 text-[#dc2626]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Payment could not be processed. Please try again.</span>
+</div>
+</div>
+<!-- Right Column: Network & Permissions -->
+<div class="space-y-4">
+<h2 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+          Network &amp; Permissions
+        </h2>
+<!-- Banner 1: Unable to connect warning (Amber) -->
+<div class="p-4 rounded-xl bg-[#fffbeb] border border-[#fde68a] text-[#b45309] flex items-center gap-3 text-xs sm:text-[13.5px] font-medium shadow-xs">
+<svg class="w-4 h-4 shrink-0 text-[#d97706]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+<line stroke-linecap="round" stroke-width="2" x1="12" x2="12" y1="8" y2="12"></line>
+<line stroke-linecap="round" stroke-width="2" x1="12" x2="12.01" y1="16" y2="16"></line>
+</svg>
+<span>Unable to connect. Please check your internet connection.</span>
+</div>
+<!-- Banner 2: Permission error (Red) -->
+<div class="p-4 rounded-xl bg-[#fff5f5] border border-[#fecaca] text-[#dc2626] flex items-center gap-3 text-xs sm:text-[13.5px] font-medium shadow-xs">
+<svg class="w-4 h-4 shrink-0 text-[#dc2626]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>You do not have permission to access this area.</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Form Field Validation Showcase -->
+<div class="space-y-5 pt-4">
+<h2 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+        Form Field Validation Showcase
+      </h2>
+<!-- 3 Form Input Fields in a Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+<!-- Field 1: Investor Full Name -->
+<div class="space-y-1.5">
+<label class="block text-xs sm:text-[13px] font-semibold text-slate-900">
+            Investor Full Name <span class="text-[#dc2626]">*</span>
+</label>
+<input class="w-full px-4 py-3 rounded-xl bg-white border border-[#dc2626] text-slate-900 text-xs sm:text-sm font-medium placeholder:text-slate-400 focus:outline-hidden transition-all shadow-xs" placeholder="Enter legal name" type="text" value=""/>
+<p class="text-[12px] font-semibold text-[#dc2626]">
+            This field is required
+          </p>
+</div>
+<!-- Field 2: Email Address -->
+<div class="space-y-1.5">
+<label class="block text-xs sm:text-[13px] font-semibold text-slate-900">
+            Email Address
+          </label>
+<input class="w-full px-4 py-3 rounded-xl bg-white border border-[#dc2626] text-slate-900 text-xs sm:text-sm font-medium focus:outline-hidden transition-all shadow-xs" type="email" value="invalid_email@haiti"/>
+<p class="text-[12px] font-semibold text-[#dc2626]">
+            Please enter a valid email address
+          </p>
+</div>
+<!-- Field 3: Investor ID Number -->
+<div class="space-y-1.5">
+<label class="block text-xs sm:text-[13px] font-semibold text-slate-900">
+            Investor ID Number
+          </label>
+<input class="w-full px-4 py-3 rounded-xl bg-white border border-[#dc2626] text-slate-900 text-xs sm:text-sm font-medium focus:outline-hidden transition-all shadow-xs" type="text" value="IFC-99-99-99"/>
+<p class="text-[12px] font-semibold text-[#dc2626]">
+            The Investor ID you entered is not valid
+          </p>
+</div>
+</div>
+</div>
+</main>
+  <div data-include="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    // System-state pages are reusable UI references, so no public nav item is active.
+    const headerTarget = document.querySelector('[data-include="header"]');
+    if (headerTarget) {
+      const observer = new MutationObserver(function () {
+        const links = headerTarget.querySelectorAll('nav a');
+        links.forEach(function (link) {
+          link.classList.remove('font-bold', 'text-[#061C3D]');
+          link.classList.add('font-medium', 'text-slate-600');
+          link.classList.remove("after:content-['']", 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
+        });
+        observer.disconnect();
+      });
+      observer.observe(headerTarget, { childList: true });
+    }
+    // Page-only routing for controls that intentionally do not have a direct href.
+    document.addEventListener('click', function (e) {
+      const el = e.target.closest('a,button');
+      if (!el || el.hasAttribute('data-ifc-lang')) return;
+      const routes = {
+        'dashboard': 'investor dashboard.html',
+        'my profile': 'investor profile.html',
+        'make investment': 'payment 1.html',
+        'new investment': 'payment 1.html',
+        'go to dashboard': 'investor dashboard.html',
+        'go to profile dashboard': 'investor profile.html',
+        'logout': 'login investor.html',
+        'register': 'register (2).html',
+        'signup': 'signup.html',
+        'investor login': 'login investor.html',
+        'log in': 'login investor.html'
+      };
+      const text = (el.innerText || '').trim().replace(/\s+/g, ' ').toLowerCase();
+      if (routes[text] && (el.tagName === 'BUTTON' || el.getAttribute('href') === '#' || !el.getAttribute('href'))) {
+        e.preventDefault();
+        window.location.href = routes[text];
+      }
+    });
+  </script>
+</body>
+</html>

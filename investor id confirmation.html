@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investor ID Confirmation - Investors Funds Collection S.A.</title>
+<meta name="description" content="Investor ID confirmation and secure communication interface for Investors Funds Collection S.A.">
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #061025;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Top Header */
+        .top-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: #dc2626;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 40px;
+        }
+
+        /* 2-Column Grid for Modals */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .modal-card {
+            background-color: #0d1b3a;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 14px;
+        }
+
+        .modal-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .close-btn {
+            font-size: 16px;
+            color: #64748b;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Form Controls */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-control-box {
+            background-color: #111e38;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 12px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-control-textarea {
+            background-color: #111e38;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 12px;
+            color: #94a3b8;
+            min-height: 80px;
+            resize: none;
+            line-height: 1.5;
+        }
+
+        .recipient-badge {
+            background-color: #172554;
+            color: #60a5fa;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            border: 1px solid #1e3a8a;
+        }
+
+        .dropdown-chevron {
+            color: #64748b;
+            font-size: 10px;
+        }
+
+        /* Action Buttons Row */
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            border-top: 1px solid #1e293b;
+            padding-top: 16px;
+            margin-top: 4px;
+        }
+
+        .btn-cancel {
+            background-color: transparent;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-dispatch {
+            background-color: #dc2626;
+            border: none;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-dispatch:hover {
+            background-color: #b91c1c;
+        }
+    
+/* Keep the supplied reference presentation while using the shared site shell. */
+body { margin:0; background-color:#061025; color:#fff; }
+.page-content { padding:40px 20px 64px; }
+@media (max-width:700px) { .page-content { padding:28px 14px 48px; } .grid-2-col { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div data-include="header"></div>
+<main class="page-content">
+<div class="container">
+<div class="top-tag">INVESTORS FUNDS COLLECTION S.A.</div>
+<h1>Admin Messages &amp; Broadcast Dispatch Hub</h1>
+<div class="subtitle">Operational modals for direct constituent communication and mass secure registry notifications.</div>
+<div class="grid-2-col">
+<div class="modal-card">
+<div class="modal-header-row">
+<span class="modal-title">Compose Message to Investor</span>
+<button class="close-btn">×</button>
+</div>
+<div class="input-group">
+<span class="input-label">To Recipient</span>
+<div class="form-control-box">
+<span>Marie Laurant (mlaurant@diaspora.org)</span>
+</div>
+</div>
+<div class="input-group">
+<span class="input-label">Subject</span>
+<div class="form-control-box" style="color: #cbd5e1;">
+<span>Inquiry Regarding Return Destination Card Verification</span>
+</div>
+</div>
+<div class="input-group">
+<span class="input-label">Message Body</span>
+<div class="form-control-textarea">Dear Marie, we have received your request regarding refund transaction hash REF-28391-HT. Our team is verifying your Visa card details (*9012) to expedite the $1,500.00 USD release.</div>
+</div>
+<div class="modal-actions">
+<button class="btn-cancel">Cancel</button>
+<button class="btn-dispatch">Send Message</button>
+</div>
+</div>
+<div class="modal-card">
+<div class="modal-header-row">
+<span class="modal-title">Mass Broadcast Dispatch</span>
+<button class="close-btn">×</button>
+</div>
+<div class="input-group">
+<span class="input-label">Recipient Group Selector</span>
+<div class="form-control-box">
+<span style="color: #cbd5e1;">All Potential Investors</span>
+<span class="recipient-badge">247 recipients</span>
+</div>
+</div>
+<div class="input-group">
+<span class="input-label">Subject</span>
+<div class="form-control-box" style="color: #cbd5e1;">
+<span>Important Update: Capital Repatriation &amp; Secured Registry Status</span>
+</div>
+</div>
+<div class="input-group">
+<span class="input-label">Broadcast Content</span>
+<div class="form-control-textarea">Valued Investors, please be advised that our secure portal at Pétion-Ville has updated all ledger balances. You can now verify your ID numbers and review return receipts through the portal interface.</div>
+</div>
+<div class="modal-actions">
+<button class="btn-cancel">Cancel</button>
+<button class="btn-dispatch">Dispatch Broadcast</button>
+</div>
+</div>
+</div>
+</div>
+
+</main>
+<div data-include="footer"></div>
+<script src="js/include.js"></script>
+<script src="js/translations.js"></script>
+<script>
+(function () {
+  document.addEventListener('click', function (event) {
+    const button = event.target.closest('button');
+    if (!button) return;
+    const card = button.closest('.modal-card');
+    if (!card) return;
+    const text = (button.textContent || '').trim().toLowerCase();
+    if (text === '×' || text === 'cancel') {
+      card.style.display = 'none';
+    }
+    if (text === 'send message' || text === 'dispatch broadcast') {
+      button.disabled = true;
+      button.textContent = 'Sent Successfully';
+      button.style.backgroundColor = '#059669';
+    }
+  });
+
+  const headerTarget = document.querySelector('[data-include="header"]');
+  if (headerTarget) {
+    const observer = new MutationObserver(function () {
+      const links = headerTarget.querySelectorAll('nav a');
+      if (!links.length) return;
+      links.forEach(function (link) {
+        link.classList.remove('font-bold', 'text-[#061C3D]', 'relative');
+        link.classList.add('text-slate-600', 'font-medium');
+      });
+      observer.disconnect();
+    });
+    observer.observe(headerTarget, { childList:true, subtree:true });
+  }
+})();
+</script>
+</body>
+</html>

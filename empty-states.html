@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Empty States | Investors Funds Collection S.A.</title>
+<meta content="Investors Funds Collection S.A. - A collection of system-level empty dashboard panels" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style id="ifc-language-toolbar">
+.ifc-language-toolbar{
+  display:flex;align-items:flex-end;gap:8px;
+  padding:6px 8px;
+  background:rgba(255,255,255,.96);
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(6,28,61,.10);
+}
+.ifc-language-option{
+  width:82px;
+  min-width:82px;
+  border:1px solid #dbe3ee;
+  background:#fff;
+  color:#475569;
+  border-radius:8px;
+  padding:6px 7px 7px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;cursor:pointer;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+  font:700 11px/1.1 Arial,sans-serif;
+}
+.ifc-language-option:hover{
+  background:#eef5ff;
+  border-color:#8fb5e8;
+  color:#061c3d;
+  transform:translateY(-1px);
+}
+.ifc-language-option.is-selected{
+  background:#061c3d;
+  border-color:#061c3d;
+  color:#fff;
+}
+.ifc-flag{
+  width:34px;height:24px;border-radius:3px;
+  overflow:hidden;display:block;position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.ifc-flag.ht{
+  background:linear-gradient(to bottom,#0038a8 0 50%,#d21034 50% 100%);
+}
+.ifc-flag.fr{
+  background:linear-gradient(to right,#0055a4 0 33.33%,#fff 33.33% 66.66%,#ef4135 66.66% 100%);
+}
+.ifc-flag.us{
+  background:repeating-linear-gradient(to bottom,#b22234 0 9%,#fff 9% 18%);
+}
+.ifc-flag.us:before{
+  content:"";position:absolute;left:0;top:0;width:48%;height:54%;
+  background:#3c3b6e;
+}
+.ifc-flag.us:after{
+  content:"";position:absolute;left:5px;top:3px;width:2px;height:2px;
+  background:#fff;box-shadow:
+  6px 0 #fff,12px 0 #fff,18px 0 #fff,
+  3px 4px #fff,9px 4px #fff,15px 4px #fff,
+  21px 4px #fff,6px 8px #fff,12px 8px #fff,18px 8px #fff;
+}
+@media(max-width:700px){
+ .ifc-language-toolbar{gap:5px;padding:5px}
+ .ifc-language-option{width:68px;min-width:68px}
+}
+</style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 antialiased font-sans min-h-screen flex flex-col">
+  <div data-include="header"></div>
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 sm:px-12 py-10 sm:py-14">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+<!-- Card 1: No investors -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No investors
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          New investors will appear here after registration.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Add First Investor')" type="button">
+          Add First Investor
+        </button>
+</div>
+<!-- Card 2: No potential investors found -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No potential investors found
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          New potential investors will appear here after registration.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Import Potential List')" type="button">
+          Import Potential List
+        </button>
+</div>
+<!-- Card 3: No payments -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="14" rx="2" stroke-width="1.8" width="20" x="2" y="5"></rect>
+<line stroke-width="1.8" x1="2" x2="22" y1="10" y2="10"></line>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No payments
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          Payment records will appear here once transactions are made.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Make First Transaction')" type="button">
+          Make First Transaction
+        </button>
+</div>
+<!-- Card 4: No news -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No news
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          News articles will appear here once published.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Publish Announcement')" type="button">
+          Publish Announcement
+        </button>
+</div>
+<!-- Card 5: No messages -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No messages
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          Your messages will appear here.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Compose Broadcast')" type="button">
+          Compose Broadcast
+        </button>
+</div>
+<!-- Card 6: No search results -->
+<div class="bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md transition-all duration-200">
+<div class="w-16 h-16 rounded-full bg-[#f0f7ff] text-[#2563eb] flex items-center justify-center mb-5 shrink-0 border border-blue-100/60">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="11" cy="11" r="8" stroke-width="1.8"></circle>
+<line stroke-linecap="round" stroke-width="1.8" x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mb-2 tracking-tight">
+          No search results
+        </h2>
+<p class="text-xs sm:text-sm text-slate-500 max-w-[260px] leading-relaxed mb-7 font-normal">
+          Try adjusting your search or filter criteria.
+        </p>
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Action: Clear All Filters')" type="button">
+          Clear All Filters
+        </button>
+</div>
+</div>
+</main>
+  <div data-include="footer"></div>
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    // System-state pages are reusable UI references, so no public nav item is active.
+    const headerTarget = document.querySelector('[data-include="header"]');
+    if (headerTarget) {
+      const observer = new MutationObserver(function () {
+        const links = headerTarget.querySelectorAll('nav a');
+        links.forEach(function (link) {
+          link.classList.remove('font-bold', 'text-[#061C3D]');
+          link.classList.add('font-medium', 'text-slate-600');
+          link.classList.remove("after:content-['']", 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:right-0', 'after:h-0.5', 'after:bg-[#D92534]', 'after:rounded-full');
+        });
+        observer.disconnect();
+      });
+      observer.observe(headerTarget, { childList: true });
+    }
+    // Page-only routing for controls that intentionally do not have a direct href.
+    document.addEventListener('click', function (e) {
+      const el = e.target.closest('a,button');
+      if (!el || el.hasAttribute('data-ifc-lang')) return;
+      const routes = {
+        'dashboard': 'investor dashboard.html',
+        'my profile': 'investor profile.html',
+        'make investment': 'payment 1.html',
+        'new investment': 'payment 1.html',
+        'go to dashboard': 'investor dashboard.html',
+        'go to profile dashboard': 'investor profile.html',
+        'logout': 'login investor.html',
+        'register': 'register (2).html',
+        'signup': 'signup.html',
+        'investor login': 'login investor.html',
+        'log in': 'login investor.html'
+      };
+      const text = (el.innerText || '').trim().replace(/\s+/g, ' ').toLowerCase();
+      if (routes[text] && (el.tagName === 'BUTTON' || el.getAttribute('href') === '#' || !el.getAttribute('href'))) {
+        e.preventDefault();
+        window.location.href = routes[text];
+      }
+    });
+  </script>
+</body>
+</html>
