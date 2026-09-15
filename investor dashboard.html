@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor Dashboard - Investors Funds Collection S.A.</title>
+  <meta name="description" content="Track your portfolio yield, access official covenants, and explore vetted development pools at Investors Funds Collection S.A." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+  </style>
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+    .ifc-flag.ht { background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%); }
+    .ifc-flag.fr { background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%); }
+    .ifc-flag.us { background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%); }
+    .ifc-flag.us:before { content: ""; position: absolute; left: 0; top: 0; width: 48%; height: 54%; background: #3c3b6e; }
+    .ifc-flag.us:after { content: ""; position: absolute; left: 5px; top: 3px; width: 2px; height: 2px; background: #fff; box-shadow: 6px 0 #fff, 12px 0 #fff, 18px 0 #fff, 3px 4px #fff, 9px 4px #fff, 15px 4px #fff, 21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff; }
+    @media(max-width:700px) {
+      .ifc-language-toolbar { gap: 5px; padding: 5px }
+      .ifc-language-option { width: 68px; min-width: 68px }
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-900 antialiased min-h-screen flex flex-col selection:bg-[#D92534] selection:text-white">
+
+  <!-- Shared Header -->
+  <div data-include="header"></div>
+
+  <!-- Main Content -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+    <!-- Welcome Banner -->
+    <section class="mb-8 sm:mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#061C3D] flex items-center justify-center text-white font-extrabold text-xl tracking-tight shadow-sm shrink-0">
+            JP
+          </div>
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight">Bonjour, Jean-Pierre</h1>
+            <p class="text-slate-500 text-sm mt-0.5">Track your portfolio yield, access official covenants, and explore vetted development pools.</p>
+          </div>
+        </div>
+        <button type="button" onclick="window.location.href='payment 1.html'"
+          class="inline-flex items-center gap-2 px-5 py-3 bg-[#D92534] hover:bg-[#B91C1C] text-white font-bold text-sm rounded-xl transition-all shadow-sm cursor-pointer self-start sm:self-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span>New Investment</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Stats Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8 sm:mb-10">
+      <!-- Current Active Portfolio -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Active</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">$25,000</div>
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Current Active Portfolio</div>
+      </div>
+
+      <!-- Cumulative Lifetime Funds -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#FFF5F5] text-[#D92534] flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">$47,500</div>
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cumulative Lifetime Funds</div>
+      </div>
+
+      <!-- Latest Investment Date -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#F0F4FF] text-[#3B5998] flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">Oct 12, 2025</div>
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Latest Investment Date</div>
+      </div>
+
+      <!-- Account Status -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-10 h-10 rounded-xl bg-[#E7F8F0] text-[#00BA88] flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Verified</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">Active (Verified)</div>
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Account Status</div>
+      </div>
+    </section>
+
+    <!-- Two-Column: Portfolio + Activity -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+
+      <!-- Left Column: Portfolio & Covenants (7 cols) -->
+      <section class="lg:col-span-7">
+        <!-- Signed Covenants -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden mb-6 sm:mb-8">
+          <div class="p-6 sm:p-7 border-b border-slate-100">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
+                <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                <span>Your Signed Covenants</span>
+              </h2>
+              <span class="text-xs font-semibold text-slate-400">2 Active</span>
+            </div>
+          </div>
+          <div class="divide-y divide-slate-100">
+            <!-- Covenant 1 -->
+            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <div class="text-sm font-bold text-[#061C3D] mb-1">Port-au-Prince Logistic Phase III</div>
+                  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                    <span>Pool ID: PLP-III-2025</span>
+                    <span>•</span>
+                    <span>Signed Digitally</span>
+                    <span>•</span>
+                    <span>Oct 12, 2025</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-lg font-extrabold text-[#061C3D]">$15,000</span>
+                  <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">Active</span>
+                </div>
+              </div>
+            </div>
+            <!-- Covenant 2 -->
+            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <div class="text-sm font-bold text-[#061C3D] mb-1">Nord-Ouest Agriculture Coco...</div>
+                  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                    <span>Pool ID: NAC-II-2025</span>
+                    <span>•</span>
+                    <span>Signed Digitally</span>
+                    <span>•</span>
+                    <span>Aug 20, 2025</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-lg font-extrabold text-[#061C3D]">$10,000</span>
+                  <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investor News -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-7 border-b border-slate-100">
+            <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              <span>Investor's News and Information</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">Official updates from project managers and localized trade covenants.</p>
+          </div>
+          <div class="divide-y divide-slate-100">
+            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-10-24">Oct 24, 2025</time>
+              <h3 class="text-sm font-bold text-[#061C3D] mb-1.5">Pétion-Ville Trade & Import Pool Completes Q3 Returns</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">The local trade financing pool has officially dispersed Q3 payout guarantees of 12.5% APR. Backers from Miami and Boston have successfully received scheduled bank payouts.</p>
+            </div>
+            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-10-15">Oct 15, 2025</time>
+              <h3 class="text-sm font-bold text-[#061C3D] mb-1.5">Haitian Cocoa Smallholder Insured Pool Milestone</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">Thanks to over $1.2M in direct diaspora funding, we have secured equipment and shipping insurance for agricultural exporters in the Grand'Anse region.</p>
+            </div>
+            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+              <time class="text-[#D92534] font-bold text-xs uppercase tracking-wide block mb-2" datetime="2025-10-01">Oct 1, 2025</time>
+              <h3 class="text-sm font-bold text-[#061C3D] mb-1.5">Security Update: 256-Bit Encryption Compliance Completed</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">To safeguard our growing roster of international and local investors, Investors Funds Collection S.A. has successfully audited all portal API data pathways.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Activity + Quick Actions (5 cols) -->
+      <aside class="lg:col-span-5 space-y-6 sm:space-y-8">
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+          <div class="p-6 sm:p-7 border-b border-slate-100">
+            <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              <span>Funds & Payments History</span>
+            </h2>
+          </div>
+          <div class="divide-y divide-slate-100">
+            <!-- Transaction 1 -->
+            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm font-bold text-[#061C3D]">Wire Transfer</span>
+                <span class="text-sm font-extrabold text-[#061C3D]">+$15,000</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-500">Oct 12, 2025 • REF-20251012-PLP</span>
+                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
+              </div>
+            </div>
+            <!-- Transaction 2 -->
+            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm font-bold text-[#061C3D]">ACH Transfer</span>
+                <span class="text-sm font-extrabold text-[#061C3D]">+$10,000</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-500">Aug 20, 2025 • REF-20250820-NAC</span>
+                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
+              </div>
+            </div>
+            <!-- Transaction 3 -->
+            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm font-bold text-[#061C3D]">Direct Deposit</span>
+                <span class="text-sm font-extrabold text-[#061C3D]">+$22,500</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-500">Mar 15, 2025 • REF-20250315-INI</span>
+                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 border-t border-slate-100 text-center">
+            <span class="text-xs font-semibold text-slate-400">Showing 1 to 3 of 145 transactions</span>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 sm:p-7">
+          <h2 class="text-lg font-bold text-[#061C3D] mb-5">Quick Actions</h2>
+          <div class="space-y-3">
+            <a href="investor profile.html"
+              class="flex items-center gap-3.5 p-3.5 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all group">
+              <div class="w-10 h-10 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center shrink-0 group-hover:bg-[#D6E8FC] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-[#061C3D]">My Profile</div>
+                <div class="text-xs text-slate-500">View and edit your account details</div>
+              </div>
+            </a>
+            <a href="payment 1.html"
+              class="flex items-center gap-3.5 p-3.5 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all group">
+              <div class="w-10 h-10 rounded-xl bg-[#FFF5F5] text-[#D92534] flex items-center justify-center shrink-0 group-hover:bg-[#FFE5E5] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-[#061C3D]">Make Investment</div>
+                <div class="text-xs text-slate-500">Allocate funds to development pools</div>
+              </div>
+            </a>
+            <a href="contact.html"
+              class="flex items-center gap-3.5 p-3.5 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-all group">
+              <div class="w-10 h-10 rounded-xl bg-[#E7F8F0] text-[#00BA88] flex items-center justify-center shrink-0 group-hover:bg-[#C7F0DD] transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-[#061C3D]">WhatsApp Support</div>
+                <div class="text-xs text-slate-500">Get verified account assistance</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Verified Account Info -->
+        <div class="bg-[#061C3D] rounded-2xl p-6 sm:p-7 text-white">
+          <h3 class="font-bold text-base mb-2">Verified Account Support</h3>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">Do you have questions about your registered Haitian tax file, physical covenants, or bank disbursements? Get direct answers instantly.</p>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-white/10 border border-white/10">
+            <div class="w-8 h-8 rounded-lg bg-[#00BA88] flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">WhatsApp Support</div>
+              <div class="text-xs text-slate-300">+509 3701 9922</div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- Diaspora Covenant Banner -->
+    <section class="mt-8 sm:mt-10">
+      <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#E7F8F0] text-[#00BA88] flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-[#061C3D]">Diaspora Covenant Signed</div>
+            <div class="text-xs text-slate-500">Your investment covenant is digitally verified and secured under TLS 256-bit encryption.</div>
+          </div>
+        </div>
+        <a href="payment receipt.html" class="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold text-[#061C3D] bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors shrink-0">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          <span>Download Signed Digital Covenant</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div data-include="footer"></div>
+
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    /* Stable navigation routing — same as home.html */
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('a,button');
+      if (!el) return;
+      var text = (el.innerText || '').trim().replace(/\s+/g, ' ').toLowerCase();
+      var routes = {
+        'home': 'home.html', 'news': 'news.html', 'news & updates': 'news.html',
+        'about': 'home.html#about', 'about us': 'home.html#about', 'about information': 'home.html#about',
+        'contact': 'contact.html', 'contact us': 'contact.html',
+        'investor login': 'login investor.html', 'log in': 'login investor.html',
+        'dashboard': 'investor dashboard.html', 'my profile': 'investor profile.html',
+        'make investment': 'payment 1.html', 'new investment': 'payment 1.html',
+        'go to dashboard': 'investor dashboard.html', 'go to profile dashboard': 'investor profile.html',
+        'logout': 'login investor.html', 'register': 'register (2).html',
+        'payment receipt': 'payment receipt.html'
+      };
+      if (routes[text] && (el.tagName === 'BUTTON' || el.getAttribute('href') === '#' || !el.getAttribute('href'))) {
+        e.preventDefault(); window.location.href = routes[text];
+      }
+    });
+  </script>
+  <script>
+    (function () {
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest('a,button'); if (!el) return;
+        if (el.hasAttribute('data-ifc-lang')) return;
+        var r = el.getAttribute('data-ifc-route');
+        if (r) { e.preventDefault(); window.location.href = r; }
+      });
+    })();
+  </script>
+</body>
+</html>
