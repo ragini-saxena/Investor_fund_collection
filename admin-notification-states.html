@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Notification States - Investors Funds Collection S.A.</title>
+  <meta content="High-fidelity breakdown showing the 4 responsive operational notification states within the administrative portal." name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[#061025] text-slate-200 antialiased min-h-screen flex flex-col md:flex-row selection:bg-[#D92534] selection:text-white">
+  <!-- Left Navigation Sidebar Partial -->
+  <div data-include="admin-sidebar"></div>
+
+  <!-- Main Container -->
+  <main class="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto min-w-0">
+    <!-- Top Title Section -->
+    <div class="mb-8">
+      <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-950/60 text-[#D92534] border border-red-900/40 mb-2">
+        SECURITY &amp; OPERATIONS PORTAL
+      </div>
+      <h1 class="text-2xl sm:text-[32px] font-extrabold text-white tracking-tight">
+        Admin Notification States
+      </h1>
+      <p class="text-slate-400 text-sm mt-1 font-normal max-w-3xl">
+        High-fidelity breakdown showing the 4 responsive operational notification states within the main administrative header.
+      </p>
+    </div>
+
+    <div class="space-y-8 max-w-5xl">
+      <!-- STATE 1 -->
+      <div class="bg-[#0D1B30] rounded-2xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-slate-800 text-slate-300 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            STATE 1
+          </span>
+          <span class="text-sm sm:text-base font-bold text-slate-200">
+            No New Messages (Standard Inactive State)
+          </span>
+        </div>
+        <div class="bg-[#071325] rounded-xl border border-slate-700/60 px-6 py-4 flex justify-between items-center">
+          <span class="text-xs sm:text-sm font-semibold text-slate-400">Operational Header Preview</span>
+          <div class="flex items-center gap-2 text-slate-400 text-xs sm:text-sm font-medium">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span>No new messages</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE 2 -->
+      <div class="bg-[#0D1B30] rounded-2xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-amber-950 text-amber-400 border border-amber-900/50 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            STATE 2
+          </span>
+          <span class="text-sm sm:text-base font-bold text-slate-200">
+            1 New Message (Subtle Warning Active)
+          </span>
+        </div>
+        <div class="bg-[#071325] rounded-xl border border-slate-700/60 px-6 py-4 flex justify-between items-center">
+          <span class="text-xs sm:text-sm font-semibold text-slate-400">Operational Header Preview</span>
+          <div class="flex items-center gap-2 text-[#D92534] text-xs sm:text-sm font-semibold cursor-pointer">
+            <div class="relative">
+              <svg class="w-5 h-5 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#D92534] text-white text-[9px] font-bold flex items-center justify-center">
+                1
+              </span>
+            </div>
+            <span>1 New Message</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE 3 -->
+      <div class="bg-[#0D1B30] rounded-2xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-red-950 text-red-400 border border-red-900/50 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            STATE 3
+          </span>
+          <span class="text-sm sm:text-base font-bold text-slate-200">
+            Multiple New Messages (Elevated Urgent Count)
+          </span>
+        </div>
+        <div class="bg-[#071325] rounded-xl border border-slate-700/60 px-6 py-4 flex justify-between items-center">
+          <span class="text-xs sm:text-sm font-semibold text-slate-400">Operational Header Preview</span>
+          <div class="flex items-center gap-2.5 text-[#D92534] text-xs sm:text-sm font-bold cursor-pointer">
+            <span>5 New Messages</span>
+            <div class="relative">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#D92534] text-white text-[9px] font-bold flex items-center justify-center">
+                5
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE 4 -->
+      <div class="bg-[#0D1B30] rounded-2xl border border-slate-800 p-6 sm:p-7 shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="bg-red-950 text-red-400 border border-red-900/50 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            STATE 4
+          </span>
+          <span class="text-sm sm:text-base font-bold text-slate-200">
+            Dropdown Message Panel Expanded (Full Viewport Detail)
+          </span>
+        </div>
+        
+        <div class="bg-[#071325] rounded-xl border border-slate-700/60 p-6 relative min-h-[380px]">
+          <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+            <span class="text-xs sm:text-sm font-bold text-slate-300">Investors Funds Operational Portal</span>
+            <div class="flex items-center gap-2 text-[#D92534] text-xs font-bold">
+              <div class="relative">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+                <span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#D92534] text-white text-[9px] font-bold flex items-center justify-center">3</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expanded Dropdown Panel Mockup -->
+          <div class="max-w-sm w-full ml-auto mt-4 bg-[#0D1B30] border border-blue-900/60 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="flex justify-between items-center px-4 py-3.5 bg-[#102340] border-b border-slate-800">
+              <span class="text-xs font-bold text-white uppercase tracking-wider">Recent Operational Messages</span>
+              <button class="text-[10px] font-bold text-red-400 hover:text-red-300 cursor-pointer" onclick="alert('Marking all operational messages as read...')" type="button">
+                MARK READ
+              </button>
+            </div>
+
+            <div class="divide-y divide-slate-800 text-xs">
+              <!-- Message 1 -->
+              <div class="p-3.5 hover:bg-slate-800/40 transition-colors cursor-pointer" onclick="window.location.href='admin-registered-investors.html'">
+                <div class="flex justify-between items-center mb-1">
+                  <div class="flex items-center gap-1.5 font-bold text-white">
+                    <span class="w-2 h-2 rounded-full bg-[#D92534]"></span>
+                    <span>Jean-Luc Baptiste</span>
+                  </div>
+                  <span class="text-[10px] text-slate-500 font-medium">12 min ago</span>
+                </div>
+                <div class="font-semibold text-slate-300 mb-0.5">Inquiry: High-Yield Tiers Information</div>
+                <p class="text-slate-400 text-[11px] line-clamp-1">Looking to confirm maturity periods and secured pooling options...</p>
+              </div>
+
+              <!-- Message 2 -->
+              <div class="p-3.5 hover:bg-slate-800/40 transition-colors cursor-pointer" onclick="window.location.href='admin-registered-investors.html'">
+                <div class="flex justify-between items-center mb-1">
+                  <div class="flex items-center gap-1.5 font-bold text-white">
+                    <span class="w-2 h-2 rounded-full bg-[#D92534]"></span>
+                    <span>Marie Carmel</span>
+                  </div>
+                  <span class="text-[10px] text-slate-500 font-medium">1 hour ago</span>
+                </div>
+                <div class="font-semibold text-slate-300 mb-0.5">Pending Deposit Verification</div>
+                <p class="text-slate-400 text-[11px] line-clamp-1">Verification document has been uploaded for evaluation review...</p>
+              </div>
+
+              <!-- Message 3 -->
+              <div class="p-3.5 hover:bg-slate-800/40 transition-colors cursor-pointer opacity-70" onclick="window.location.href='admin-registered-investors.html'">
+                <div class="flex justify-between items-center mb-1">
+                  <div class="flex items-center gap-1.5 font-bold text-slate-300">
+                    <span>Pierre Richard</span>
+                  </div>
+                  <span class="text-[10px] text-slate-500 font-medium">Yesterday</span>
+                </div>
+                <div class="font-semibold text-slate-300 mb-0.5">Haitian Commercial Registry Docs</div>
+                <p class="text-slate-400 text-[11px] line-clamp-1">The documentation has been matched with our Port-au-Prince file...</p>
+              </div>
+            </div>
+
+            <div class="p-3 text-center bg-[#071325] border-t border-slate-800">
+              <a class="text-xs font-bold text-blue-400 hover:text-blue-300 transition-colors" href="contact-messaging.html">
+                View All Messages &gt;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+</body>
+</html>

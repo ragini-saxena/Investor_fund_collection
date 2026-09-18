@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Potential Investors - Admin Panel | Investors Funds S.A.</title>
+  <meta content="Review and manage potential constituent investors under Haitian Commercial Covenants." name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col md:flex-row selection:bg-[#D92534] selection:text-white">
+  <!-- Left Navigation Sidebar Partial -->
+  <div data-include="admin-sidebar"></div>
+
+  <!-- Main Admin Content Area -->
+  <main class="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto min-w-0">
+    <!-- Top Title Section -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight">
+          Potential Investors
+        </h1>
+        <p class="text-slate-500 text-sm mt-1 font-normal">
+          Constituents who registered intent under Haitian Commercial Registry covenants (342 total records).
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a class="px-5 py-2.5 rounded-xl bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs sm:text-sm font-bold transition-all shadow-xs flex items-center gap-2" href="contact-messaging.html">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+          <span>Broadcast to All</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Investors Table Card -->
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="relative max-w-sm w-full">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+          <input class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-[#F8FAFC] text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D]" placeholder="Filter by name, ID or email..." type="text" />
+        </div>
+        <span class="text-xs text-slate-500 font-medium">Showing 4 of 342 potential investors</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 border-b border-slate-100">
+              <th class="py-3.5 px-6 font-bold">INVESTOR</th>
+              <th class="py-3.5 px-4 font-bold">ALLOCATED ID</th>
+              <th class="py-3.5 px-4 font-bold">PLEDGED VOLUME</th>
+              <th class="py-3.5 px-4 font-bold">STATUS</th>
+              <th class="py-3.5 px-6 text-right font-bold">ACTION</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-4 px-6 font-semibold text-slate-900">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-[#EBF3FC] text-[#061C3D] font-bold text-xs flex items-center justify-center shrink-0">
+                    ML
+                  </div>
+                  <div>
+                    <a class="font-bold text-[#061C3D] hover:text-[#D92534] transition-colors" href="admin-registered-investors.html">Marie Laurant</a>
+                    <div class="text-[11px] text-slate-500 font-normal">mlaurant@diaspora.org</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-P091</td>
+              <td class="py-4 px-4 font-bold text-slate-900">$250,000 USD</td>
+              <td class="py-4 px-4">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold">Active Investor</span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <a class="px-3.5 py-1.5 rounded-lg bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold transition-all" href="admin-registered-investors.html">
+                  View Profile
+                </a>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-4 px-6 font-semibold text-slate-900">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    JD
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#061C3D]">Jean Dupuy</span>
+                    <div class="text-[11px] text-slate-500 font-normal">jean.dupuy@example.com</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-8291-HT</td>
+              <td class="py-4 px-4 font-bold text-slate-900">$1,100 – $1,500 USD</td>
+              <td class="py-4 px-4">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-bold">Onboarding Pending</span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
+                  Message
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-4 px-6 font-semibold text-slate-900">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    JL
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#061C3D]">Jean-Luc Baptiste</span>
+                    <div class="text-[11px] text-slate-500 font-normal">j.baptiste@trusthaiti.ht</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-9921-HT</td>
+              <td class="py-4 px-4 font-bold text-slate-900">$50,000 USD</td>
+              <td class="py-4 px-4">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold">Tier 2 Inquired</span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
+                  Message
+                </button>
+              </td>
+            </tr>
+
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-4 px-6 font-semibold text-slate-900">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
+                    MC
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#061C3D]">Marie Carmel</span>
+                    <div class="text-[11px] text-slate-500 font-normal">carmel.m@portauprince.org</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-3194-HT</td>
+              <td class="py-4 px-4 font-bold text-slate-900">$10,000 USD</td>
+              <td class="py-4 px-4">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 text-xs font-bold">Deposit Pending</span>
+              </td>
+              <td class="py-4 px-6 text-right">
+                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
+                  Message
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+</body>
+</html>

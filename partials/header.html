@@ -1,3 +1,104 @@
+<style>
+  .ifc-language-toolbar {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+  }
+
+  .ifc-language-option {
+    width: 82px;
+    min-width: 82px;
+    border: 1px solid #dbe3ee;
+    background: #fff;
+    color: #475569;
+    border-radius: 8px;
+    padding: 6px 7px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+    font: 700 11px/1.1 Arial, sans-serif;
+  }
+
+  .ifc-language-option:hover {
+    background: #eef5ff;
+    border-color: #8fb5e8;
+    color: #061c3d;
+    transform: translateY(-1px);
+  }
+
+  .ifc-language-option.is-selected {
+    background: #061c3d;
+    border-color: #061c3d;
+    color: #fff;
+  }
+
+  .ifc-flag {
+    width: 34px;
+    height: 24px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+  }
+
+  .ifc-flag.ht {
+    background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+  }
+
+  .ifc-flag.fr {
+    background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+  }
+
+  .ifc-flag.us {
+    background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+  }
+
+  .ifc-flag.us:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48%;
+    height: 54%;
+    background: #3c3b6e;
+  }
+
+  .ifc-flag.us:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    box-shadow:
+      6px 0 #fff, 12px 0 #fff, 18px 0 #fff,
+      3px 4px #fff, 9px 4px #fff, 15px 4px #fff,
+      21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+  }
+
+  @media(max-width:700px) {
+    .ifc-language-toolbar {
+      gap: 5px;
+      padding: 5px;
+    }
+
+    .ifc-language-option {
+      width: 68px;
+      min-width: 68px;
+    }
+  }
+</style>
 <header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
     <!-- Brand Logo -->

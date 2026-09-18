@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Dashboard - Investors Funds Collection S.A.</title>
+  <meta content="Investors Funds Collection S.A. Operational Portal Admin Dashboard" name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col md:flex-row selection:bg-[#D92534] selection:text-white">
+  <!-- Left Navigation Sidebar Partial -->
+  <div data-include="admin-sidebar"></div>
+
+  <!-- Main Admin Content Area -->
+  <main class="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto min-w-0">
+    <!-- Top Header Row -->
+    <div class="mb-8">
+      <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight">
+        Admin Dashboard
+      </h1>
+      <p class="text-slate-500 text-sm mt-1 font-normal">
+        Investors Funds Collection S.A. Operational Portal
+      </p>
+    </div>
+
+    <!-- 4 Metric Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+      <!-- Card 1: Total Visitors -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold tracking-wider text-slate-500 uppercase">
+              TOTAL VISITORS
+            </span>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            12,482
+          </div>
+          <div class="text-xs text-slate-500 font-medium mt-1">
+            ↑ 14.5% vs last week
+          </div>
+        </div>
+        <!-- Sparkline Graphic -->
+        <div class="mt-4 pt-1">
+          <svg class="w-full h-8 overflow-visible" fill="none" viewBox="0 0 160 28">
+            <path d="M0 20 C 18 20, 24 16, 38 18 C 52 20, 60 25, 74 19 C 88 13, 98 16, 114 12 C 130 8, 142 15, 160 6" stroke="#dc2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 2: Potential Investors -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold tracking-wider text-slate-500 uppercase">
+              POTENTIAL INVESTORS
+            </span>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            342
+          </div>
+        </div>
+        <div class="text-xs text-slate-500 font-medium mt-6">
+          Selected volume: $4,850,000
+        </div>
+      </div>
+
+      <!-- Card 3: Total Investors -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold tracking-wider text-slate-500 uppercase">
+              TOTAL INVESTORS
+            </span>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            1,829
+          </div>
+        </div>
+        <div class="text-xs text-slate-500 font-medium mt-6">
+          Matured funds: $24,800,000
+        </div>
+      </div>
+
+      <!-- Card 4: Total Funds Received -->
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold tracking-wider text-slate-500 uppercase">
+              TOTAL FUNDS RECEIVED
+            </span>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+            </svg>
+          </div>
+          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            $29,650,000
+          </div>
+        </div>
+        <div class="text-xs text-slate-500 font-medium mt-6">
+          Diaspora: 68% • Local: 32%
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly Traffic & Conversion Statistics Card -->
+    <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs">
+      <!-- Card Header -->
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+          Weekly Traffic &amp; Conversion Statistics
+        </h2>
+        <div class="relative">
+          <button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 shadow-2xs transition-colors" type="button">
+            <span>This Week</span>
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bar Chart Area -->
+      <div class="relative h-64 sm:h-72 w-full pt-4 pb-2">
+        <!-- Grid lines and Y axis numbers -->
+        <div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-8 text-xs text-slate-400 font-medium">
+          <div class="flex items-center">
+            <span class="w-8 text-right pr-3">800</span>
+            <div class="flex-1 border-b border-transparent"></div>
+          </div>
+          <div class="flex items-center">
+            <span class="w-8 text-right pr-3">400</span>
+            <div class="flex-1 border-b border-slate-100"></div>
+          </div>
+          <div class="flex items-center">
+            <span class="w-8 text-right pr-3">0</span>
+            <div class="flex-1 border-b border-slate-100"></div>
+          </div>
+        </div>
+
+        <!-- Bars container -->
+        <div class="h-full pl-10 sm:pl-12 pr-4 flex items-end justify-between pb-8">
+          <!-- Wk 1 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              230 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 28.75%; background-color: #0b234b;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 1</span>
+          </div>
+
+          <!-- Wk 2 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              370 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 46.25%; background-color: #d92534;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 2</span>
+          </div>
+
+          <!-- Wk 3 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              290 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 36.25%; background-color: #0b234b;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 3</span>
+          </div>
+
+          <!-- Wk 4 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              450 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 56.25%; background-color: #d92534;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 4</span>
+          </div>
+
+          <!-- Wk 5 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              490 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 61.25%; background-color: #0b234b;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 5</span>
+          </div>
+
+          <!-- Wk 6 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              410 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 51.25%; background-color: #d92534;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 6</span>
+          </div>
+
+          <!-- Wk 7 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              630 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 78.75%; background-color: #0b234b;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 7</span>
+          </div>
+
+          <!-- Wk 8 -->
+          <div class="flex flex-col items-center flex-1 max-w-[80px] h-full justify-end group cursor-pointer">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] bg-slate-900 text-white px-2 py-0.5 rounded-md mb-1.5 whitespace-nowrap font-medium pointer-events-none">
+              610 visits
+            </div>
+            <div class="w-5 sm:w-7 md:w-8 rounded-t-md transition-all duration-500 group-hover:opacity-90" style="height: 76.25%; background-color: #d92534;"></div>
+            <span class="text-xs text-slate-500 font-medium mt-3">Wk 8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+</body>
+</html>

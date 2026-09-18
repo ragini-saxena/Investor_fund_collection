@@ -1,291 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investor ID Confirmation - Investors Funds Collection S.A.</title>
-<meta name="description" content="Investor ID confirmation and secure communication interface for Investors Funds Collection S.A.">
-<style>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Messages &amp; Broadcast Dispatch Hub - Investors Funds Collection S.A.</title>
+  <meta content="Operational modals for direct constituent communication and mass secure registry notifications for Investors Funds Collection S.A." name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS Runtime -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+  </style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
 
-        body {
-            background-color: #061025;
-            color: #ffffff;
-            padding: 40px 20px;
-        }
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
 
-        /* Top Header */
-        .top-tag {
-            font-size: 10px;
-            font-weight: 700;
-            color: #dc2626;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
 
-        h1 {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            color: #ffffff;
-        }
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
 
-        .subtitle {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 40px;
-        }
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
 
-        /* 2-Column Grid for Modals */
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            align-items: start;
-        }
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
 
-        .modal-card {
-            background-color: #0d1b3a;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
 
-        .modal-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 14px;
-        }
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
 
-        .modal-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #ffffff;
-        }
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow:
+        6px 0 #fff, 12px 0 #fff, 18px 0 #fff,
+        3px 4px #fff, 9px 4px #fff, 15px 4px #fff,
+        21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
 
-        .close-btn {
-            font-size: 16px;
-            color: #64748b;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
+    @media(max-width:700px) {
+      .ifc-language-toolbar {
+        gap: 5px;
+        padding: 5px;
+      }
 
-        /* Form Controls */
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .input-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #94a3b8;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .form-control-box {
-            background-color: #111e38;
-            border: 1px solid #1e293b;
-            border-radius: 6px;
-            padding: 10px 14px;
-            font-size: 12px;
-            color: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .form-control-textarea {
-            background-color: #111e38;
-            border: 1px solid #1e293b;
-            border-radius: 6px;
-            padding: 12px 14px;
-            font-size: 12px;
-            color: #94a3b8;
-            min-height: 80px;
-            resize: none;
-            line-height: 1.5;
-        }
-
-        .recipient-badge {
-            background-color: #172554;
-            color: #60a5fa;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 10px;
-            border: 1px solid #1e3a8a;
-        }
-
-        .dropdown-chevron {
-            color: #64748b;
-            font-size: 10px;
-        }
-
-        /* Action Buttons Row */
-        .modal-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-            border-top: 1px solid #1e293b;
-            padding-top: 16px;
-            margin-top: 4px;
-        }
-
-        .btn-cancel {
-            background-color: transparent;
-            border: 1px solid #334155;
-            color: #cbd5e1;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .btn-dispatch {
-            background-color: #dc2626;
-            border: none;
-            color: #ffffff;
-            padding: 8px 20px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-        }
-
-        .btn-dispatch:hover {
-            background-color: #b91c1c;
-        }
-    
-/* Keep the supplied reference presentation while using the shared site shell. */
-body { margin:0; background-color:#061025; color:#fff; }
-.page-content { padding:40px 20px 64px; }
-@media (max-width:700px) { .page-content { padding:28px 14px 48px; } .grid-2-col { grid-template-columns:1fr; } }
-</style>
+      .ifc-language-option {
+        width: 68px;
+        min-width: 68px;
+      }
+    }
+  </style>
 </head>
-<body>
-<div data-include="header"></div>
-<main class="page-content">
-<div class="container">
-<div class="top-tag">INVESTORS FUNDS COLLECTION S.A.</div>
-<h1>Admin Messages &amp; Broadcast Dispatch Hub</h1>
-<div class="subtitle">Operational modals for direct constituent communication and mass secure registry notifications.</div>
-<div class="grid-2-col">
-<div class="modal-card">
-<div class="modal-header-row">
-<span class="modal-title">Compose Message to Investor</span>
-<button class="close-btn">×</button>
-</div>
-<div class="input-group">
-<span class="input-label">To Recipient</span>
-<div class="form-control-box">
-<span>Marie Laurant (mlaurant@diaspora.org)</span>
-</div>
-</div>
-<div class="input-group">
-<span class="input-label">Subject</span>
-<div class="form-control-box" style="color: #cbd5e1;">
-<span>Inquiry Regarding Return Destination Card Verification</span>
-</div>
-</div>
-<div class="input-group">
-<span class="input-label">Message Body</span>
-<div class="form-control-textarea">Dear Marie, we have received your request regarding refund transaction hash REF-28391-HT. Our team is verifying your Visa card details (*9012) to expedite the $1,500.00 USD release.</div>
-</div>
-<div class="modal-actions">
-<button class="btn-cancel">Cancel</button>
-<button class="btn-dispatch">Send Message</button>
-</div>
-</div>
-<div class="modal-card">
-<div class="modal-header-row">
-<span class="modal-title">Mass Broadcast Dispatch</span>
-<button class="close-btn">×</button>
-</div>
-<div class="input-group">
-<span class="input-label">Recipient Group Selector</span>
-<div class="form-control-box">
-<span style="color: #cbd5e1;">All Potential Investors</span>
-<span class="recipient-badge">247 recipients</span>
-</div>
-</div>
-<div class="input-group">
-<span class="input-label">Subject</span>
-<div class="form-control-box" style="color: #cbd5e1;">
-<span>Important Update: Capital Repatriation &amp; Secured Registry Status</span>
-</div>
-</div>
-<div class="input-group">
-<span class="input-label">Broadcast Content</span>
-<div class="form-control-textarea">Valued Investors, please be advised that our secure portal at Pétion-Ville has updated all ledger balances. You can now verify your ID numbers and review return receipts through the portal interface.</div>
-</div>
-<div class="modal-actions">
-<button class="btn-cancel">Cancel</button>
-<button class="btn-dispatch">Dispatch Broadcast</button>
-</div>
-</div>
-</div>
-</div>
 
-</main>
-<div data-include="footer"></div>
-<script src="js/include.js"></script>
-<script src="js/translations.js"></script>
-<script>
-(function () {
-  document.addEventListener('click', function (event) {
-    const button = event.target.closest('button');
-    if (!button) return;
-    const card = button.closest('.modal-card');
-    if (!card) return;
-    const text = (button.textContent || '').trim().toLowerCase();
-    if (text === '×' || text === 'cancel') {
-      card.style.display = 'none';
-    }
-    if (text === 'send message' || text === 'dispatch broadcast') {
-      button.disabled = true;
-      button.textContent = 'Sent Successfully';
-      button.style.backgroundColor = '#059669';
-    }
-  });
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-[#D92534] selection:text-white">
+  <!-- Shared Top Header -->
+  <div data-include="header"></div>
 
-  const headerTarget = document.querySelector('[data-include="header"]');
-  if (headerTarget) {
-    const observer = new MutationObserver(function () {
-      const links = headerTarget.querySelectorAll('nav a');
-      if (!links.length) return;
-      links.forEach(function (link) {
-        link.classList.remove('font-bold', 'text-[#061C3D]', 'relative');
-        link.classList.add('text-slate-600', 'font-medium');
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <!-- Top Header & Introduction -->
+    <div class="mb-8 sm:mb-10">
+      <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-50 text-[#D92534] border border-red-100 mb-3">
+        INVESTORS FUNDS COLLECTION S.A.
+      </div>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#061C3D] tracking-tight mb-2">
+        Admin Messages &amp; Broadcast Dispatch Hub
+      </h1>
+      <p class="text-slate-500 text-sm sm:text-base leading-relaxed max-w-3xl">
+        Operational modals for direct constituent communication and mass secure registry notifications.
+      </p>
+    </div>
+
+    <!-- 2-Column Responsive Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+      
+      <!-- Card 1: Direct Message Modal -->
+      <div class="modal-card bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm flex flex-col gap-6 transition-all">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#EBF3FC] text-[#061C3D] flex items-center justify-center shrink-0 border border-blue-100/50">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-bold text-base sm:text-lg text-[#061C3D] tracking-tight">Compose Message to Investor</h2>
+              <p class="text-xs text-slate-400">Direct encrypted transmission to recipient</p>
+            </div>
+          </div>
+          <button class="close-btn text-slate-400 hover:text-slate-600 transition-colors p-1.5 rounded-lg hover:bg-slate-100" type="button" aria-label="Close modal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="msgRecipient">To Recipient</label>
+            <div class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-800 font-medium flex items-center justify-between">
+              <span id="msgRecipient">Marie Laurant (mlaurant@diaspora.org)</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#EBF3FC] text-[#061C3D] border border-blue-100">
+                Verified Investor
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="msgSubject">Subject</label>
+            <input class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-800 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] focus:bg-white transition-all" id="msgSubject" type="text" value="Inquiry Regarding Return Destination Card Verification" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="msgBody">Message Body</label>
+            <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-700 leading-relaxed placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] focus:bg-white transition-all min-h-[110px] resize-none" id="msgBody">Dear Marie, we have received your request regarding refund transaction hash REF-28391-HT. Our team is verifying your Visa card details (*9012) to expedite the $1,500.00 USD release.</textarea>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+          <button class="btn-cancel px-5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer" type="button">
+            Cancel
+          </button>
+          <button class="btn-dispatch px-6 py-2.5 rounded-xl bg-[#D92534] hover:bg-[#B91C1C] active:scale-[0.99] text-white text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer flex items-center gap-2" type="button">
+            <span>Send Message</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Broadcast Modal -->
+      <div class="modal-card bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm flex flex-col gap-6 transition-all">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-red-50 text-[#D92534] flex items-center justify-center shrink-0 border border-red-100/60">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-bold text-base sm:text-lg text-[#061C3D] tracking-tight">Mass Broadcast Dispatch</h2>
+              <p class="text-xs text-slate-400">Registry-wide constituent notification</p>
+            </div>
+          </div>
+          <button class="close-btn text-slate-400 hover:text-slate-600 transition-colors p-1.5 rounded-lg hover:bg-slate-100" type="button" aria-label="Close modal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="broadcastRecipients">Recipient Group Selector</label>
+            <div class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-800 font-medium flex items-center justify-between">
+              <span id="broadcastRecipients">All Potential Investors</span>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#061C3D] text-white">
+                247 recipients
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="broadcastSubject">Subject</label>
+            <input class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-800 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] focus:bg-white transition-all" id="broadcastSubject" type="text" value="Important Update: Capital Repatriation &amp; Secured Registry Status" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="broadcastBody">Broadcast Content</label>
+            <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-[#F8FAFC] text-sm text-slate-700 leading-relaxed placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] focus:bg-white transition-all min-h-[110px] resize-none" id="broadcastBody">Valued Investors, please be advised that our secure portal at Pétion-Ville has updated all ledger balances. You can now verify your ID numbers and review return receipts through the portal interface.</textarea>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+          <button class="btn-cancel px-5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer" type="button">
+            Cancel
+          </button>
+          <button class="btn-dispatch px-6 py-2.5 rounded-xl bg-[#061C3D] hover:bg-[#0B254E] active:scale-[0.99] text-white text-xs sm:text-sm font-bold shadow-sm transition-all cursor-pointer flex items-center gap-2" type="button">
+            <span>Dispatch Broadcast</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Shared Bottom Footer -->
+  <div data-include="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    (function () {
+      document.addEventListener('click', function (event) {
+        const button = event.target.closest('button');
+        if (!button) return;
+        const card = button.closest('.modal-card');
+        if (!card) return;
+        
+        if (button.classList.contains('close-btn') || button.classList.contains('btn-cancel')) {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(-10px)';
+          setTimeout(function () {
+            card.style.display = 'none';
+          }, 200);
+        }
+        
+        if (button.classList.contains('btn-dispatch')) {
+          button.disabled = true;
+          button.innerHTML = `
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            <span>Sent Successfully</span>
+          `;
+          button.className = button.className.replace(/bg-\[#\w+\]|hover:bg-\[#\w+\]/g, '') + ' bg-emerald-600 hover:bg-emerald-700 text-white cursor-default';
+        }
       });
-      observer.disconnect();
-    });
-    observer.observe(headerTarget, { childList:true, subtree:true });
-  }
-})();
-</script>
+    })();
+  </script>
 </body>
 </html>

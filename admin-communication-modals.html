@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Communication Modals - Investors Funds Collection S.A.</title>
+  <meta content="Operational modals for direct constituent communication and mass secure registry notifications." name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col md:flex-row selection:bg-[#D92534] selection:text-white">
+  <!-- Left Navigation Sidebar Partial -->
+  <div data-include="admin-sidebar"></div>
+
+  <!-- Main Container -->
+  <main class="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto min-w-0">
+    <!-- Page Title Section -->
+    <div class="mb-8">
+      <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-50 text-[#D92534] border border-red-100 mb-2">
+        OPERATIONS BOARD
+      </div>
+      <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight">
+        Screen 2 — Admin Communication Modals
+      </h1>
+      <p class="text-slate-500 text-sm mt-1 font-normal max-w-3xl">
+        Manage personalized notifications and mass broadcasts across the Diaspora Trust Network.
+      </p>
+    </div>
+
+    <!-- 3-Column Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+      
+      <!-- Card 1: Single Recipient Message (State 1) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xs border border-slate-200/90 text-slate-800 flex flex-col justify-between transition-all">
+        <div>
+          <div class="flex justify-between items-center pb-3 mb-4 border-b border-slate-100">
+            <h2 class="text-base font-bold text-slate-900 tracking-tight">Single Recipient Message</h2>
+            <span class="text-xs font-bold text-[#1d4ed8] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">State 1</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="toField">To Field</label>
+              <div class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 flex items-center justify-between">
+                <span id="toField">Marie Laurant (mlaurant@diaspora.org)</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="subjField1">Subject</label>
+              <input class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all" id="subjField1" placeholder="Enter message subject..." type="text" value="Inquiry Regarding Return Destination Card Verification" />
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="bodyField1">Message Preview</label>
+              <textarea class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-600 leading-relaxed placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all min-h-[85px] resize-none" id="bodyField1">Dear Marie, we have received your request regarding refund transaction hash REF-28391-HT. Our team is verifying your Visa card details (*9012) to expedite the release.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-slate-100 flex justify-end gap-2.5">
+          <button class="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all cursor-pointer" type="button">
+            Cancel
+          </button>
+          <button class="px-5 py-2 rounded-xl bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Message dispatched securely to Marie Laurant.')" type="button">
+            Send Message
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2: Mass Broadcast Dispatch (State 2) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xs border border-slate-200/90 text-slate-800 flex flex-col justify-between transition-all">
+        <div>
+          <div class="flex justify-between items-center pb-3 mb-4 border-b border-slate-100">
+            <h2 class="text-base font-bold text-slate-900 tracking-tight">Mass Broadcast Dispatch</h2>
+            <span class="text-xs font-bold text-[#1d4ed8] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-100">State 2</span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="groupSelector">Recipient Group Selector</label>
+              <div class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 flex items-center justify-between" id="groupSelector">
+                <span>All Potential Investors</span>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#EBF3FC] text-[#061C3D] border border-blue-100">
+                  247 recipients
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="subjField2">Subject</label>
+              <input class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all" id="subjField2" placeholder="Enter broadcast subject..." type="text" value="Important Update: Capital Repatriation & Secured Registry Status" />
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="bodyField2">Broadcast Content</label>
+              <textarea class="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-600 leading-relaxed placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D] transition-all min-h-[85px] resize-none" id="bodyField2">Valued Investors, please be advised that our secure portal at Pétion-Ville has updated all ledger balances. You can now verify your ID numbers and review return receipts through the portal interface.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-slate-100 flex justify-end gap-2.5">
+          <button class="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all cursor-pointer" type="button">
+            Cancel
+          </button>
+          <button class="px-5 py-2 rounded-xl bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Mass broadcast scheduled to 247 recipients.')" type="button">
+            Dispatch Broadcast
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3: Warning: Safe Dispatch (State 3) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xs border border-slate-200/90 text-slate-800 flex flex-col justify-between transition-all">
+        <div>
+          <div class="flex justify-between items-center pb-3 mb-4 border-b border-slate-100">
+            <h2 class="text-base font-bold text-slate-900 tracking-tight">Warning: Safe Dispatch</h2>
+            <span class="text-xs font-bold text-[#b45309] bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-100">State 3</span>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Warning Banner -->
+            <div class="bg-red-50 border border-red-200 rounded-xl p-4 flex gap-3.5 items-start">
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-[#D92534] flex items-center justify-center shrink-0 font-bold">
+                ⚠️
+              </div>
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-red-900 mb-1">
+                  Confirm Target Group Size
+                </h3>
+                <p class="text-xs text-red-700 leading-relaxed">
+                  You are about to send this customized broadcast to <strong>247 recipients</strong>. Once released, transmission cannot be reversed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Target Summary -->
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-2 text-xs">
+              <div class="flex justify-between text-slate-600">
+                <span>Estimated Deliverability:</span>
+                <span class="font-bold text-slate-900">99.8%</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>Channels Active:</span>
+                <span class="font-bold text-slate-900">Email, SMS, Portal Push</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>Registry Covenant:</span>
+                <span class="font-bold text-emerald-700">Audit Logged (Level 4)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-slate-100 flex justify-end gap-2.5">
+          <button class="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-all cursor-pointer" type="button">
+            Go Back
+          </button>
+          <button class="px-5 py-2 rounded-xl bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs font-bold shadow-xs transition-all cursor-pointer" onclick="alert('Confirmed: Mass Broadcast Authorized and Dispatched to 247 constituents.')" type="button">
+            Confirm &amp; Send
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+</body>
+</html>

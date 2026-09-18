@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Login - Portal Management - Investors Funds Collection S.A.</title>
+  <meta content="Restricted administrative access for Investors Funds Collection S.A. Portal Management." name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  </style>
+  
+  <style id="ifc-language-toolbar">
+    .ifc-language-toolbar {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(6, 28, 61, .10);
+    }
+    .ifc-language-option {
+      width: 82px;
+      min-width: 82px;
+      border: 1px solid #dbe3ee;
+      background: #fff;
+      color: #475569;
+      border-radius: 8px;
+      padding: 6px 7px 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+      font: 700 11px/1.1 Arial, sans-serif;
+    }
+    .ifc-language-option:hover {
+      background: #eef5ff;
+      border-color: #8fb5e8;
+      color: #061c3d;
+      transform: translateY(-1px);
+    }
+    .ifc-language-option.is-selected {
+      background: #061c3d;
+      border-color: #061c3d;
+      color: #fff;
+    }
+    .ifc-flag {
+      width: 34px;
+      height: 24px;
+      border-radius: 3px;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    }
+    .ifc-flag.ht {
+      background: linear-gradient(to bottom, #0038a8 0 50%, #d21034 50% 100%);
+    }
+    .ifc-flag.fr {
+      background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+    }
+    .ifc-flag.us {
+      background: repeating-linear-gradient(to bottom, #b22234 0 9%, #fff 9% 18%);
+    }
+    .ifc-flag.us:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 54%;
+      background: #3c3b6e;
+    }
+    .ifc-flag.us:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 3px;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      box-shadow:
+        6px 0 #fff, 12px 0 #fff, 18px 0 #fff,
+        3px 4px #fff, 9px 4px #fff, 15px 4px #fff,
+        21px 4px #fff, 6px 8px #fff, 12px 8px #fff, 18px 8px #fff;
+    }
+    @media(max-width:700px) {
+      .ifc-language-toolbar { gap: 5px; padding: 5px; }
+      .ifc-language-option { width: 68px; min-width: 68px; }
+    }
+  </style>
+</head>
+
+<body class="bg-[#071325] text-slate-200 antialiased min-h-screen flex flex-col justify-between selection:bg-[#D92534] selection:text-white">
+  <div>
+    <!-- ================================================================= -->
+    <!-- ADMIN HEADER                                                      -->
+    <!-- ================================================================= -->
+    <header class="sticky top-0 z-40 bg-[#071325] border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Left: Brand Logo + PORTAL MANAGEMENT Badge -->
+        <div class="flex items-center gap-3.5">
+          <a class="flex items-center gap-3.5 group text-left" href="home.html">
+            <div class="w-9 h-9 rounded-lg bg-[#0F284F] p-1.5 flex items-center justify-center shadow-xs border border-blue-400/20 group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-xs flex overflow-hidden border border-white/20">
+                <div class="w-1/2 h-full bg-[#0038A8]"></div>
+                <div class="w-1/2 h-full bg-[#D21034]"></div>
+              </div>
+            </div>
+            <span class="text-white font-extrabold text-lg sm:text-xl tracking-tight">
+              Investors Funds Collection
+            </span>
+          </a>
+          <!-- PORTAL MANAGEMENT Badge -->
+          <div class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-md bg-[#13223C] border border-slate-700/60 text-[11px] font-bold text-slate-300 tracking-wider uppercase">
+            PORTAL MANAGEMENT
+          </div>
+        </div>
+
+        <!-- Right: Restricted Area Indicator -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 text-slate-400 text-xs sm:text-sm font-medium">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <span>Restricted Area</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================================================================= -->
+    <!-- MAIN ADMIN CARD CONTAINER                                         -->
+    <!-- ================================================================= -->
+    <main class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+      <div class="w-full max-w-[480px]">
+        <!-- Card Frame -->
+        <div class="bg-[#0D1B30] rounded-3xl p-7 sm:p-10 border border-slate-800 shadow-2xl transition-all">
+          <!-- Centered Red Lock Icon inside soft circular halo -->
+          <div class="flex justify-center mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-red-950/50 border border-red-900/50 flex items-center justify-center shadow-inner">
+              <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white text-center tracking-tight mb-2">
+            Admin Login
+          </h1>
+          <p class="text-slate-400 text-xs sm:text-sm text-center leading-relaxed mb-8">
+            Access requires registered security credentials.
+          </p>
+
+          <form class="space-y-5" id="adminLoginForm">
+            <!-- USERNAME OR ADMINISTRATOR EMAIL -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" for="adminEmail">
+                USERNAME OR ADMINISTRATOR EMAIL
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  </svg>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700/80 bg-[#071325] text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#D92534]/30 focus:border-[#D92534] transition-all" id="adminEmail" required type="text" value="admin@investorsfundscollection.ht" />
+              </div>
+            </div>
+
+            <!-- PASSWORD -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-400" for="adminPassword">
+                  PASSWORD
+                </label>
+                <button class="text-xs font-semibold text-[#D92534] hover:text-[#B91C1C] hover:underline cursor-pointer transition-colors" id="forgotPasswordBtn" type="button">
+                  Forgot Password?
+                </button>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  </svg>
+                </div>
+                <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700/80 bg-[#071325] text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#D92534]/30 focus:border-[#D92534] transition-all" id="adminPassword" required type="password" value="••••••••••••" />
+              </div>
+            </div>
+
+            <!-- BUTTON 1: Authenticate Admin -->
+            <div class="pt-2">
+              <button class="w-full py-3.5 px-6 rounded-xl bg-white hover:bg-slate-100 active:scale-[0.99] text-[#061C3D] font-bold text-sm sm:text-base tracking-wide shadow-md transition-all cursor-pointer flex items-center justify-center gap-2" id="adminAuthBtn" type="submit">
+                <span>Authenticate Admin</span>
+              </button>
+            </div>
+
+            <!-- BUTTON 2: Return to Main Portal -->
+            <div>
+              <a class="w-full py-3 px-6 rounded-xl bg-[#13223C] hover:bg-[#1A2E50] active:scale-[0.99] border border-slate-700/60 text-slate-300 font-semibold text-sm tracking-wide transition-all cursor-pointer flex items-center justify-center gap-2" href="home.html">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+                <span>Return to Main Portal</span>
+              </a>
+            </div>
+
+            <!-- AUDIT NOTE BOX -->
+            <div class="mt-6 p-4 rounded-xl bg-[#081426] border border-slate-800 text-center space-y-1">
+              <p class="text-xs text-slate-400 leading-tight">
+                Unauthorized access attempts are logged and reported.
+              </p>
+              <p class="text-xs text-slate-500 font-medium">
+                System audits in place S.A.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="bg-[#0A192F] text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-12">
+        <!-- Brand Column -->
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3.5 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-[#0F284F] p-1.5 flex items-center justify-center shadow-xs">
+              <div class="w-full h-full rounded-xs flex overflow-hidden border border-white/20">
+                <div class="w-1/2 h-full bg-[#0038A8]"></div>
+                <div class="w-1/2 h-full bg-[#D21034]"></div>
+              </div>
+            </div>
+            <span class="text-white font-extrabold text-xl tracking-tight">Investors Funds Collection</span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed max-w-md">
+            Providing secured short-term investment funds and high-yielding returns for the Haitian community and international backers. Empowering local enterprise, building tomorrow.
+          </p>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="md:col-span-3">
+          <h4 class="text-white font-bold text-base mb-4 tracking-wide">
+            Quick Links
+          </h4>
+          <ul class="space-y-2.5 text-slate-300 text-sm">
+            <li><a class="hover:text-white transition-colors" href="home.html">Home</a></li>
+            <li><a class="hover:text-white transition-colors" href="news.html">News &amp; Updates</a></li>
+            <li><a class="hover:text-white transition-colors" href="home.html#about">About Information</a></li>
+            <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+            <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Us Column -->
+        <div class="md:col-span-4">
+          <h4 class="text-white font-bold text-base mb-4 tracking-wide">
+            Contact Us
+          </h4>
+          <ul class="space-y-3.5 text-slate-300 text-sm">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#D92534] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span>105 Boulevard du 15 Octobre, Pétion-Ville, Haiti</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-[#D92534] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span>+509 2813 4400 / +509 3701 9922</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-[#D92534] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <a class="hover:text-white transition-colors" href="mailto:contact@investorsfundscollection.ht">
+                contact@investorsfundscollection.ht
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <p>© 2026 Investors Funds Collection S.A. All rights reserved. Registered under Haitian Commercial Registry.</p>
+        <div class="flex items-center gap-4 text-slate-300">
+          <a class="hover:text-white transition-colors p-1" href="#" title="Privacy Policy">Privacy Policy</a>
+          <a class="hover:text-white transition-colors p-1" href="#" title="Security Governance">Security Governance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+  <script src="js/translations.js"></script>
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('adminAuthBtn');
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg class="animate-spin w-4 h-4 text-[#061C3D]" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Verifying Security Clearance...</span>
+      `;
+      setTimeout(function () {
+        btn.innerHTML = `
+          <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          <span class="text-emerald-700">Clearance Level 4 Verified</span>
+        `;
+        setTimeout(function () {
+          window.location.href = 'admin-dashboard.html';
+        }, 600);
+      }, 800);
+    });
+
+    document.getElementById('forgotPasswordBtn').addEventListener('click', function () {
+      alert('Security Protocol: Password reset instructions have been dispatched to the registered system administrator email.');
+    });
+  </script>
+</body>
+</html>

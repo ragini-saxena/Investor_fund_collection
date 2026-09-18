@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Marie Laurant - Admin Investor Details | Investors Funds S.A.</title>
+  <meta content="Investors Funds Collection S.A. Admin Investor Profile and Portfolio Management" name="description" />
+  
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-900 antialiased font-sans min-h-screen flex flex-col md:flex-row selection:bg-[#D92534] selection:text-white">
+  <!-- Left Navigation Sidebar Partial -->
+  <div data-include="admin-sidebar"></div>
+
+  <!-- Main Admin Content Area -->
+  <main class="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto min-w-0">
+    <!-- Back to Investors List Link -->
+    <div class="mb-4">
+      <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1d4ed8] hover:text-blue-800 transition-colors" href="admin-potential-investors.html">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+        </svg>
+        <span>Back to Investors List</span>
+      </a>
+    </div>
+
+    <!-- Title, Status Badge & Contact CTA -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div class="flex items-center flex-wrap gap-3.5">
+        <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight">
+          Marie Laurant
+        </h1>
+        <span class="px-3 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold tracking-wide">
+          Active Investor
+        </span>
+      </div>
+      <button class="px-6 py-2.5 bg-[#0a234f] hover:bg-[#071a3d] text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs cursor-pointer self-start sm:self-auto" onclick="window.location.href='contact-messaging.html'" type="button">
+        Contact Investor
+      </button>
+    </div>
+
+    <!-- 2 Column Responsive Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Column -->
+      <div class="lg:col-span-6 space-y-6">
+        <!-- Card 1: Personal Information -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-5 pb-4 border-b border-slate-100">
+            Personal Information
+          </h2>
+          <div class="space-y-5">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  FIRST NAME
+                </span>
+                <span class="text-sm sm:text-[15px] font-semibold text-slate-900">
+                  Marie
+                </span>
+              </div>
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  LAST NAME
+                </span>
+                <span class="text-sm sm:text-[15px] font-semibold text-slate-900">
+                  Laurant
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                EMAIL ADDRESS
+              </span>
+              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="mailto:mlaurant@diaspora.org">
+                mlaurant@diaspora.org
+              </a>
+            </div>
+
+            <div>
+              <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                WHATSAPP NUMBER
+              </span>
+              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="tel:+13059981244">
+                +1 (305) 998-1244
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Investment Information -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-5 pb-4 border-b border-slate-100">
+            Investment Information
+          </h2>
+          <div class="space-y-5">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  INVESTOR ID
+                </span>
+                <span class="text-sm sm:text-[15px] font-bold text-[#1d4ed8]">
+                  IFC-P091
+                </span>
+              </div>
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  STATUS
+                </span>
+                <span class="text-sm sm:text-[15px] font-bold text-[#16a34a]">
+                  Covenant Verified
+                </span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  SELECTED AMOUNT
+                </span>
+                <span class="text-lg sm:text-xl font-bold text-slate-900">
+                  $250,000
+                </span>
+              </div>
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  AMOUNT INVESTED
+                </span>
+                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]">
+                  $150,000
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                TOTAL PORTFOLIO VALUE
+              </span>
+              <div class="flex items-baseline gap-2">
+                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]">
+                  $165,240
+                </span>
+                <span class="text-xs sm:text-sm font-bold text-[#16a34a]">
+                  (+10.16% Yield)
+                </span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 pt-1">
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  JOIN DATE
+                </span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700">
+                  Oct 11, 2025
+                </span>
+              </div>
+              <div>
+                <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                  MATURITY DATE
+                </span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700">
+                  Oct 11, 2028
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="lg:col-span-6 space-y-6">
+        <!-- Card 3: Communication Channels -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-5">
+            Communication Channels
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <!-- WhatsApp Chat -->
+            <button class="flex items-center justify-center gap-2 px-3.5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-[#0a234f] text-xs sm:text-sm font-bold transition-all cursor-pointer" onclick="alert('Connecting to WhatsApp: +1 (305) 998-1244')" type="button">
+              <svg class="w-4 h-4 text-[#0a234f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span>WhatsApp Chat</span>
+            </button>
+
+            <!-- Send Email -->
+            <button class="flex items-center justify-center gap-2 px-3.5 py-3 rounded-xl border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-[#0a234f] text-xs sm:text-sm font-bold transition-all cursor-pointer" onclick="window.location.href='mailto:mlaurant@diaspora.org'" type="button">
+              <svg class="w-4 h-4 text-[#0a234f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span>Send Email</span>
+            </button>
+
+            <!-- Call Direct -->
+            <button class="flex items-center justify-center gap-2 px-3.5 py-3 rounded-xl bg-[#dc2626] hover:bg-[#c91d1d] text-white text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer" onclick="alert('Calling directly: +1 (305) 998-1244')" type="button">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+              </svg>
+              <span>Call Direct</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: Funds & Payments History -->
+        <div class="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-xs">
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="text-base sm:text-lg font-bold text-slate-900">
+              Funds &amp; Payments History
+            </h2>
+            <button class="px-3 py-1.5 rounded-lg bg-[#f1f5f9] hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors cursor-pointer" onclick="alert('Downloading official receipts package for Marie Laurant...')" type="button">
+              View Receipts
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
+                  <th class="pb-3 pr-4 font-bold">DATE</th>
+                  <th class="pb-3 px-4 font-bold">AMOUNT</th>
+                  <th class="pb-3 px-4 font-bold">METHOD</th>
+                  <th class="pb-3 px-4 font-bold">STATUS</th>
+                  <th class="pb-3 pl-4 font-bold">REFERENCE</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                <tr class="hover:bg-slate-50/70 transition-colors">
+                  <td class="py-4 pr-4 text-slate-700 font-medium whitespace-nowrap">
+                    Oct 11, 2025
+                  </td>
+                  <td class="py-4 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    $50,000
+                  </td>
+                  <td class="py-4 px-4 text-slate-600 whitespace-nowrap">
+                    Wire Transfer
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-block px-2.5 py-1 rounded-md bg-[#dcfce7] text-[#15803d] text-xs font-bold">
+                      Settled
+                    </span>
+                  </td>
+                  <td class="py-4 pl-4 text-slate-500 font-mono text-[11px] sm:text-xs whitespace-nowrap">
+                    REF-WT9012431
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-slate-50/70 transition-colors">
+                  <td class="py-4 pr-4 text-slate-700 font-medium whitespace-nowrap">
+                    Oct 05, 2025
+                  </td>
+                  <td class="py-4 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    $100,000
+                  </td>
+                  <td class="py-4 px-4 text-slate-600 whitespace-nowrap">
+                    ACH Transfer
+                  </td>
+                  <td class="py-4 px-4 whitespace-nowrap">
+                    <span class="inline-block px-2.5 py-1 rounded-md bg-[#dcfce7] text-[#15803d] text-xs font-bold">
+                      Settled
+                    </span>
+                  </td>
+                  <td class="py-4 pl-4 text-slate-500 font-mono text-[11px] sm:text-xs whitespace-nowrap">
+                    REF-ACH3149021
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/include.js"></script>
+</body>
+</html>
