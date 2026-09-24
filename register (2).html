@@ -235,88 +235,18 @@
         window.scrollTo({top:0,behavior:'smooth'});
       });
 
-      const API_BASE_URL = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
-
-      function showRegisterError(message) {
-        let notice = $('registerApiError');
-        if (!notice) {
-          notice = document.createElement('div');
-          notice.id = 'registerApiError';
-          notice.className = 'mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold';
-          notice.setAttribute('role', 'alert');
-          const btn = $('completeRegBtn');
-          btn.parentElement.parentElement.appendChild(notice);
-        }
-        notice.textContent = message;
-        notice.classList.remove('hidden');
-      }
-
-      $('completeRegBtn').addEventListener('click', async function(){
-        const btn=this;
-        if (!currentSelectedRange) {
-          showRegisterError('Please select an investment amount before continuing.');
-          return;
-        }
-
-        btn.disabled=true;
-        btn.innerHTML='<span class="animate-pulse">Creating Account...</span>';
-
-        try {
-          const response = await fetch(`${API_BASE_URL}/register`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              firstName: $('regFirstName').value.trim(),
-              lastName: $('regLastName').value.trim(),
-              email: $('regEmail').value.trim(),
-              whatsapp: $('regWhatsapp').value.trim(),
-              phone: $('regPhone').value.trim(),
-              pledgeRangeLabel: currentSelectedRange
-            })
-          });
-
-          const result = await response.json().catch(() => ({}));
-
-          if (!response.ok || !result.success) {
-            const message =
-              result?.error?.message ||
-              result?.message ||
-              result?.errors?.map?.(item => item.msg).join(', ') ||
-              'Registration failed. Please check your details and try again.';
-            throw new Error(message);
-          }
-
-          const profile = result.data?.profile;
-          const accessToken = result.data?.accessToken;
-
-          if (accessToken) {
-            localStorage.setItem('ifc_access_token', accessToken);
-          }
-          if (profile) {
-            localStorage.setItem('ifc_profile', JSON.stringify(profile));
-          }
-
-          $('step2Form').classList.add('hidden');
-          $('stepIndicator').classList.add('hidden');
-          $('stepSubtitle').classList.add('hidden');
-
-          $('displayId').innerText = profile?.investorId || '—';
-          $('summaryName').innerText = `${profile?.firstName || ''} ${profile?.lastName || ''}`.trim();
-          $('summaryWhatsapp').innerText = profile?.whatsapp || '—';
-          $('summaryEmail').innerText = profile?.email || '—';
-          $('summaryCategory').innerText = profile?.pledge?.rangeLabel
-            ? `${profile.pledge.rangeLabel} USD`
-            : `${currentSelectedRange} USD`;
-
+      $('completeRegBtn').addEventListener('click',function(){
+        const btn=this; btn.disabled=true; btn.innerHTML='<span class="animate-pulse">Submitting Proposal...</span>';
+        window.setTimeout(function(){
+          $('step2Form').classList.add('hidden'); $('stepIndicator').classList.add('hidden'); $('stepSubtitle').classList.add('hidden');
+          const num=Math.floor(1000+Math.random()*9000); $('displayId').innerText='IFC-'+num+'-HT';
+          $('summaryName').innerText=(($('regFirstName').value||'Jean')+' '+($('regLastName').value||'Dupuy')).trim();
+          $('summaryWhatsapp').innerText=$('regWhatsapp').value||'+509 3701 9922';
+          $('summaryEmail').innerText=$('regEmail').value||'jean.dupuy@example.com';
+          $('summaryCategory').innerText=currentSelectedRange+' USD';
           $('regSuccessCard').classList.remove('hidden');
           window.scrollTo({top:0,behavior:'smooth'});
-        } catch (error) {
-          console.error('Registration API error:', error);
-          showRegisterError(error.message);
-        } finally {
-          btn.disabled=false;
-          btn.innerHTML='<span>Complete Registration</span>';
-        }
+        },700);
       });
 
       $('printConfirmation').addEventListener('click',function(){window.print();});
