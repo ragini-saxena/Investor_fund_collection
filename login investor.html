@@ -237,23 +237,80 @@
       document.getElementById('closeForgotId').addEventListener('click', function () { closeModal(forgotModal); });
       document.getElementById('closeShare').addEventListener('click', function () { closeModal(shareModal); });
 
-      form.addEventListener('submit', function (event) {
+      const API_BASE_URL = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
+
+      function showLoginError(message) {
+        let notice = document.getElementById('loginApiError');
+        if (!notice) {
+          notice = document.createElement('p');
+          notice.id = 'loginApiError';
+          notice.className = 'p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold text-center';
+          notice.setAttribute('role', 'alert');
+          form.insertBefore(notice, success);
+        }
+        notice.textContent = message;
+        notice.classList.remove('hidden');
+      }
+
+      form.addEventListener('submit', async function (event) {
         event.preventDefault();
+
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
+
+        const investorId = document.getElementById('investorId').value.trim();
+        const contactInfo = document.getElementById('contactInfo').value.trim();
+
         button.disabled = true;
         button.innerHTML = '<span class="animate-pulse">Authenticating...</span>';
-        window.setTimeout(function () {
+
+        try {
+          const response = await fetch(`${API_BASE_URL}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ investorId, contactInfo })
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || !result.success) {
+            const message =
+              result?.error?.message ||
+              result?.message ||
+              result?.errors?.map?.(item => item.msg).join(', ') ||
+              'Login failed. Please check your Investor ID and contact information.';
+            throw new Error(message);
+          }
+
+          const accessToken = result.data?.accessToken;
+          const profile = result.data?.profile;
+
+          if (!accessToken) {
+            throw new Error('Login succeeded but no access token was returned.');
+          }
+
+          localStorage.setItem('ifc_access_token', accessToken);
+          if (profile) {
+            localStorage.setItem('ifc_profile', JSON.stringify(profile));
+          }
+
           button.innerHTML = '<span>Authenticated</span>';
           button.classList.remove('bg-[#D92534]', 'hover:bg-[#B91C1C]');
           button.classList.add('bg-emerald-600');
+          success.textContent = result.data?.message || 'Login successful. Redirecting to your dashboard...';
           success.classList.remove('hidden');
+
           window.setTimeout(function () {
-            window.location.href = 'investor logged in page.html';
-          }, 900);
-        }, 700);
+            window.location.href = 'investor dashboard.html';
+          }, 700);
+        } catch (error) {
+          console.error('Login API error:', error);
+          showLoginError(error.message);
+          button.disabled = false;
+          button.innerHTML = '<span>Enter Secure Portal</span>';
+        }
       });
 
       document.getElementById('recoveryForm').addEventListener('submit', function (event) {
