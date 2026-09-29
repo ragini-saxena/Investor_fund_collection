@@ -212,6 +212,10 @@
   <script src="js/include.js"></script>
   <script src="js/translations.js"></script>
   <script>
+    const existingToken = localStorage.getItem('ifc_access_token');
+    if (existingToken){
+      window.location.replace('investor dashboard.html');
+    }
     (function () {
       const form = document.getElementById('portalLoginForm');
       const button = document.getElementById('enterSecurePortalBtn');
@@ -303,7 +307,7 @@
           success.classList.remove('hidden');
 
           window.setTimeout(function () {
-            window.location.href = 'investor dashboard.html';
+            window.location.replace('investor dashboard.html');
           }, 700);
         } catch (error) {
           console.error('Login API error:', error);

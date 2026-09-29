@@ -46,18 +46,90 @@ function updateActiveAdminSidebar() {
     });
 }
 
+const IFC_PROTECTED_PAGES = [
+    'investor dashboard.html',
+    'investor profile.html',
+    'investor logged in page.html',
+    'payment 1.html'
+];
+
+function protectPage() {
+    const currentPage = window.location.pathname
+        .split('/')
+        .pop()
+        .toLowerCase();
+
+    const protectedPage = IFC_PROTECTED_PAGES.some(
+        page => page.toLowerCase() === currentPage
+    );
+
+    if (!protectedPage) {
+        return;
+    }
+
+    if (!isInvestorLoggedIn()) {
+        window.location.replace('login investor.html');
+    }
+}
+
+const IFC_TOKEN_KEY = 'ifc_access_token';
+const IFC_PROFILE_KEY = 'ifc_profile';
+
+function isInvestorLoggedIn() {
+    return Boolean(localStorage.getItem(IFC_TOKEN_KEY));
+}
+
+function logoutInvestor() {
+    localStorage.removeItem(IFC_TOKEN_KEY);
+    localStorage.removeItem(IFC_PROFILE_KEY);
+
+    window.location.replace('home.html');
+}
+
+function setupAuthUI() {
+    const loggedIn = isInvestorLoggedIn();
+
+    // Header Login / Logout button
+    const authButton = document.getElementById('ifcAuthButton');
+
+    if (authButton) {
+        if (loggedIn) {
+            authButton.textContent = 'Log Out';
+
+            authButton.onclick = function () {
+                logoutInvestor();
+            };
+        } else {
+            authButton.textContent = 'Log In';
+
+            authButton.onclick = function () {
+                window.location.href = 'login investor.html';
+            };
+        }
+    }
+
+    // Guest-only "Become an Investor" CTA
+    const becomeInvestorButton =
+        document.getElementById('ifcBecomeInvestorButton');
+
+    if (becomeInvestorButton) {
+        becomeInvestorButton.style.display =
+            loggedIn ? 'none' : '';
+    }
+}
+
 async function loadPagePartials() {
+    protectPage();
+
     await Promise.all([
         loadPartial('[data-include="header"]', 'partials/header.html'),
         loadPartial('[data-include="footer"]', 'partials/footer.html'),
         loadPartial('[data-include="admin-sidebar"]', 'partials/admin-sidebar.html')
     ]);
 
-    // Update active admin sidebar styling
     updateActiveAdminSidebar();
+    setupAuthUI();
 
-    // Partials now exist in the DOM.
-    // Initialize translation after they have been injected.
     if (window.IFCTranslate && typeof window.IFCTranslate.init === 'function') {
         window.IFCTranslate.init();
     }
