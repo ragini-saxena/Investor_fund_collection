@@ -39,3 +39,14 @@ export const loginValidation = [
     .trim()
     .notEmpty().withMessage("contactInfo is required")
 ]
+
+export const investmentValidation = [
+    body("amount")
+    .notEmpty().withMessage("Investment amount is required")
+    .isFloat({ min: 1 }).withMessage("Amount must be greater than 0"),
+
+    body("paymentMethod")
+    .trim()
+    .notEmpty().withMessage("Payment method is required")
+]
+

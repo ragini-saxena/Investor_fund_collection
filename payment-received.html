@@ -192,11 +192,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 text-xs sm:text-sm">
           <div>
             <span class="text-slate-500 block text-xs">Investor ID Number</span>
-            <span class="font-bold text-slate-900 mt-0.5 inline-block">IFC-9827-HT</span>
+            <span class="font-bold text-slate-900 mt-0.5 inline-block" id="receiptInvestorId">IFC-9827-HT</span>
           </div>
           <div>
             <span class="text-slate-500 block text-xs">Transaction Registry ID</span>
-            <span class="font-mono font-bold text-slate-900 mt-0.5 inline-block">TXN-2026-9827-01</span>
+            <span class="font-mono font-bold text-slate-900 mt-0.5 inline-block" id="receiptTransactionId">TXN-2026-9827-01</span>
           </div>
           <div>
             <span class="text-slate-500 block text-xs">Date / Time of Escrow Lock</span>
@@ -204,7 +204,7 @@
           </div>
           <div>
             <span class="text-slate-500 block text-xs">Targeted Portfolio Pool</span>
-            <span class="font-semibold text-[#061C3D] mt-0.5 inline-block">Port-au-Prince Logistic Hub Fund</span>
+            <span class="font-semibold text-[#061C3D] mt-0.5 inline-block" id="receiptPoolName">Port-au-Prince Logistic Hub Fund</span>
           </div>
         </div>
 
@@ -212,7 +212,7 @@
           <span class="text-xs sm:text-sm text-slate-500 font-medium">Digital Covenant Status</span>
           <span class="inline-flex items-center gap-1.5 font-bold text-[#137333] bg-[#E6F4EA] border border-emerald-200 px-3 py-1 rounded-full text-xs self-start sm:self-auto">
             <span class="w-2 h-2 rounded-full bg-[#137333]"></span>
-            Active Covenant #COV-HT-2026-8891-BNC
+            <span id="receiptCovenantStatus">Active Covenant #COV-HT-2026-8891-BNC</span>
           </span>
         </div>
 
@@ -270,20 +270,51 @@
   <script src="js/include.js"></script>
   <script src="js/translations.js"></script>
   <script>
-    // Initialize dynamic amount if stored from payment 1.html
     document.addEventListener('DOMContentLoaded', function () {
+      const storedInvestment = sessionStorage.getItem('ifc_last_investment');
       const storedAmount = sessionStorage.getItem('ifc_last_amount');
-      if (storedAmount) {
-        const val = parseFloat(storedAmount);
-        if (!isNaN(val)) {
-          document.getElementById('confirmedAmount').textContent = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          }).format(val);
-        }
+      const storedProfile = localStorage.getItem('ifc_profile');
+
+      let investmentData = null;
+      let profileData = null;
+
+      try {
+        if (storedInvestment) investmentData = JSON.parse(storedInvestment);
+      } catch (e) {}
+
+      try {
+        if (storedProfile) profileData = JSON.parse(storedProfile);
+      } catch (e) {}
+
+      // Amount
+      const amt = investmentData?.amount || (storedAmount ? parseFloat(storedAmount) : 5000);
+      document.getElementById('confirmedAmount').textContent = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(amt);
+
+      // Investor ID
+      const invId = investmentData?.investor?.investorId || profileData?.investorId;
+      if (invId) {
+        document.getElementById('receiptInvestorId').textContent = invId;
       }
 
-      // Display formatted current date (consistent with hardcoded style: "Month DD, YYYY • HH:MM UTC")
+      // Transaction / Reference ID
+      if (investmentData?.referenceId) {
+        document.getElementById('receiptTransactionId').textContent = investmentData.referenceId;
+      }
+
+      // Targeted Pool Name
+      if (investmentData?.poolName) {
+        document.getElementById('receiptPoolName').textContent = investmentData.poolName;
+      }
+
+      // Covenant Status & Number
+      if (investmentData?.covenantNumber) {
+        document.getElementById('receiptCovenantStatus').textContent = `Active Covenant #${investmentData.covenantNumber}`;
+      }
+
+      // Display formatted current date
       const now = new Date();
       const datePart = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
       const timePart = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' });

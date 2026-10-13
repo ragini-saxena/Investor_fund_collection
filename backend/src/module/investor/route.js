@@ -27,6 +27,57 @@ router.get(
     "/me",
     requireAuth,
     investorController.getMe
-)
+);
+
+router.get(
+    "/dashboard",
+    requireAuth,
+    investorController.getDashboard
+);
+
+router.post(
+    "/investments",
+    requireAuth,
+    investorValidation.investmentValidation,
+    validate,
+    investorController.makeInvestment
+);
+
+router.get(
+    "/cards",
+    requireAuth,
+    investorController.getSavedCards
+);
+
+router.post(
+    "/cards",
+    requireAuth,
+    investorController.saveCard
+);
+
+router.delete(
+    "/cards/:id",
+    requireAuth,
+    investorController.removeCard
+);
+
+// Capital Collections Ledger (treasury admin view)
+router.get(
+    "/ledger",
+    investorController.getLedger
+);
+
+// Receipt lookup by ?ref=REF-... (auth optional - works both with and without token)
+router.get(
+    "/receipt",
+    (req, res, next) => {
+        requireAuth(req, res, (err) => {
+            if (err) req.investor = null;
+            next();
+        });
+    },
+    investorController.getReceipt
+);
 
 export default router
+

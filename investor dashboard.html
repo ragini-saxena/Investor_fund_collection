@@ -153,6 +153,7 @@
 
       <!-- Left Column: Portfolio & Covenants (7 cols) -->
       <section class="lg:col-span-7">
+
         <!-- Signed Covenants -->
         <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden mb-6 sm:mb-8">
           <div class="p-6 sm:p-7 border-b border-slate-100">
@@ -161,48 +162,11 @@
                 <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 <span>Your Signed Covenants</span>
               </h2>
-              <span class="text-xs font-semibold text-slate-400">2 Active</span>
+              <span id="dashboardActiveCovenantsBadge" class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">0 Active</span>
             </div>
           </div>
-          <div class="divide-y divide-slate-100">
-            <!-- Covenant 1 -->
-            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <div>
-                  <div class="text-sm font-bold text-[#061C3D] mb-1">Port-au-Prince Logistic Phase III</div>
-                  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                    <span>Pool ID: PLP-III-2025</span>
-                    <span>•</span>
-                    <span>Signed Digitally</span>
-                    <span>•</span>
-                    <span>Oct 12, 2025</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-lg font-extrabold text-[#061C3D]">$15,000</span>
-                  <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">Active</span>
-                </div>
-              </div>
-            </div>
-            <!-- Covenant 2 -->
-            <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                <div>
-                  <div class="text-sm font-bold text-[#061C3D] mb-1">Nord-Ouest Agriculture Coco...</div>
-                  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                    <span>Pool ID: NAC-II-2025</span>
-                    <span>•</span>
-                    <span>Signed Digitally</span>
-                    <span>•</span>
-                    <span>Aug 20, 2025</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="text-lg font-extrabold text-[#061C3D]">$10,000</span>
-                  <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">Active</span>
-                </div>
-              </div>
-            </div>
+          <div id="dashboardCovenantsList" class="divide-y divide-slate-100">
+            <div class="p-6 text-center text-slate-400 text-xs animate-pulse">Loading verified covenants from database…</div>
           </div>
         </div>
 
@@ -243,46 +207,14 @@
           <div class="p-6 sm:p-7 border-b border-slate-100">
             <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
               <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-              <span>Funds & Payments History</span>
+              <span>Funds &amp; Payments History</span>
             </h2>
           </div>
-          <div class="divide-y divide-slate-100">
-            <!-- Transaction 1 -->
-            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-sm font-bold text-[#061C3D]">Wire Transfer</span>
-                <span class="text-sm font-extrabold text-[#061C3D]">+$15,000</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs text-slate-500">Oct 12, 2025 • REF-20251012-PLP</span>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
-              </div>
-            </div>
-            <!-- Transaction 2 -->
-            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-sm font-bold text-[#061C3D]">ACH Transfer</span>
-                <span class="text-sm font-extrabold text-[#061C3D]">+$10,000</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs text-slate-500">Aug 20, 2025 • REF-20250820-NAC</span>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
-              </div>
-            </div>
-            <!-- Transaction 3 -->
-            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-sm font-bold text-[#061C3D]">Direct Deposit</span>
-                <span class="text-sm font-extrabold text-[#061C3D]">+$22,500</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-xs text-slate-500">Mar 15, 2025 • REF-20250315-INI</span>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Settled</span>
-              </div>
-            </div>
+          <div id="dashboardTransactionsList" class="divide-y divide-slate-100">
+            <div class="p-5 text-center text-slate-400 text-xs animate-pulse">Loading transaction records…</div>
           </div>
-          <div class="p-4 border-t border-slate-100 text-center">
-            <span class="text-xs font-semibold text-slate-400">Showing 1 to 3 of 145 transactions</span>
+          <div id="dashboardTransactionsFooter" class="p-4 border-t border-slate-100 text-center">
+            <span class="text-xs font-semibold text-slate-400" id="dashboardTransactionsCount">0 transactions</span>
           </div>
         </div>
 
@@ -403,9 +335,9 @@
         return `${firstName?.[0] || ''}${lastName?.[0] || ''}`.toUpperCase() || 'IF';
       };
 
-      async function loadInvestorProfile() {
+      async function loadInvestorDashboard() {
         try {
-          const response = await fetch(`${API_BASE_URL}/me`, {
+          const response = await fetch(`${API_BASE_URL}/dashboard`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -424,11 +356,11 @@
             throw new Error(
               result?.error?.message ||
               result?.message ||
-              'Unable to load your investor profile.'
+              'Unable to load your investor portfolio dashboard.'
             );
           }
 
-          const profile = result.data;
+          const { profile, stats, covenants, transactions } = result.data;
           localStorage.setItem('ifc_profile', JSON.stringify(profile));
 
           const fullName = `${profile.firstName || ''} ${profile.lastName || ''}`.trim();
@@ -437,17 +369,104 @@
           document.getElementById('dashboardWelcome').textContent =
             `Bonjour, ${fullName || 'Investor'}`;
 
+          // Stats from DB
           document.getElementById('dashboardPortfolioValue').textContent =
-            formatMoney(profile.totalInvested);
+            formatMoney(stats.activePortfolio);
           document.getElementById('dashboardTotalInvested').textContent =
-            formatMoney(profile.totalInvested);
+            formatMoney(stats.totalInvested);
           document.getElementById('dashboardCreatedAt').textContent =
-            formatDate(profile.createdAt);
+            formatDate(stats.latestInvestmentDate);
+          document.getElementById('dashboardAccountStatus').textContent =
+            stats.accountStatus || (stats.totalInvested > 0 ? 'Active (Verified)' : 'Registered');
 
-          const status = profile.isInvestor ? 'Active (Verified)' : 'Registered';
-          document.getElementById('dashboardAccountStatus').textContent = status;
+          // Active Covenants Badge & List
+          const covenantsBadge = document.getElementById('dashboardActiveCovenantsBadge');
+          const covenantsList = document.getElementById('dashboardCovenantsList');
+
+          if (covenantsBadge) {
+            covenantsBadge.textContent = `${stats.activeCovenantsCount || covenants?.length || 0} Active`;
+          }
+
+          if (covenantsList) {
+            if (!covenants || covenants.length === 0) {
+              covenantsList.innerHTML = `
+                <div class="p-8 text-center">
+                  <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 text-[#061C3D] flex items-center justify-center mb-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  </div>
+                  <h3 class="text-sm font-bold text-[#061C3D]">No Signed Covenants Recorded</h3>
+                  <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">Allocate funds into vetted Haitian trade or infrastructure pools to issue verified digital covenants.</p>
+                  <a href="payment 1.html" class="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs font-bold rounded-xl transition-colors shadow-xs">
+                    <span>+ Make New Investment</span>
+                  </a>
+                </div>
+              `;
+            } else {
+              covenantsList.innerHTML = covenants.map(cov => `
+                <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                      <div class="text-sm font-bold text-[#061C3D] mb-1">${cov.poolName}</div>
+                      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                        <span>Pool ID: ${cov.poolId}</span>
+                        <span>•</span>
+                        <span class="font-mono text-slate-600 font-semibold">${cov.covenantNumber}</span>
+                        <span>•</span>
+                        <span>${formatDate(cov.createdAt)}</span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="text-lg font-extrabold text-[#061C3D]">${formatMoney(cov.amount)}</span>
+                      <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full capitalize">${cov.status || 'Active'}</span>
+                    </div>
+                  </div>
+                </div>
+              `).join('');
+            }
+          }
+
+          // Transactions List & Count
+          const txList = document.getElementById('dashboardTransactionsList');
+          const txCount = document.getElementById('dashboardTransactionsCount');
+
+          if (txCount) {
+            const count = stats.totalTransactionsCount || transactions?.length || 0;
+            txCount.textContent = `Showing ${count} transaction${count === 1 ? '' : 's'}`;
+          }
+
+          if (txList) {
+            if (!transactions || transactions.length === 0) {
+              txList.innerHTML = `
+                <div class="p-6 text-center text-slate-400 text-xs font-medium">
+                  No payment transactions recorded in database yet.
+                </div>
+              `;
+            } else {
+              txList.innerHTML = transactions.map(txn => {
+                let methodLabel = 'Card Payment';
+                if (txn.paymentMethod === 'wire') methodLabel = 'Bank Wire';
+                else if (txn.paymentMethod === 'phone') methodLabel = 'Mobile Wallet';
+                else if (txn.paymentMethod === 'credit') methodLabel = 'Credit Card';
+                else if (txn.paymentMethod === 'debit') methodLabel = 'Debit Card';
+
+                return `
+                  <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="text-sm font-bold text-[#061C3D]">${methodLabel}</span>
+                      <span class="text-sm font-extrabold text-[#061C3D]">+${formatMoney(txn.amount)}</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-slate-500">${formatDate(txn.createdAt)} • <span class="font-mono text-[11px]">${txn.referenceId}</span></span>
+                      <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">${txn.status}</span>
+                    </div>
+                  </div>
+                `;
+              }).join('');
+            }
+          }
+
         } catch (error) {
-          console.error('Profile API error:', error);
+          console.error('Dashboard API error:', error);
 
           let notice = document.getElementById('dashboardApiError');
           if (!notice) {
@@ -461,7 +480,7 @@
         }
       }
 
-      loadInvestorProfile();
+      loadInvestorDashboard();
     })();
   </script>
   <script>
