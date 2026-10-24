@@ -32,7 +32,7 @@
           Potential Investors
         </h1>
         <p class="text-slate-500 text-sm mt-1 font-normal">
-          Constituents who registered intent under Haitian Commercial Registry covenants (342 total records).
+          Constituents actually doing investments under sovereign covenants in the registry.
         </p>
       </div>
       <div class="flex items-center gap-3">
@@ -47,14 +47,27 @@
 
     <!-- Investors Table Card -->
     <div class="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
-      <div class="p-5 sm:p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div class="relative max-w-sm w-full">
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-          </svg>
-          <input class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-[#F8FAFC] text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D]" placeholder="Filter by name, ID or email..." type="text" />
+      <!-- Filter Bar -->
+      <div class="p-5 sm:p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <!-- Filter Tabs -->
+        <div class="inline-flex p-1 bg-slate-100 rounded-xl gap-1 text-xs font-bold" id="investorFilterTabs">
+          <button id="tabDoingInvestments" type="button" class="px-3.5 py-1.5 rounded-lg bg-white text-[#061C3D] shadow-xs transition-all cursor-pointer">
+            Actually Doing Investments (<span id="countDoingInvestments">0</span>)
+          </button>
+          <button id="tabAllSignedUp" type="button" class="px-3.5 py-1.5 rounded-lg text-slate-500 hover:text-slate-900 transition-all cursor-pointer">
+            All Signed-Up Users (<span id="countAllUsers">0</span>)
+          </button>
         </div>
-        <span class="text-xs text-slate-500 font-medium">Showing 4 of 342 potential investors</span>
+
+        <div class="flex items-center gap-3">
+          <div class="relative max-w-xs w-full">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+            <input id="investorSearchInput" class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 bg-[#F8FAFC] text-xs sm:text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#061C3D]/20 focus:border-[#061C3D]" placeholder="Filter by name, ID or email..." type="text" />
+          </div>
+          <span id="investorCounterText" class="text-xs text-slate-500 font-medium whitespace-nowrap">Loading…</span>
+        </div>
       </div>
 
       <div class="overflow-x-auto">
@@ -63,7 +76,7 @@
             <tr class="text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 border-b border-slate-100">
               <th class="py-3.5 px-6 font-bold">INVESTOR</th>
               <th class="py-3.5 px-4 font-bold">ALLOCATED ID</th>
-              <th class="py-3.5 px-4 font-bold">PLEDGED VOLUME</th>
+              <th class="py-3.5 px-4 font-bold">INVESTED / PLEDGED</th>
               <th class="py-3.5 px-4 font-bold">STATUS</th>
               <th class="py-3.5 px-6 text-right font-bold">ACTION</th>
             </tr>
@@ -88,74 +101,148 @@
       const API_BASE = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
       const fmtMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n || 0);
 
+      let allInvestors = [];
+      let currentFilter = 'investing'; // 'investing' (potential investors actually doing investments) or 'all'
+      let searchKeyword = '';
+
+      const tabDoingInvestments = document.getElementById('tabDoingInvestments');
+      const tabAllSignedUp = document.getElementById('tabAllSignedUp');
+      const searchInput = document.getElementById('investorSearchInput');
+      const countDoingEl = document.getElementById('countDoingInvestments');
+      const countAllEl = document.getElementById('countAllUsers');
+      const counterText = document.getElementById('investorCounterText');
+      const tbody = document.getElementById('potentialInvestorsTableBody');
+
+      function renderTable() {
+        if (!tbody) return;
+
+        let filtered = allInvestors.filter(inv => {
+          if (currentFilter === 'investing' && !inv.isDoingInvestments) return false;
+          if (searchKeyword) {
+            const q = searchKeyword.toLowerCase();
+            const matchName = (inv.fullName || '').toLowerCase().includes(q);
+            const matchId = (inv.investorId || '').toLowerCase().includes(q);
+            const matchEmail = (inv.email || '').toLowerCase().includes(q);
+            if (!matchName && !matchId && !matchEmail) return false;
+          }
+          return true;
+        });
+
+        const totalDoing = allInvestors.filter(i => i.isDoingInvestments).length;
+        if (countDoingEl) countDoingEl.textContent = totalDoing;
+        if (countAllEl) countAllEl.textContent = allInvestors.length;
+
+        if (counterText) {
+          if (currentFilter === 'investing') {
+            counterText.textContent = `Showing ${filtered.length} of ${totalDoing} investors doing investments`;
+          } else {
+            counterText.textContent = `Showing ${filtered.length} of ${allInvestors.length} signed-up users`;
+          }
+        }
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="5" class="py-12 text-center text-slate-400 text-xs">
+                ${allInvestors.length === 0 ? 'No investors registered in database yet.' : 'No investors matching filter.'}
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tbody.innerHTML = filtered.map(inv => {
+          const initials = `${inv.firstName?.[0] || ''}${inv.lastName?.[0] || ''}`.toUpperCase() || 'IF';
+          const hasInvestments = inv.isDoingInvestments;
+          const displayVolume = inv.totalInvested > 0
+            ? fmtMoney(inv.totalInvested)
+            : (inv.pledgeRangeLabel ? `${inv.pledgeRangeLabel} (Pledge)` : '$0 USD');
+
+          let statusBadge = '';
+          if (hasInvestments) {
+            statusBadge = `
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Doing Investments
+              </span>
+            `;
+          } else {
+            statusBadge = `
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-600">
+                Signed Up
+              </span>
+            `;
+          }
+
+          return `
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-4 px-6 font-semibold text-slate-900">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full ${hasInvestments ? 'bg-[#061C3D]' : 'bg-slate-400'} text-white font-bold text-xs flex items-center justify-center shrink-0">
+                    ${initials}
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#061C3D]">${inv.fullName}</span>
+                    <div class="text-[11px] text-slate-500 font-normal">${inv.email}</div>
+                  </div>
+                </div>
+              </td>
+              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">${inv.investorId}</td>
+              <td class="py-4 px-4 font-bold ${inv.totalInvested > 0 ? 'text-slate-900' : 'text-slate-500'}">
+                ${displayVolume}
+                ${inv.pendingAmount > 0 ? `<div class="text-[11px] text-amber-700 font-medium">+${fmtMoney(inv.pendingAmount)} pending</div>` : ''}
+              </td>
+              <td class="py-4 px-4">
+                ${statusBadge}
+              </td>
+              <td class="py-4 px-6 text-right">
+                <a class="px-3.5 py-1.5 rounded-lg bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold transition-all inline-block shadow-xs"
+                   href="admin-registered-investors.html?id=${encodeURIComponent(inv.investorId)}">
+                  View Profile
+                </a>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      tabDoingInvestments?.addEventListener('click', function () {
+        currentFilter = 'investing';
+        tabDoingInvestments.className = 'px-3.5 py-1.5 rounded-lg bg-white text-[#061C3D] shadow-xs transition-all cursor-pointer font-bold';
+        tabAllSignedUp.className = 'px-3.5 py-1.5 rounded-lg text-slate-500 hover:text-slate-900 transition-all cursor-pointer font-bold';
+        renderTable();
+      });
+
+      tabAllSignedUp?.addEventListener('click', function () {
+        currentFilter = 'all';
+        tabAllSignedUp.className = 'px-3.5 py-1.5 rounded-lg bg-white text-[#061C3D] shadow-xs transition-all cursor-pointer font-bold';
+        tabDoingInvestments.className = 'px-3.5 py-1.5 rounded-lg text-slate-500 hover:text-slate-900 transition-all cursor-pointer font-bold';
+        renderTable();
+      });
+
+      searchInput?.addEventListener('input', function (e) {
+        searchKeyword = e.target.value.trim();
+        renderTable();
+      });
+
       async function loadInvestors() {
-        const tbody = document.getElementById('potentialInvestorsTableBody');
         try {
           const res = await fetch(`${API_BASE}/admin/investors`);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const { data } = await res.json();
-
-          const investors = data || [];
-          if (investors.length === 0) {
-            tbody.innerHTML = `
-              <tr>
-                <td colspan="5" class="py-12 text-center text-slate-400 text-xs">
-                  No investors registered in database yet.
-                </td>
-              </tr>
-            `;
-            return;
-          }
-
-          tbody.innerHTML = investors.map(inv => {
-            const initials = `${inv.firstName?.[0] || ''}${inv.lastName?.[0] || ''}`.toUpperCase() || 'IF';
-            const pledgeStr = inv.totalInvested > 0
-              ? fmtMoney(inv.totalInvested)
-              : (inv.pledgeRangeLabel ? `${inv.pledgeRangeLabel} USD` : '$1,000 USD');
-
-            let statusCls = 'bg-blue-50 text-blue-700';
-            if (inv.status === 'Active Investor') statusCls = 'bg-amber-100 text-amber-900 border border-amber-300';
-            else if (inv.status === 'Deposit Pending') statusCls = 'bg-purple-50 text-purple-700';
-
-            return `
-              <tr class="hover:bg-slate-50/70 transition-colors">
-                <td class="py-4 px-6 font-semibold text-slate-900">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-[#061C3D] text-white font-bold text-xs flex items-center justify-center shrink-0">
-                      ${initials}
-                    </div>
-                    <div>
-                      <span class="font-bold text-[#061C3D]">${inv.fullName}</span>
-                      <div class="text-[11px] text-slate-500 font-normal">${inv.email}</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">${inv.investorId}</td>
-                <td class="py-4 px-4 font-bold text-slate-900">${pledgeStr}</td>
-                <td class="py-4 px-4">
-                  <span class="inline-block px-2.5 py-1 rounded-md text-xs font-bold ${statusCls}">
-                    ${inv.status}
-                  </span>
-                </td>
-                <td class="py-4 px-6 text-right">
-                  <a class="px-3.5 py-1.5 rounded-lg bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold transition-all inline-block shadow-xs"
-                     href="admin-registered-investors.html?id=${encodeURIComponent(inv.investorId)}">
-                    View Profile
-                  </a>
-                </td>
-              </tr>
-            `;
-          }).join('');
-
+          allInvestors = data || [];
+          renderTable();
         } catch (err) {
           console.error('Failed to load investors from API:', err);
-          tbody.innerHTML = `
-            <tr>
-              <td colspan="5" class="py-8 text-center text-red-600 text-xs font-medium">
-                Could not connect to database API: ${err.message}. Ensure backend is running on port 4000.
-              </td>
-            </tr>
-          `;
+          if (tbody) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="5" class="py-8 text-center text-red-600 text-xs font-medium">
+                  Could not connect to database API: ${err.message}. Ensure backend is running on port 4000.
+                </td>
+              </tr>
+            `;
+          }
         }
       }
 

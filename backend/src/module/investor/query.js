@@ -344,14 +344,22 @@ export const getAllInvestorsWithStats = async (db = pool) => {
 };
 
 export const getAdminMetrics = async (db = pool) => {
+    // Total investors = count of all signed up users in the database
     const [invRows] = await db.query(
         `SELECT
             COUNT(*) AS total_investors,
-            COUNT(CASE WHEN total_invested = 0 AND is_investor = 0 THEN 1 END) AS potential_investors,
             COUNT(CASE WHEN total_invested > 0 OR is_investor = 1 THEN 1 END) AS registered_active_investors
          FROM investors`
     );
 
+    // Potential investors = those who are actually doing investments
+    const [investingRows] = await db.query(
+        `SELECT COUNT(DISTINCT investor_id) AS potential_investors_investing
+         FROM investments
+         WHERE amount > 0`
+    );
+
+    // Total funds = overall sum of all investments done by all investors
     const [transRows] = await db.query(
         `SELECT
             COALESCE(SUM(amount), 0) AS total_funds_received,
@@ -364,8 +372,15 @@ export const getAdminMetrics = async (db = pool) => {
          FROM investments`
     );
 
+    const totalSignedUp = Number(invRows[0]?.total_investors || 0);
+    const actuallyInvesting = Number(investingRows[0]?.potential_investors_investing || 0);
+
     return {
-        investors: invRows[0] || {},
+        investors: {
+            total_investors: totalSignedUp, // count of all signed up users
+            potential_investors: actuallyInvesting, // those who are actually doing investments
+            registered_active_investors: Number(invRows[0]?.registered_active_investors || 0)
+        },
         investments: transRows[0] || {}
     };
 };

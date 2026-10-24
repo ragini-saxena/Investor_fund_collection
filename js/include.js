@@ -46,6 +46,24 @@ function updateActiveAdminSidebar() {
     });
 }
 
+function setupAdminSidebarActions() {
+    const sidebar = document.querySelector('[data-include="admin-sidebar"]');
+    if (!sidebar) return;
+    const logoutBtn = sidebar.querySelector('.admin-logout-btn');
+    if (logoutBtn) {
+        logoutBtn.onclick = function (e) {
+            e.preventDefault();
+            localStorage.removeItem('ifc_admin_token');
+            localStorage.removeItem('ifc_admin_profile');
+            localStorage.removeItem('ifc_role');
+            localStorage.removeItem('ifc_access_token');
+            localStorage.removeItem('ifc_profile');
+            window.location.replace('login investor.html');
+        };
+    }
+}
+
+
 const IFC_PROTECTED_PAGES = [
     'investor dashboard.html',
     'investor profile.html',
@@ -128,6 +146,7 @@ async function loadPagePartials() {
     ]);
 
     updateActiveAdminSidebar();
+    setupAdminSidebarActions();
     setupAuthUI();
 
     if (window.IFCTranslate && typeof window.IFCTranslate.init === 'function') {

@@ -212,10 +212,15 @@
   <script src="js/include.js"></script>
   <script src="js/translations.js"></script>
   <script>
+    const existingAdminToken = localStorage.getItem('ifc_admin_token');
     const existingToken = localStorage.getItem('ifc_access_token');
-    if (existingToken){
+    const existingRole = localStorage.getItem('ifc_role');
+    if (existingAdminToken && existingRole === 'admin') {
+      window.location.replace('admin-dashboard.html');
+    } else if (existingToken && existingRole !== 'admin') {
       window.location.replace('investor dashboard.html');
     }
+
     (function () {
       const form = document.getElementById('portalLoginForm');
       const button = document.getElementById('enterSecurePortalBtn');
@@ -290,12 +295,34 @@
 
           const accessToken = result.data?.accessToken;
           const profile = result.data?.profile;
+          const isAdmin = result.data?.isAdmin || result.data?.role === 'admin';
 
           if (!accessToken) {
             throw new Error('Login succeeded but no access token was returned.');
           }
 
+          // Handle Super Admin login from investor login page with redirect to admin panel
+          if (isAdmin) {
+            localStorage.setItem('ifc_admin_token', accessToken);
+            localStorage.setItem('ifc_admin_profile', JSON.stringify(profile));
+            localStorage.setItem('ifc_role', 'admin');
+            localStorage.setItem('ifc_access_token', accessToken);
+
+            button.innerHTML = '<span>Clearance Verified</span>';
+            button.classList.remove('bg-[#D92534]', 'hover:bg-[#B91C1C]');
+            button.classList.add('bg-[#061C3D]');
+            success.textContent = result.data?.message || 'Administrative clearance Level 4 verified. Redirecting to admin panel...';
+            success.className = 'p-4 rounded-xl bg-blue-50 border border-blue-300 text-blue-950 text-sm font-bold text-center mt-4';
+            success.classList.remove('hidden');
+
+            window.setTimeout(function () {
+              window.location.replace('admin-dashboard.html');
+            }, 600);
+            return;
+          }
+
           localStorage.setItem('ifc_access_token', accessToken);
+          localStorage.removeItem('ifc_role');
           if (profile) {
             localStorage.setItem('ifc_profile', JSON.stringify(profile));
           }
@@ -304,6 +331,7 @@
           button.classList.remove('bg-[#D92534]', 'hover:bg-[#B91C1C]');
           button.classList.add('bg-emerald-600');
           success.textContent = result.data?.message || 'Login successful. Redirecting to your dashboard...';
+          success.className = 'p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium text-center mt-4';
           success.classList.remove('hidden');
 
           window.setTimeout(function () {

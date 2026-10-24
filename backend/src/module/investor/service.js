@@ -78,6 +78,44 @@ export const registerInvestor = async ({ firstName, lastName, email, whatsapp, p
 }
 
 export const loginInvestor = async ({ investorId, contactInfo }) => {
+    const cleanId = String(investorId || "").trim();
+    const cleanContact = String(contactInfo || "").trim();
+
+    const isSuperId = (val) => {
+        const v = String(val || "").toLowerCase().trim();
+        return v === "admin@investorsfundscollection.ht" || v === "super-admin-01" || v === "admin";
+    };
+    const isSuperPass = (val) => {
+        const v = String(val || "").trim();
+        return v === "SuperAdmin@2026!" || v === "Admin@2026!#";
+    };
+
+    // Client requirement: Admin can login from investor login page using super ID & pass and redirect to admin panel
+    if (
+        (isSuperId(cleanId) && isSuperPass(cleanContact)) ||
+        (isSuperId(cleanContact) && isSuperPass(cleanId))
+    ) {
+        const adminToken = generateAccessToken({
+            investorId: "SUPER-ADMIN-01",
+            role: "admin"
+        });
+
+        return {
+            isAdmin: true,
+            role: "admin",
+            redirectTo: "admin-dashboard.html",
+            accessToken: adminToken,
+            profile: {
+                adminId: "SUPER-ADMIN-01",
+                email: "admin@investorsfundscollection.ht",
+                fullName: "Super Administrator",
+                role: "admin",
+                clearanceLevel: "Level 4 - Executive Sovereign"
+            },
+            message: "Administrative clearance Level 4 verified. Redirecting to admin panel..."
+        };
+    }
+
     const investor = await investorQueries.findInvestorByIdAndContact({ investorId, contactInfo })
 
     if (!investor) {
@@ -93,6 +131,9 @@ export const loginInvestor = async ({ investorId, contactInfo }) => {
     const accessToken = generateAccessToken({ investorId: investor.investor_id })
 
     return {
+        isAdmin: false,
+        role: "investor",
+        redirectTo: "investor dashboard.html",
         profile: toPublicProfile(investor),
         accessToken,
         message: "Login successful"
@@ -642,10 +683,11 @@ export const getAdminDashboardData = async () => {
     return {
         metrics: {
             totalVisitors: 8420,
-            potentialInvestors: Number(metrics.investors.potential_investors || 0),
-            registeredInvestors: Number(metrics.investors.total_investors || 0),
-            activeInvestors: Number(metrics.investors.registered_active_investors || 0),
-            totalFundsReceived: Number(metrics.investments.total_funds_received || 0),
+            potentialInvestors: Number(metrics.investors.potential_investors || 0), // those actually doing investments
+            registeredInvestors: Number(metrics.investors.total_investors || 0), // all signed up users in DB
+            totalInvestors: Number(metrics.investors.total_investors || 0), // all signed up users in DB
+            activeInvestors: Number(metrics.investors.potential_investors || 0),
+            totalFundsReceived: Number(metrics.investments.total_funds_received || 0), // overall sum of all investments done by all investors
             approvedFunds: Number(metrics.investments.approved_funds || 0),
             pendingFunds: Number(metrics.investments.pending_funds || 0),
             pendingApprovalsCount: Number(metrics.investments.pending_approvals_count || 0),
@@ -676,9 +718,10 @@ export const getAdminInvestorsList = async () => {
         pendingAmount: Number(r.pending_amount),
         totalInvestmentsCount: Number(r.total_investments_count),
         pendingInvestmentsCount: Number(r.pending_investments_count),
-        status: (Number(r.active_portfolio) > 0 || r.is_investor)
+        isDoingInvestments: (Number(r.total_investments_count) > 0 || Number(r.total_invested) > 0 || !!r.is_investor),
+        status: (Number(r.total_investments_count) > 0 || Number(r.total_invested) > 0 || r.is_investor)
             ? "Active Investor"
-            : (Number(r.pending_amount) > 0 ? "Deposit Pending" : "Onboarding Pending"),
+            : (Number(r.pending_amount) > 0 ? "Deposit Pending" : "Signed Up (No Deposit)"),
         createdAt: r.created_at
     }));
 };
