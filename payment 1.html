@@ -357,14 +357,17 @@
                   <input type="checkbox" id="saveCardCheckbox" checked class="w-4 h-4 rounded text-[#061C3D] focus:ring-[#061C3D] border-slate-300 cursor-pointer" />
                   <span class="text-xs font-semibold text-slate-700">Save card for quick investments in future transactions</span>
                 </label>
-                <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500 pl-6">
+                <div class="mt-2.5 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 pl-6">
                   <span class="flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     <span>PCI DSS compliant verification</span>
                   </span>
-                  <button type="button" onclick="fillTestCard()" class="text-[#1E40AF] hover:text-[#061C3D] hover:underline font-semibold cursor-pointer">
-                    Use Test Card
-                  </button>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-slate-400">Demo Fill:</span>
+                    <button type="button" onclick="fillTestCard('visa')" class="px-2 py-0.5 rounded-md bg-blue-50 text-[#1E40AF] font-bold border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer">Visa 4242</button>
+                    <button type="button" onclick="fillTestCard('mc')" class="px-2 py-0.5 rounded-md bg-red-50 text-[#D92534] font-bold border border-red-200 hover:bg-red-100 transition-colors cursor-pointer">MC 5555</button>
+                    <button type="button" onclick="fillTestCard('amex')" class="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 font-bold border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer">Amex</button>
+                  </div>
                 </div>
               </div>
 
@@ -896,19 +899,25 @@
         firstInvalidEl = firstInvalidEl || nameInput;
       }
 
+    function getExpectedCardLength(digits) {
+      if (/^3[47]/.test(digits)) return 15; // AMEX
+      return 16; // Standard VISA, Mastercard, Discover
+    }
+
       // 2. Card Number
       const cardNumInput = document.getElementById('cardNumber');
       const rawNum = (cardNumInput ? (cardNumInput.getAttribute('data-raw') || cardNumInput.value) : '').replace(/\D/g, '');
+      const expectedLen = getExpectedCardLength(rawNum);
       if (!rawNum) {
         setFieldError('cardNumber', 'cardNumberError', 'Card number is required');
         isValid = false;
         firstInvalidEl = firstInvalidEl || cardNumInput;
-      } else if (rawNum.length < 13 || rawNum.length > 19) {
-        setFieldError('cardNumber', 'cardNumberError', 'Card number must be 13 to 19 digits');
+      } else if (rawNum.length < expectedLen) {
+        setFieldError('cardNumber', 'cardNumberError', `Card number is incomplete (${expectedLen} digits required)`);
         isValid = false;
         firstInvalidEl = firstInvalidEl || cardNumInput;
       } else if (!isValidLuhnClient(rawNum)) {
-        setFieldError('cardNumber', 'cardNumberError', 'Invalid card number (failed checksum validation)');
+        setFieldError('cardNumber', 'cardNumberError', 'Card number is invalid. Check digits for typos, or use demo test card');
         isValid = false;
         firstInvalidEl = firstInvalidEl || cardNumInput;
       }
@@ -954,16 +963,28 @@
       return { isValid, firstInvalidEl };
     }
 
-    function fillTestCard() {
+    function fillTestCard(type = 'visa') {
       useNewCardMode();
       const cardNumInput = document.getElementById('cardNumber');
-      // 4111 1111 1111 1111 passes Luhn algorithm checksum
-      const testNumber = '4111111111111111';
+      let testNumber = '4242424242424242';
+      let expiry = '12 / 29';
+      let cvv = '882';
+      let badge = '4';
+
+      if (type === 'mc') {
+        testNumber = '5555555555554444';
+        badge = '5';
+      } else if (type === 'amex') {
+        testNumber = '378282246310005';
+        cvv = '8822';
+        badge = '3';
+      }
+
       cardNumInput.setAttribute('data-raw', testNumber);
       cardNumInput.value = formatWithSpaces(testNumber);
-      document.getElementById('cardExpiry').value = '12 / 29';
-      document.getElementById('cardCvv').value = '882';
-      updateCardBadge('4');
+      document.getElementById('cardExpiry').value = expiry;
+      document.getElementById('cardCvv').value = cvv;
+      updateCardBadge(badge);
       clearAllCardErrors();
       const saveCheckbox = document.getElementById('saveCardCheckbox');
       if (saveCheckbox) saveCheckbox.checked = true;
@@ -978,7 +999,7 @@
       document.getElementById('cardName').value = card.cardholderName;
       const cardNumInput = document.getElementById('cardNumber');
       cardNumInput.value = card.cardNumberMasked;
-      cardNumInput.setAttribute('data-raw', '411188278827' + card.cardLast4);
+      cardNumInput.setAttribute('data-raw', card.cardNumberMasked);
       document.getElementById('cardExpiry').value = card.expiryMonthYear;
       updateCardBadge(card.cardBrand === 'VISA' ? '4' : card.cardBrand === 'MASTERCARD' ? '5' : '3');
       
@@ -1115,20 +1136,26 @@
     }
 
     function handleCardBlur(input) {
-      const raw = input.getAttribute('data-raw') || input.value.replace(/\D/g, '');
-      if (raw && selectedSavedCardId === null) {
-        if (raw.length >= 13 && !isValidLuhnClient(raw)) {
-          setFieldError('cardNumber', 'cardNumberError', 'Invalid card number (checksum validation failed)');
-        } else if (raw.length < 13) {
-          setFieldError('cardNumber', 'cardNumberError', 'Card number must be 13 to 19 digits');
-        } else {
-          clearFieldError('cardNumber', 'cardNumberError');
-          if (raw.length >= 8) {
-            input.value = getMaskedCard(raw);
-            isCardMasked = true;
-            updateEyeIcon(true);
-          }
-        }
+      if (selectedSavedCardId !== null) return;
+      const raw = (input.getAttribute('data-raw') || input.value).replace(/\D/g, '');
+      if (!raw) return;
+
+      const expectedLen = getExpectedCardLength(raw);
+      if (raw.length < expectedLen) {
+        setFieldError('cardNumber', 'cardNumberError', `Card number is incomplete (${expectedLen} digits required)`);
+        return;
+      }
+
+      if (!isValidLuhnClient(raw)) {
+        setFieldError('cardNumber', 'cardNumberError', 'Invalid card number. Please check for mistyped digits (or use demo test card)');
+        return;
+      }
+
+      clearFieldError('cardNumber', 'cardNumberError');
+      if (raw.length >= 8) {
+        input.value = getMaskedCard(raw);
+        isCardMasked = true;
+        updateEyeIcon(true);
       }
     }
 
