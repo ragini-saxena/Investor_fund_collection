@@ -4,6 +4,7 @@ import { generateAccessToken } from "../../utils/token.js"
 import runInTransaction from "../../utils/transaction.js"
 import { findPledgeRangeByLabel } from "../../utils/pledge-ranges.js"
 import ApiError from "../../utils/api-error.js"
+import { isValidLuhn, isValidExpiry } from "../../validation/investor.validation.js"
 
 const toPublicProfile = (row) => {
     if (!row) return null
@@ -165,6 +166,50 @@ export const getInvestorDashboard = async (investorId) => {
     }
 }
 
+export const detectCardBrand = (cardNumber) => {
+    const raw = String(cardNumber || "").replace(/\D/g, "");
+    if (raw.startsWith("4")) return "VISA";
+    if (/^(5[1-5]|2[2-7])/.test(raw)) return "MASTERCARD";
+    if (/^3[47]/.test(raw)) return "AMEX";
+    if (/^(6011|65|64[4-9])/.test(raw)) return "DISCOVER";
+    return "CARD";
+};
+
+export const validateCardDetailsForSaving = (cardDetails, defaultName = "") => {
+    if (!cardDetails) {
+        throw new ApiError(422, "MISSING_CARD_DETAILS", "Card details are required to save a card");
+    }
+
+    const name = String(cardDetails.cardholderName || defaultName || "").trim();
+    if (name.length < 2 || !/^[a-zA-Z\s\.\'\-]{2,60}$/.test(name)) {
+        throw new ApiError(422, "INVALID_CARDHOLDER_NAME", "Cardholder name must contain 2 to 60 characters (letters and spaces only)");
+    }
+
+    const rawDigits = String(cardDetails.cardNumber || "").replace(/\D/g, "");
+    if (!isValidLuhn(rawDigits)) {
+        throw new ApiError(422, "INVALID_CARD_NUMBER", "Card number is invalid and failed checksum validation");
+    }
+
+    const expiry = String(cardDetails.expiry || "").trim();
+    if (!isValidExpiry(expiry)) {
+        throw new ApiError(422, "INVALID_CARD_EXPIRY", "Card expiry date is invalid or has expired (format MM/YY)");
+    }
+
+    const last4 = rawDigits.slice(-4);
+    const first4 = rawDigits.substring(0, 4);
+    const cardNumberMasked = `${first4} •••• •••• ${last4}`;
+    const brand = cardDetails.cardBrand || detectCardBrand(rawDigits);
+
+    return {
+        cardholderName: name,
+        cardNumberMasked,
+        cardLast4: last4,
+        cardBrand: brand,
+        expiryMonthYear: expiry,
+        billingCountry: cardDetails.billingCountry || "HT"
+    };
+};
+
 export const createInvestment = async ({
     investorId,
     amount,
@@ -228,28 +273,24 @@ export const createInvestment = async ({
         await investorQueries.syncInvestorInvestedTotal(investorId, connection)
 
         // Save card if user requested and method is card
-        if (saveCard && (paymentMethod === "debit" || paymentMethod === "credit") && cardDetails?.cardNumber) {
-            const rawDigits = String(cardDetails.cardNumber).replace(/\D/g, "")
-            const last4 = rawDigits.slice(-4)
-            if (last4.length === 4) {
-                const existing = await investorQueries.findSavedCardByLast4(investorId, last4, connection)
-                if (!existing) {
-                    const first4 = rawDigits.substring(0, 4) || "4111"
-                    const masked = `${first4} •••• •••• ${last4}`
-                    await investorQueries.createSavedCard(
-                        {
-                            investorId,
-                            cardholderName: cardDetails.cardholderName || `${investor.first_name} ${investor.last_name}`,
-                            cardNumberMasked: masked,
-                            cardLast4: last4,
-                            cardBrand: cardDetails.cardBrand || "VISA",
-                            expiryMonthYear: cardDetails.expiry || "12 / 29",
-                            billingCountry: cardDetails.billingCountry || "HT",
-                            isDefault: false
-                        },
-                        connection
-                    )
-                }
+        if (saveCard && (paymentMethod === "debit" || paymentMethod === "credit")) {
+            const defaultName = `${investor.first_name} ${investor.last_name}`;
+            const validated = validateCardDetailsForSaving(cardDetails, defaultName);
+            const existing = await investorQueries.findSavedCardByLast4(investorId, validated.cardLast4, connection);
+            if (!existing) {
+                await investorQueries.createSavedCard(
+                    {
+                        investorId,
+                        cardholderName: validated.cardholderName,
+                        cardNumberMasked: validated.cardNumberMasked,
+                        cardLast4: validated.cardLast4,
+                        cardBrand: validated.cardBrand,
+                        expiryMonthYear: validated.expiryMonthYear,
+                        billingCountry: validated.billingCountry,
+                        isDefault: false
+                    },
+                    connection
+                );
             }
         }
 
@@ -303,29 +344,18 @@ export const saveCard = async ({
     billingCountry = "HT",
     isDefault = false
 }) => {
-    const investor = await investorQueries.findInvestorByInvestorId(investorId)
+    const investor = await investorQueries.findInvestorByInvestorId(investorId);
     if (!investor) {
-        throw new ApiError(404, "INVESTOR_NOT_FOUND", "Investor account not found")
+        throw new ApiError(404, "INVESTOR_NOT_FOUND", "Investor account not found");
     }
 
-    const rawDigits = String(cardNumber || "").replace(/\D/g, "")
-    if (rawDigits.length < 12) {
-        throw new ApiError(422, "INVALID_CARD_NUMBER", "Card number must contain at least 12 digits")
-    }
+    const defaultName = `${investor.first_name} ${investor.last_name}`;
+    const validated = validateCardDetailsForSaving(
+        { cardholderName, cardNumber, expiry, cardBrand, billingCountry },
+        defaultName
+    );
 
-    const last4 = rawDigits.slice(-4)
-    const first4 = rawDigits.substring(0, 4)
-    const cardNumberMasked = `${first4} •••• •••• ${last4}`
-
-    let brand = cardBrand
-    if (!brand) {
-        if (rawDigits.startsWith("4")) brand = "VISA"
-        else if (rawDigits.startsWith("5") || rawDigits.startsWith("2")) brand = "MASTERCARD"
-        else if (rawDigits.startsWith("3")) brand = "AMEX"
-        else brand = "CARD"
-    }
-
-    const existing = await investorQueries.findSavedCardByLast4(investorId, last4)
+    const existing = await investorQueries.findSavedCardByLast4(investorId, validated.cardLast4);
     if (existing) {
         return {
             id: existing.id,
@@ -337,32 +367,32 @@ export const saveCard = async ({
             billingCountry: existing.billing_country,
             isDefault: !!existing.is_default,
             message: "Card already exists in your wallet."
-        }
+        };
     }
 
     const cardId = await investorQueries.createSavedCard({
         investorId,
-        cardholderName: cardholderName || `${investor.first_name} ${investor.last_name}`,
-        cardNumberMasked,
-        cardLast4: last4,
-        cardBrand: brand,
-        expiryMonthYear: expiry || "12 / 29",
-        billingCountry,
+        cardholderName: validated.cardholderName,
+        cardNumberMasked: validated.cardNumberMasked,
+        cardLast4: validated.cardLast4,
+        cardBrand: validated.cardBrand,
+        expiryMonthYear: validated.expiryMonthYear,
+        billingCountry: validated.billingCountry,
         isDefault
-    })
+    });
 
     return {
         id: cardId,
-        cardholderName: cardholderName || `${investor.first_name} ${investor.last_name}`,
-        cardNumberMasked,
-        cardLast4: last4,
-        cardBrand: brand,
-        expiryMonthYear: expiry || "12 / 29",
-        billingCountry,
+        cardholderName: validated.cardholderName,
+        cardNumberMasked: validated.cardNumberMasked,
+        cardLast4: validated.cardLast4,
+        cardBrand: validated.cardBrand,
+        expiryMonthYear: validated.expiryMonthYear,
+        billingCountry: validated.billingCountry,
         isDefault,
         message: "Card saved successfully for future investments."
-    }
-}
+    };
+};
 
 export const removeSavedCard = async (cardId, investorId) => {
     const deleted = await investorQueries.deleteSavedCard(cardId, investorId)

@@ -52,6 +52,8 @@ router.get(
 router.post(
     "/cards",
     requireAuth,
+    investorValidation.saveCardValidation,
+    validate,
     investorController.saveCard
 );
 

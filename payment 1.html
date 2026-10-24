@@ -288,18 +288,20 @@
             <div id="cardFieldsWrapper" class="space-y-4">
               <div>
                 <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Cardholder Full Name</label>
-                <input required type="text" id="cardName" value="" placeholder="Investor Full Name"
+                <input required type="text" id="cardName" value="" placeholder="e.g. Jean Baptiste"
+                  autocomplete="cc-name"
+                  oninput="handleNameInput(this)" onblur="handleNameBlur(this)"
                   class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-medium" />
+                <div id="cardNameError" class="hidden text-[11px] font-semibold text-red-600 mt-1.5 flex items-center gap-1.5"></div>
               </div>
 
               <div>
                 <div class="flex items-center justify-between mb-1.5">
                   <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Card Number</label>
-                  <span class="text-[11px] text-slate-400 font-medium">Auto-masks middle digits for security</span>
+                  <span class="text-[11px] text-slate-400 font-medium">Luhn checksum verified • Auto-masks middle digits</span>
                 </div>
                 <div class="relative">
-                  <input required type="text" id="cardNumber" value="4111 •••• •••• 8827" maxlength="19"
-                    data-raw="4111882788278827"
+                  <input required type="text" id="cardNumber" placeholder="•••• •••• •••• ••••" maxlength="23"
                     autocomplete="cc-number" inputmode="numeric"
                     onfocus="handleCardFocus(this)"
                     onblur="handleCardBlur(this)"
@@ -316,23 +318,26 @@
                     <span class="text-xs font-extrabold text-[#1E40AF] bg-blue-50 px-2 py-0.5 rounded border border-blue-200" id="cardBadge">VISA</span>
                   </div>
                 </div>
+                <div id="cardNumberError" class="hidden text-[11px] font-semibold text-red-600 mt-1.5 flex items-center gap-1.5"></div>
               </div>
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Expiry Date (MM/YY)</label>
-                  <input required type="text" id="cardExpiry" value="12 / 29" maxlength="7" placeholder="MM / YY"
-                    autocomplete="cc-exp" oninput="formatExpiryInput(this)"
+                  <input required type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7"
+                    autocomplete="cc-exp" oninput="formatExpiryInput(this)" onblur="handleExpiryBlur(this)"
                     class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-mono font-medium" />
+                  <div id="cardExpiryError" class="hidden text-[11px] font-semibold text-red-600 mt-1.5 flex items-center gap-1.5"></div>
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                     <span>CVV / CVC</span>
-                    <span class="text-[10px] text-slate-400 font-normal">3-4 digits</span>
+                    <span id="cvvHint" class="text-[10px] text-slate-400 font-normal">3-4 digits</span>
                   </label>
-                  <input required type="password" id="cardCvv" value="882" maxlength="4" placeholder="•••"
-                    autocomplete="cc-csc"
+                  <input required type="password" id="cardCvv" placeholder="•••" maxlength="4"
+                    autocomplete="cc-csc" oninput="handleCvvInput(this)" onblur="handleCvvBlur(this)"
                     class="w-full h-12 px-4 text-sm text-slate-900 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#061C3D] focus:border-transparent transition-all font-mono font-medium tracking-widest" />
+                  <div id="cardCvvError" class="hidden text-[11px] font-semibold text-red-600 mt-1.5 flex items-center gap-1.5"></div>
                 </div>
               </div>
 
@@ -346,12 +351,29 @@
                 </select>
               </div>
 
-              <!-- Save Card Checkbox -->
+              <!-- Save Card Checkbox + Security Badge -->
               <div class="pt-2">
                 <label class="flex items-center gap-2.5 cursor-pointer select-none">
                   <input type="checkbox" id="saveCardCheckbox" checked class="w-4 h-4 rounded text-[#061C3D] focus:ring-[#061C3D] border-slate-300 cursor-pointer" />
                   <span class="text-xs font-semibold text-slate-700">Save card for quick investments in future transactions</span>
                 </label>
+                <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500 pl-6">
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span>PCI DSS compliant verification</span>
+                  </span>
+                  <button type="button" onclick="fillTestCard()" class="text-[#1E40AF] hover:text-[#061C3D] hover:underline font-semibold cursor-pointer">
+                    Use Test Card
+                  </button>
+                </div>
+              </div>
+
+              <!-- General Card Validation Alert Banner -->
+              <div id="cardValidationBanner" class="hidden p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-red-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div id="cardValidationBannerText" class="font-medium"></div>
               </div>
             </div>
           </div>
@@ -759,11 +781,200 @@
       `).join('');
     }
 
+    function isValidLuhnClient(num) {
+      const clean = String(num || '').replace(/\D/g, '');
+      if (clean.length < 13 || clean.length > 19) return false;
+      let sum = 0;
+      let shouldDouble = false;
+      for (let i = clean.length - 1; i >= 0; i--) {
+        let digit = parseInt(clean.charAt(i), 10);
+        if (shouldDouble) {
+          digit *= 2;
+          if (digit > 9) digit -= 9;
+        }
+        sum += digit;
+        shouldDouble = !shouldDouble;
+      }
+      return sum % 10 === 0;
+    }
+
+    function isValidExpiryClient(expiry) {
+      if (!expiry || typeof expiry !== 'string') return { valid: false, message: 'Expiry date is required' };
+      const clean = expiry.trim();
+      const match = clean.match(/^(\d{1,2})\s*\/?\s*(\d{2}|\d{4})$/);
+      if (!match) return { valid: false, message: 'Format must be MM / YY (e.g. 12/28)' };
+      const month = parseInt(match[1], 10);
+      let year = parseInt(match[2], 10);
+      if (month < 1 || month > 12) return { valid: false, message: 'Month must be between 01 and 12' };
+      if (year < 100) year += 2000;
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth() + 1;
+      if (year < currentYear || (year === currentYear && month < currentMonth)) {
+        return { valid: false, message: 'Card has expired. Please enter a valid date' };
+      }
+      if (year > currentYear + 25) {
+        return { valid: false, message: 'Expiry year cannot exceed 25 years in future' };
+      }
+      return { valid: true };
+    }
+
+    function setFieldError(fieldId, errorId, message) {
+      const input = document.getElementById(fieldId);
+      const errEl = document.getElementById(errorId);
+      if (input) {
+        input.classList.add('border-red-500', 'ring-2', 'ring-red-200', 'bg-red-50/20');
+        input.classList.remove('border-slate-300');
+      }
+      if (errEl) {
+        errEl.innerHTML = `<svg class="w-3.5 h-3.5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>${message}</span>`;
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    function clearFieldError(fieldId, errorId) {
+      const input = document.getElementById(fieldId);
+      const errEl = document.getElementById(errorId);
+      if (input) {
+        input.classList.remove('border-red-500', 'ring-2', 'ring-red-200', 'bg-red-50/20');
+        input.classList.add('border-slate-300');
+      }
+      if (errEl) {
+        errEl.classList.add('hidden');
+        errEl.innerHTML = '';
+      }
+      const banner = document.getElementById('cardValidationBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function clearAllCardErrors() {
+      clearFieldError('cardName', 'cardNameError');
+      clearFieldError('cardNumber', 'cardNumberError');
+      clearFieldError('cardExpiry', 'cardExpiryError');
+      clearFieldError('cardCvv', 'cardCvvError');
+      const banner = document.getElementById('cardValidationBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function validateCardForm() {
+      clearAllCardErrors();
+      let isValid = true;
+      let firstInvalidEl = null;
+
+      // When paying with an existing saved card:
+      if (selectedSavedCardId !== null) {
+        const cvvInput = document.getElementById('cardCvv');
+        const cvv = (cvvInput ? cvvInput.value : '').trim();
+        const badge = document.getElementById('cardBadge');
+        const isAmex = badge && badge.textContent === 'AMEX';
+        if (!cvv) {
+          setFieldError('cardCvv', 'cardCvvError', 'Please enter your CVV security code');
+          isValid = false;
+          firstInvalidEl = firstInvalidEl || cvvInput;
+        } else if (isAmex && !/^\d{4}$/.test(cvv)) {
+          setFieldError('cardCvv', 'cardCvvError', 'AMEX requires 4-digit security code');
+          isValid = false;
+          firstInvalidEl = firstInvalidEl || cvvInput;
+        } else if (!isAmex && !/^\d{3,4}$/.test(cvv)) {
+          setFieldError('cardCvv', 'cardCvvError', 'Security code must be 3 digits (or 4 for AMEX)');
+          isValid = false;
+          firstInvalidEl = firstInvalidEl || cvvInput;
+        }
+        return { isValid, firstInvalidEl };
+      }
+
+      // 1. Cardholder Full Name
+      const nameInput = document.getElementById('cardName');
+      const name = (nameInput ? nameInput.value : '').trim();
+      if (!name) {
+        setFieldError('cardName', 'cardNameError', 'Cardholder full name is required');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || nameInput;
+      } else if (name.length < 2 || !/^[a-zA-Z\s\.\'\-]{2,60}$/.test(name)) {
+        setFieldError('cardName', 'cardNameError', 'Cardholder name can only contain letters and spaces (2-60 chars)');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || nameInput;
+      }
+
+      // 2. Card Number
+      const cardNumInput = document.getElementById('cardNumber');
+      const rawNum = (cardNumInput ? (cardNumInput.getAttribute('data-raw') || cardNumInput.value) : '').replace(/\D/g, '');
+      if (!rawNum) {
+        setFieldError('cardNumber', 'cardNumberError', 'Card number is required');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cardNumInput;
+      } else if (rawNum.length < 13 || rawNum.length > 19) {
+        setFieldError('cardNumber', 'cardNumberError', 'Card number must be 13 to 19 digits');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cardNumInput;
+      } else if (!isValidLuhnClient(rawNum)) {
+        setFieldError('cardNumber', 'cardNumberError', 'Invalid card number (failed checksum validation)');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cardNumInput;
+      }
+
+      // 3. Expiry Date
+      const expiryInput = document.getElementById('cardExpiry');
+      const expiry = (expiryInput ? expiryInput.value : '').trim();
+      const expiryCheck = isValidExpiryClient(expiry);
+      if (!expiryCheck.valid) {
+        setFieldError('cardExpiry', 'cardExpiryError', expiryCheck.message);
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || expiryInput;
+      }
+
+      // 4. CVV
+      const cvvInput = document.getElementById('cardCvv');
+      const cvv = (cvvInput ? cvvInput.value : '').trim();
+      const badge = document.getElementById('cardBadge');
+      const isAmex = badge && badge.textContent === 'AMEX';
+      if (!cvv) {
+        setFieldError('cardCvv', 'cardCvvError', 'Security code (CVV) is required');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cvvInput;
+      } else if (isAmex && !/^\d{4}$/.test(cvv)) {
+        setFieldError('cardCvv', 'cardCvvError', 'AMEX requires a 4-digit CVV');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cvvInput;
+      } else if (!isAmex && !/^\d{3,4}$/.test(cvv)) {
+        setFieldError('cardCvv', 'cardCvvError', 'CVV must be 3 digits (or 4 for AMEX)');
+        isValid = false;
+        firstInvalidEl = firstInvalidEl || cvvInput;
+      }
+
+      if (!isValid) {
+        const banner = document.getElementById('cardValidationBanner');
+        const bannerText = document.getElementById('cardValidationBannerText');
+        if (banner && bannerText) {
+          bannerText.textContent = 'Please correct the invalid card details highlighted below before proceeding.';
+          banner.classList.remove('hidden');
+        }
+      }
+
+      return { isValid, firstInvalidEl };
+    }
+
+    function fillTestCard() {
+      useNewCardMode();
+      const cardNumInput = document.getElementById('cardNumber');
+      // 4111 1111 1111 1111 passes Luhn algorithm checksum
+      const testNumber = '4111111111111111';
+      cardNumInput.setAttribute('data-raw', testNumber);
+      cardNumInput.value = formatWithSpaces(testNumber);
+      document.getElementById('cardExpiry').value = '12 / 29';
+      document.getElementById('cardCvv').value = '882';
+      updateCardBadge('4');
+      clearAllCardErrors();
+      const saveCheckbox = document.getElementById('saveCardCheckbox');
+      if (saveCheckbox) saveCheckbox.checked = true;
+    }
+
     function selectSavedCard(cardId) {
       const card = savedCards.find(c => c.id === cardId);
       if (!card) return;
       selectedSavedCardId = card.id;
 
+      clearAllCardErrors();
       document.getElementById('cardName').value = card.cardholderName;
       const cardNumInput = document.getElementById('cardNumber');
       cardNumInput.value = card.cardNumberMasked;
@@ -778,12 +989,14 @@
 
       const cvvInput = document.getElementById('cardCvv');
       if (cvvInput) {
+        cvvInput.value = '';
         cvvInput.focus();
       }
     }
 
     function useNewCardMode() {
       selectedSavedCardId = null;
+      clearAllCardErrors();
       renderSavedCards(savedCards);
       if (currentUserProfile) {
         document.getElementById('cardName').value = `${currentUserProfile.firstName} ${currentUserProfile.lastName}`.trim();
@@ -795,6 +1008,7 @@
       document.getElementById('cardCvv').value = '';
       const saveCheckbox = document.getElementById('saveCardCheckbox');
       if (saveCheckbox) saveCheckbox.checked = true;
+      updateCardBadge('');
       cardNumInput.focus();
     }
 
@@ -833,31 +1047,62 @@
 
     function updateCardBadge(v) {
       const badge = document.getElementById('cardBadge');
+      const hint = document.getElementById('cvvHint');
+      const cvvInput = document.getElementById('cardCvv');
       if (!badge) return;
+
       if (v.startsWith('4')) {
         badge.textContent = 'VISA';
         badge.className = 'text-xs font-extrabold text-[#1E40AF] bg-blue-50 px-2 py-0.5 rounded border border-blue-200';
+        if (hint) hint.textContent = '3 digits';
+        if (cvvInput) { cvvInput.placeholder = '•••'; cvvInput.maxLength = 4; }
       } else if (v.startsWith('5') || v.startsWith('2')) {
         badge.textContent = 'MASTERCARD';
         badge.className = 'text-xs font-extrabold text-[#D92534] bg-red-50 px-2 py-0.5 rounded border border-red-200';
-      } else if (v.startsWith('3')) {
+        if (hint) hint.textContent = '3 digits';
+        if (cvvInput) { cvvInput.placeholder = '•••'; cvvInput.maxLength = 4; }
+      } else if (v.startsWith('34') || v.startsWith('37') || v.startsWith('3')) {
         badge.textContent = 'AMEX';
         badge.className = 'text-xs font-extrabold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200';
+        if (hint) hint.textContent = '4 digits for AMEX';
+        if (cvvInput) { cvvInput.placeholder = '••••'; cvvInput.maxLength = 4; }
+      } else if (v.startsWith('6011') || v.startsWith('65') || v.startsWith('6')) {
+        badge.textContent = 'DISCOVER';
+        badge.className = 'text-xs font-extrabold text-orange-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200';
+        if (hint) hint.textContent = '3 digits';
+        if (cvvInput) { cvvInput.placeholder = '•••'; cvvInput.maxLength = 4; }
       } else {
         badge.textContent = 'CARD';
         badge.className = 'text-xs font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200';
+        if (hint) hint.textContent = '3-4 digits';
+        if (cvvInput) { cvvInput.placeholder = '•••'; cvvInput.maxLength = 4; }
+      }
+    }
+
+    function handleNameInput(input) {
+      clearFieldError('cardName', 'cardNameError');
+    }
+
+    function handleNameBlur(input) {
+      const name = input.value.trim();
+      if (name && (name.length < 2 || !/^[a-zA-Z\s\.\'\-]{2,60}$/.test(name)) && selectedSavedCardId === null) {
+        setFieldError('cardName', 'cardNameError', 'Cardholder name can only contain letters and spaces (2-60 chars)');
       }
     }
 
     function handleCardInput(input) {
       selectedSavedCardId = null;
       renderSavedCards(savedCards);
-      let cleanDigits = input.value.replace(/\D/g, '').substring(0, 16);
+      let cleanDigits = input.value.replace(/\D/g, '').substring(0, 19);
       input.setAttribute('data-raw', cleanDigits);
       input.value = formatWithSpaces(cleanDigits);
       isCardMasked = false;
       updateEyeIcon(false);
       updateCardBadge(cleanDigits);
+      clearFieldError('cardNumber', 'cardNumberError');
+      if (cleanDigits.length >= 13 && isValidLuhnClient(cleanDigits)) {
+        clearFieldError('cardNumber', 'cardNumberError');
+      }
     }
 
     function handleCardFocus(input) {
@@ -871,10 +1116,19 @@
 
     function handleCardBlur(input) {
       const raw = input.getAttribute('data-raw') || input.value.replace(/\D/g, '');
-      if (raw && raw.length >= 8) {
-        input.value = getMaskedCard(raw);
-        isCardMasked = true;
-        updateEyeIcon(true);
+      if (raw && selectedSavedCardId === null) {
+        if (raw.length >= 13 && !isValidLuhnClient(raw)) {
+          setFieldError('cardNumber', 'cardNumberError', 'Invalid card number (checksum validation failed)');
+        } else if (raw.length < 13) {
+          setFieldError('cardNumber', 'cardNumberError', 'Card number must be 13 to 19 digits');
+        } else {
+          clearFieldError('cardNumber', 'cardNumberError');
+          if (raw.length >= 8) {
+            input.value = getMaskedCard(raw);
+            isCardMasked = true;
+            updateEyeIcon(true);
+          }
+        }
       }
     }
 
@@ -910,6 +1164,38 @@
         input.value = v.substring(0, 2) + ' / ' + v.substring(2);
       } else {
         input.value = v;
+      }
+      clearFieldError('cardExpiry', 'cardExpiryError');
+    }
+
+    function handleExpiryBlur(input) {
+      if (input.value.trim() && selectedSavedCardId === null) {
+        const check = isValidExpiryClient(input.value);
+        if (!check.valid) {
+          setFieldError('cardExpiry', 'cardExpiryError', check.message);
+        } else {
+          clearFieldError('cardExpiry', 'cardExpiryError');
+        }
+      }
+    }
+
+    function handleCvvInput(input) {
+      input.value = input.value.replace(/\D/g, '').substring(0, 4);
+      clearFieldError('cardCvv', 'cardCvvError');
+    }
+
+    function handleCvvBlur(input) {
+      const v = input.value.trim();
+      const badge = document.getElementById('cardBadge');
+      const isAmex = badge && badge.textContent === 'AMEX';
+      if (v) {
+        if (isAmex && !/^\d{4}$/.test(v)) {
+          setFieldError('cardCvv', 'cardCvvError', 'AMEX requires 4-digit CVV');
+        } else if (!isAmex && !/^\d{3,4}$/.test(v)) {
+          setFieldError('cardCvv', 'cardCvvError', 'CVV must be 3 digits (or 4 for AMEX)');
+        } else {
+          clearFieldError('cardCvv', 'cardCvvError');
+        }
       }
     }
 
@@ -982,7 +1268,11 @@
           renderSavedCards(savedCards);
           if (savedCards.length > 0) {
             selectSavedCard(savedCards[0].id);
+          } else {
+            useNewCardMode();
           }
+        } else {
+          useNewCardMode();
         }
 
       } catch (err) {
@@ -1001,6 +1291,18 @@
         const inputEl = document.getElementById('customAllocationInput');
         if (inputEl) inputEl.focus();
         return;
+      }
+
+      // Validate Card Details before initiating payment authorization
+      if (currentMethod === 'debit' || currentMethod === 'credit') {
+        const cardValidation = validateCardForm();
+        if (!cardValidation.isValid) {
+          if (cardValidation.firstInvalidEl) {
+            cardValidation.firstInvalidEl.focus();
+            cardValidation.firstInvalidEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
       }
 
       btn.disabled = true;
