@@ -35,8 +35,8 @@
       </p>
     </div>
 
-    <!-- 4 Metric Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+    <!-- Top 5 Metric Cards (Connected to Database) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-8">
       <!-- Card 1: Total Visitors -->
       <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
         <div>
@@ -49,14 +49,13 @@
               <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
             </svg>
           </div>
-          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
-            12,482
+          <div id="adminTotalVisitors" class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            8,420
           </div>
           <div class="text-xs text-slate-500 font-medium mt-1">
-            ↑ 14.5% vs last week
+            ↑ 14.5% portal traffic
           </div>
         </div>
-        <!-- Sparkline Graphic -->
         <div class="mt-4 pt-1">
           <svg class="w-full h-8 overflow-visible" fill="none" viewBox="0 0 160 28">
             <path d="M0 20 C 18 20, 24 16, 38 18 C 52 20, 60 25, 74 19 C 88 13, 98 16, 114 12 C 130 8, 142 15, 160 6" stroke="#dc2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
@@ -72,20 +71,20 @@
               POTENTIAL INVESTORS
             </span>
             <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
-              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
             </svg>
           </div>
-          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
-            342
+          <div id="adminPotentialInvestors" class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            0
           </div>
         </div>
         <div class="text-xs text-slate-500 font-medium mt-6">
-          Selected volume: $4,850,000
+          Registered pledge onboarding
         </div>
       </div>
 
-      <!-- Card 3: Total Investors -->
+      <!-- Card 3: Total Registered Investors -->
       <div class="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between">
@@ -93,16 +92,18 @@
               TOTAL INVESTORS
             </span>
             <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
-              <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
-            1,829
+          <div id="adminTotalInvestors" class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            0
           </div>
         </div>
         <div class="text-xs text-slate-500 font-medium mt-6">
-          Matured funds: $24,800,000
+          Verified accounts in DB
         </div>
       </div>
 
@@ -118,12 +119,31 @@
               <polyline points="17 6 23 6 23 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
             </svg>
           </div>
-          <div class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
-            $29,650,000
+          <div id="adminTotalFunds" class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+            $0
           </div>
         </div>
         <div class="text-xs text-slate-500 font-medium mt-6">
-          Diaspora: 68% • Local: 32%
+          Approved Sovereign Escrow
+        </div>
+      </div>
+
+      <!-- Card 5: Pending Approvals (Queue) -->
+      <div class="bg-white rounded-2xl border border-amber-300 bg-amber-50/30 p-5 sm:p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold tracking-wider text-amber-900 uppercase">
+              PENDING APPROVALS
+            </span>
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          </div>
+          <div id="adminPendingCount" class="text-3xl font-extrabold text-amber-900 tracking-tight mt-3">
+            0
+          </div>
+        </div>
+        <div class="mt-6 flex items-center justify-between">
+          <span id="adminPendingAmount" class="text-xs text-amber-800 font-bold">$0 pending</span>
+          <a href="payments-funds.html" class="text-[11px] font-bold text-amber-900 hover:underline">Review →</a>
         </div>
       </div>
     </div>
@@ -239,9 +259,127 @@
         </div>
       </div>
     </div>
+
+    <!-- Recent Sovereign Allocations & Queue (Connected to Live Database) -->
+    <div class="mt-8 bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs">
+      <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+            Recent Sovereign Allocations &amp; Approval Queue
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">Live database feed synchronized with sovereign escrow records</p>
+        </div>
+        <a href="payments-funds.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-xs font-bold text-[#061C3D] transition-colors">
+          <span>Open Full Ledger</span>
+          <span>↗</span>
+        </a>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+              <th class="py-3 px-6">Investor</th>
+              <th class="py-3 px-6">Reference ID</th>
+              <th class="py-3 px-6">Amount</th>
+              <th class="py-3 px-6">Allocated Pool</th>
+              <th class="py-3 px-6">Method</th>
+              <th class="py-3 px-6">Status</th>
+              <th class="py-3 px-6 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminRecentInvestmentsBody" class="divide-y divide-slate-100">
+            <tr>
+              <td colspan="7" class="py-8 text-center text-slate-400 text-xs animate-pulse">
+                Synchronizing with database records…
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </main>
 
   <!-- Scripts -->
   <script src="js/include.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const API_BASE = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
+      const formatMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n || 0);
+
+      async function loadAdminDashboardData() {
+        try {
+          const res = await fetch(`${API_BASE}/admin/stats`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const { data } = await res.json();
+
+          const metrics = data.metrics || {};
+          const recent = data.recentInvestments || [];
+
+          // Populate Metric Cards from real Database
+          if (document.getElementById('adminTotalVisitors')) {
+            document.getElementById('adminTotalVisitors').textContent = Number(metrics.totalVisitors || 8420).toLocaleString();
+          }
+          if (document.getElementById('adminPotentialInvestors')) {
+            document.getElementById('adminPotentialInvestors').textContent = Number(metrics.potentialInvestors || 0).toLocaleString();
+          }
+          if (document.getElementById('adminTotalInvestors')) {
+            document.getElementById('adminTotalInvestors').textContent = Number(metrics.registeredInvestors || 0).toLocaleString();
+          }
+          if (document.getElementById('adminTotalFunds')) {
+            document.getElementById('adminTotalFunds').textContent = formatMoney(metrics.totalFundsReceived || 0);
+          }
+          if (document.getElementById('adminPendingCount')) {
+            document.getElementById('adminPendingCount').textContent = Number(metrics.pendingApprovalsCount || 0);
+          }
+          if (document.getElementById('adminPendingAmount')) {
+            document.getElementById('adminPendingAmount').textContent = `${formatMoney(metrics.pendingFunds || 0)} pending`;
+          }
+
+          // Populate Recent Allocations Table
+          const tbody = document.getElementById('adminRecentInvestmentsBody');
+          if (tbody) {
+            if (recent.length === 0) {
+              tbody.innerHTML = `
+                <tr>
+                  <td colspan="7" class="py-8 text-center text-slate-400 text-xs">
+                    No investment allocations registered in database yet.
+                  </td>
+                </tr>
+              `;
+            } else {
+              tbody.innerHTML = recent.map(inv => {
+                const isPending = inv.status === 'pending';
+                const statusBadge = isPending
+                  ? `<span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-300 px-2 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Pending</span>`
+                  : `<span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Approved</span>`;
+
+                const action = isPending
+                  ? `<a href="payments-funds.html" class="inline-flex items-center px-2.5 py-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs rounded-lg transition-colors">Approve ⚡</a>`
+                  : `<a href="payment receipt.html?ref=${encodeURIComponent(inv.referenceId)}" class="inline-flex items-center text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">Receipt ↗</a>`;
+
+                return `
+                  <tr class="hover:bg-slate-50/70 transition-colors">
+                    <td class="py-3.5 px-6 font-bold text-slate-900">${inv.investorName} <div class="text-[11px] font-mono text-slate-400 font-normal">${inv.investorId}</div></td>
+                    <td class="py-3.5 px-6 font-mono font-semibold text-slate-600 text-xs">${inv.referenceId}</td>
+                    <td class="py-3.5 px-6 font-black text-slate-900">${formatMoney(inv.amount)}</td>
+                    <td class="py-3.5 px-6 text-slate-600 text-xs">${inv.poolName}</td>
+                    <td class="py-3.5 px-6 text-slate-600 text-xs capitalize">${inv.paymentMethod}</td>
+                    <td class="py-3.5 px-6">${statusBadge}</td>
+                    <td class="py-3.5 px-6 text-right">${action}</td>
+                  </tr>
+                `;
+              }).join('');
+            }
+          }
+
+        } catch (err) {
+          console.error('Failed to load admin dashboard data from API:', err);
+        }
+      }
+
+      loadAdminDashboardData();
+    })();
+  </script>
 </body>
 </html>

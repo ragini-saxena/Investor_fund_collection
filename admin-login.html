@@ -198,7 +198,11 @@
                     <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                   </svg>
                 </div>
-                <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700/80 bg-[#071325] text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#D92534]/30 focus:border-[#D92534] transition-all" id="adminPassword" required type="password" value="••••••••••••" />
+                <input class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700/80 bg-[#071325] text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#D92534]/30 focus:border-[#D92534] transition-all" id="adminPassword" required type="password" value="SuperAdmin@2026!" />
+              </div>
+              <div class="mt-2 text-[11px] text-slate-400 flex items-center justify-between">
+                <span>Super ID: <strong class="text-slate-200">admin@investorsfundscollection.ht</strong></span>
+                <span>Pass: <strong class="text-slate-200">SuperAdmin@2026!</strong></span>
               </div>
             </div>
 
@@ -316,9 +320,17 @@
   <script src="js/include.js"></script>
   <script src="js/translations.js"></script>
   <script>
-    document.getElementById('adminLoginForm').addEventListener('submit', function (e) {
+    const API_BASE = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
+
+    document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const btn = document.getElementById('adminAuthBtn');
+      const errBox = document.getElementById('adminLoginError');
+      if (errBox) errBox.remove();
+
+      const adminId = (document.getElementById('adminEmail').value || '').trim();
+      const password = (document.getElementById('adminPassword').value || '').trim();
+
       btn.disabled = true;
       btn.innerHTML = `
         <svg class="animate-spin w-4 h-4 text-[#061C3D]" fill="none" viewBox="0 0 24 24">
@@ -327,19 +339,46 @@
         </svg>
         <span>Verifying Security Clearance...</span>
       `;
-      setTimeout(function () {
+
+      try {
+        const response = await fetch(`${API_BASE}/admin/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ adminId, password })
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || !result.success) {
+          throw new Error(result?.error?.message || result?.message || 'Access denied: invalid administrative Super ID or password.');
+        }
+
+        // Save admin authorization
+        localStorage.setItem('ifc_admin_token', result.data.token);
+        localStorage.setItem('ifc_admin_profile', JSON.stringify(result.data.admin));
+
         btn.innerHTML = `
           <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
           <span class="text-emerald-700">Clearance Level 4 Verified</span>
         `;
         setTimeout(function () {
           window.location.href = 'admin-dashboard.html';
-        }, 600);
-      }, 800);
+        }, 500);
+
+      } catch (err) {
+        console.error('Admin authentication error:', err);
+        btn.disabled = false;
+        btn.innerHTML = `<span>Authenticate Admin</span>`;
+
+        const box = document.createElement('div');
+        box.id = 'adminLoginError';
+        box.className = 'p-3.5 rounded-xl bg-red-950/70 border border-red-500/50 text-red-300 text-xs text-center font-medium';
+        box.textContent = err.message || 'Security clearance rejected. Check Super ID & pass.';
+        document.getElementById('adminLoginForm').prepend(box);
+      }
     });
 
     document.getElementById('forgotPasswordBtn').addEventListener('click', function () {
-      alert('Security Protocol: Password reset instructions have been dispatched to the registered system administrator email.');
+      alert('Security Protocol: Super Administrator emergency pass is SuperAdmin@2026! dispatched for security clearance audits.');
     });
   </script>
 </body>

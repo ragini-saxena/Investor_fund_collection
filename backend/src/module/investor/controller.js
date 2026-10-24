@@ -132,3 +132,51 @@ export const getReceipt = async (req, res, next) => {
     }
 };
 
+export const adminLogin = async (req, res, next) => {
+    try {
+        const result = await investorService.adminLogin(req.body);
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const updateInvestmentStatus = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const { status, adminNotes } = req.body;
+        const result = await investorService.updateInvestmentStatus({ id, status, adminNotes });
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const getAdminStats = async (req, res, next) => {
+    try {
+        const result = await investorService.getAdminDashboardData();
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const getAdminInvestors = async (req, res, next) => {
+    try {
+        const result = await investorService.getAdminInvestorsList();
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const getAdminInvestorDetails = async (req, res, next) => {
+    try {
+        const investorId = req.params.id;
+        const result = await investorService.getAdminInvestorById(investorId);
+        return res.status(200).json({ success: true, data: result });
+    } catch (error) {
+        next(error);
+    }
+};
+

@@ -99,52 +99,65 @@
       </div>
     </section>
 
-    <!-- Stats Cards -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8 sm:mb-10">
-      <!-- Current Active Portfolio -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+    <!-- Stats Cards (5 Cards) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 mb-8 sm:mb-10">
+      <!-- Card 1: Current Active Portfolio (Only approved) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
         <div class="flex items-center justify-between mb-4">
           <div class="w-10 h-10 rounded-xl bg-[#EBF3FC] text-[#1E56A0] flex items-center justify-center shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </div>
-          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Active</span>
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Approved Only</span>
         </div>
-        <div id="dashboardPortfolioValue" class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">$0</div>
-        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Current Active Portfolio</div>
+        <div id="dashboardPortfolioValue" class="text-2xl sm:text-[26px] font-extrabold text-[#061C3D] tracking-tight mb-1">$0</div>
+        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Current Active Portfolio</div>
       </div>
 
-      <!-- Cumulative Lifetime Funds -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+      <!-- Card 2: Pending Investments (Awaiting Admin Approval) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-amber-200/90 bg-linear-to-b from-amber-50/30 to-white shadow-xs hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </div>
+          <span id="dashboardPendingBadge" class="text-xs font-bold text-amber-800 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full">0 Pending</span>
+        </div>
+        <div id="dashboardPendingValue" class="text-2xl sm:text-[26px] font-extrabold text-amber-900 tracking-tight mb-1">$0</div>
+        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Pending Investments</div>
+      </div>
+
+      <!-- Card 3: Cumulative Lifetime Funds (Total investment by the user) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
         <div class="flex items-center justify-between mb-4">
           <div class="w-10 h-10 rounded-xl bg-[#FFF5F5] text-[#D92534] flex items-center justify-center shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </div>
+          <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">All Statuses</span>
         </div>
-        <div id="dashboardTotalInvested" class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">$0</div>
-        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Cumulative Lifetime Funds</div>
+        <div id="dashboardTotalInvested" class="text-2xl sm:text-[26px] font-extrabold text-[#061C3D] tracking-tight mb-1">$0</div>
+        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Cumulative Lifetime Funds</div>
       </div>
 
-      <!-- Latest Investment Date -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+      <!-- Card 4: Latest Investment Date -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
         <div class="flex items-center justify-between mb-4">
           <div class="w-10 h-10 rounded-xl bg-[#F0F4FF] text-[#3B5998] flex items-center justify-center shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </div>
         </div>
-        <div id="dashboardCreatedAt" class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">—</div>
-        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Latest Investment Date</div>
+        <div id="dashboardCreatedAt" class="text-lg sm:text-xl font-extrabold text-[#061C3D] tracking-tight mb-1 truncate">—</div>
+        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Latest Investment Date</div>
       </div>
 
-      <!-- Account Status -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
+      <!-- Card 5: Account Status -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-100 shadow-xs hover:shadow-md transition-shadow">
         <div class="flex items-center justify-between mb-4">
           <div class="w-10 h-10 rounded-xl bg-[#E7F8F0] text-[#00BA88] flex items-center justify-center shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           </div>
           <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Verified</span>
         </div>
-        <div id="dashboardAccountStatus" class="text-2xl sm:text-3xl font-extrabold text-[#061C3D] tracking-tight mb-1">—</div>
-        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Account Status</div>
+        <div id="dashboardAccountStatus" class="text-lg sm:text-xl font-extrabold text-[#061C3D] tracking-tight mb-1 truncate">—</div>
+        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Account Status</div>
       </div>
     </section>
 
@@ -156,17 +169,44 @@
 
         <!-- Signed Covenants -->
         <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden mb-6 sm:mb-8">
-          <div class="p-6 sm:p-7 border-b border-slate-100">
-            <div class="flex items-center justify-between">
-              <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
-                <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                <span>Your Signed Covenants</span>
-              </h2>
-              <span id="dashboardActiveCovenantsBadge" class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">0 Active</span>
+          <div class="p-5 sm:p-6 border-b border-slate-100">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
+                  <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  <span>Your Signed Covenants</span>
+                </h2>
+                <p class="text-xs text-slate-500 mt-0.5">Filter covenants by verified approval or pending treasury audit</p>
+              </div>
+              <!-- Covenants Status Filter Buttons -->
+              <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl self-start sm:self-auto" id="covenantsFilterBar">
+                <button type="button" onclick="setCovFilter('all')" id="covTab-all" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-[#061C3D] text-white shadow-xs transition-all cursor-pointer">
+                  All <span id="covCount-all" class="text-[10px] opacity-80">(0)</span>
+                </button>
+                <button type="button" onclick="setCovFilter('approved')" id="covTab-approved" class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer">
+                  Approved <span id="covCount-approved" class="text-[10px] text-emerald-700 font-bold">(0)</span>
+                </button>
+                <button type="button" onclick="setCovFilter('pending')" id="covTab-pending" class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer">
+                  Pending <span id="covCount-pending" class="text-[10px] text-amber-700 font-bold">(0)</span>
+                </button>
+              </div>
             </div>
           </div>
           <div id="dashboardCovenantsList" class="divide-y divide-slate-100">
             <div class="p-6 text-center text-slate-400 text-xs animate-pulse">Loading verified covenants from database…</div>
+          </div>
+          <!-- Covenants Pagination Bar -->
+          <div id="dashboardCovenantsPagination" class="px-6 py-3.5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium" id="covPaginationInfo">Showing 0 covenants</span>
+            <div class="flex items-center gap-2">
+              <button type="button" id="covPrevBtn" onclick="changeCovPage(-1)" disabled class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 cursor-pointer transition-colors">
+                Prev
+              </button>
+              <span id="covPageIndicator" class="font-bold text-slate-700 px-1">Page 1</span>
+              <button type="button" id="covNextBtn" onclick="changeCovPage(1)" disabled class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 cursor-pointer transition-colors">
+                Next
+              </button>
+            </div>
           </div>
         </div>
 
@@ -202,19 +242,43 @@
       <!-- Right Column: Activity + Quick Actions (5 cols) -->
       <aside class="lg:col-span-5 space-y-6 sm:space-y-8">
 
-        <!-- Recent Activity -->
+        <!-- Funds & Payments History -->
         <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
-          <div class="p-6 sm:p-7 border-b border-slate-100">
-            <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
-              <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-              <span>Funds &amp; Payments History</span>
-            </h2>
+          <div class="p-5 sm:p-6 border-b border-slate-100">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <h2 class="text-lg font-bold text-[#061C3D] flex items-center gap-2">
+                <svg class="w-5 h-5 text-[#D92534]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                <span>Funds &amp; Payments History</span>
+              </h2>
+              <!-- Transaction Filter Buttons -->
+              <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl self-start sm:self-auto" id="transactionsFilterBar">
+                <button type="button" onclick="setTxFilter('all')" id="txTab-all" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-[#061C3D] text-white shadow-xs transition-all cursor-pointer">
+                  All <span id="txCount-all" class="text-[10px] opacity-80">(0)</span>
+                </button>
+                <button type="button" onclick="setTxFilter('approved')" id="txTab-approved" class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer">
+                  Approved <span id="txCount-approved" class="text-[10px] text-emerald-700 font-bold">(0)</span>
+                </button>
+                <button type="button" onclick="setTxFilter('pending')" id="txTab-pending" class="px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer">
+                  Pending <span id="txCount-pending" class="text-[10px] text-amber-700 font-bold">(0)</span>
+                </button>
+              </div>
+            </div>
           </div>
           <div id="dashboardTransactionsList" class="divide-y divide-slate-100">
             <div class="p-5 text-center text-slate-400 text-xs animate-pulse">Loading transaction records…</div>
           </div>
-          <div id="dashboardTransactionsFooter" class="p-4 border-t border-slate-100 text-center">
-            <span class="text-xs font-semibold text-slate-400" id="dashboardTransactionsCount">0 transactions</span>
+          <!-- Transactions Pagination Bar -->
+          <div id="dashboardTransactionsPagination" class="px-6 py-3.5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+            <span class="text-slate-500 font-medium" id="txPaginationInfo">Showing 0 transactions</span>
+            <div class="flex items-center gap-2">
+              <button type="button" id="txPrevBtn" onclick="changeTxPage(-1)" disabled class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 cursor-pointer transition-colors">
+                Prev
+              </button>
+              <span id="txPageIndicator" class="font-bold text-slate-700 px-1">Page 1</span>
+              <button type="button" id="txNextBtn" onclick="changeTxPage(1)" disabled class="px-2.5 py-1 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-50 cursor-pointer transition-colors">
+                Next
+              </button>
+            </div>
           </div>
         </div>
 
@@ -335,6 +399,249 @@
         return `${firstName?.[0] || ''}${lastName?.[0] || ''}`.toUpperCase() || 'IF';
       };
 
+      // State for Covenants
+      let rawCovenants = [];
+      let covFilter = 'all';
+      let covPage = 1;
+      const COV_PER_PAGE = 4;
+
+      // State for Transactions
+      let rawTransactions = [];
+      let txFilter = 'all';
+      let txPage = 1;
+      const TX_PER_PAGE = 4;
+
+      function isApproved(status) {
+        const s = String(status || '').toLowerCase();
+        return s === 'approved' || s === 'active' || s === 'settled' || s === 'verified';
+      }
+
+      function isPending(status) {
+        const s = String(status || '').toLowerCase();
+        return s === 'pending';
+      }
+
+      function renderStatusBadge(status) {
+        if (isPending(status)) {
+          return `
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 bg-amber-50 border border-amber-300 px-2.5 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+              <span>Pending</span>
+            </span>
+          `;
+        }
+        return `
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            <span>Approved</span>
+          </span>
+        `;
+      }
+
+      // ────────── Render Covenants with Filter & Pagination ──────────
+      function renderCovenants() {
+        const listEl = document.getElementById('dashboardCovenantsList');
+        const infoEl = document.getElementById('covPaginationInfo');
+        const pageEl = document.getElementById('covPageIndicator');
+        const prevBtn = document.getElementById('covPrevBtn');
+        const nextBtn = document.getElementById('covNextBtn');
+
+        // Update counts
+        const allCount = rawCovenants.length;
+        const approvedCount = rawCovenants.filter(c => isApproved(c.status)).length;
+        const pendingCount = rawCovenants.filter(c => isPending(c.status)).length;
+
+        if (document.getElementById('covCount-all')) document.getElementById('covCount-all').textContent = `(${allCount})`;
+        if (document.getElementById('covCount-approved')) document.getElementById('covCount-approved').textContent = `(${approvedCount})`;
+        if (document.getElementById('covCount-pending')) document.getElementById('covCount-pending').textContent = `(${pendingCount})`;
+
+        // Filter
+        let filtered = rawCovenants;
+        if (covFilter === 'approved') filtered = rawCovenants.filter(c => isApproved(c.status));
+        else if (covFilter === 'pending') filtered = rawCovenants.filter(c => isPending(c.status));
+
+        // Pagination calculations
+        const totalItems = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(totalItems / COV_PER_PAGE));
+        if (covPage > totalPages) covPage = totalPages;
+        if (covPage < 1) covPage = 1;
+
+        const startIdx = (covPage - 1) * COV_PER_PAGE;
+        const endIdx = Math.min(startIdx + COV_PER_PAGE, totalItems);
+        const pagedItems = filtered.slice(startIdx, endIdx);
+
+        if (infoEl) {
+          infoEl.textContent = totalItems === 0
+            ? 'Showing 0 covenants'
+            : `Showing ${startIdx + 1}–${endIdx} of ${totalItems} covenant${totalItems === 1 ? '' : 's'}`;
+        }
+        if (pageEl) pageEl.textContent = `Page ${covPage} of ${totalPages}`;
+        if (prevBtn) prevBtn.disabled = covPage <= 1;
+        if (nextBtn) nextBtn.disabled = covPage >= totalPages;
+
+        if (!listEl) return;
+
+        if (totalItems === 0) {
+          listEl.innerHTML = `
+            <div class="p-8 text-center">
+              <div class="w-12 h-12 mx-auto rounded-2xl bg-slate-50 text-slate-400 flex items-center justify-center mb-3 border border-slate-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              </div>
+              <h3 class="text-sm font-bold text-[#061C3D]">No ${covFilter === 'all' ? '' : covFilter} covenants found</h3>
+              <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+                ${covFilter === 'pending'
+                  ? 'You currently have no covenants awaiting administrator clearance.'
+                  : (covFilter === 'approved' ? 'No approved covenants yet. Newly submitted investments undergo admin clearance first.' : 'Allocate funds into vetted development pools to issue sovereign covenants.')}
+              </p>
+              ${allCount === 0 ? `
+                <a href="payment 1.html" class="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs font-bold rounded-xl transition-colors shadow-xs">
+                  <span>+ Make New Investment</span>
+                </a>
+              ` : ''}
+            </div>
+          `;
+          return;
+        }
+
+        listEl.innerHTML = pagedItems.map(cov => `
+          <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <div class="text-sm font-bold text-[#061C3D] mb-1">${cov.poolName}</div>
+                <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                  <span>Pool ID: ${cov.poolId}</span>
+                  <span>•</span>
+                  <span class="font-mono text-slate-600 font-semibold">${cov.covenantNumber}</span>
+                  <span>•</span>
+                  <span>${formatDate(cov.createdAt)}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-lg font-extrabold text-[#061C3D]">${formatMoney(cov.amount)}</span>
+                ${renderStatusBadge(cov.status)}
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.setCovFilter = function(filter) {
+        covFilter = filter;
+        covPage = 1;
+        ['all', 'approved', 'pending'].forEach(f => {
+          const btn = document.getElementById(`covTab-${f}`);
+          if (btn) {
+            if (f === filter) {
+              btn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-[#061C3D] text-white shadow-xs transition-all cursor-pointer';
+            } else {
+              btn.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer';
+            }
+          }
+        });
+        renderCovenants();
+      };
+
+      window.changeCovPage = function(delta) {
+        covPage += delta;
+        renderCovenants();
+      };
+
+      // ────────── Render Transactions with Filter & Pagination ──────────
+      function renderTransactions() {
+        const listEl = document.getElementById('dashboardTransactionsList');
+        const infoEl = document.getElementById('txPaginationInfo');
+        const pageEl = document.getElementById('txPageIndicator');
+        const prevBtn = document.getElementById('txPrevBtn');
+        const nextBtn = document.getElementById('txNextBtn');
+
+        // Update counts
+        const allCount = rawTransactions.length;
+        const approvedCount = rawTransactions.filter(t => isApproved(t.status)).length;
+        const pendingCount = rawTransactions.filter(t => isPending(t.status)).length;
+
+        if (document.getElementById('txCount-all')) document.getElementById('txCount-all').textContent = `(${allCount})`;
+        if (document.getElementById('txCount-approved')) document.getElementById('txCount-approved').textContent = `(${approvedCount})`;
+        if (document.getElementById('txCount-pending')) document.getElementById('txCount-pending').textContent = `(${pendingCount})`;
+
+        // Filter
+        let filtered = rawTransactions;
+        if (txFilter === 'approved') filtered = rawTransactions.filter(t => isApproved(t.status));
+        else if (txFilter === 'pending') filtered = rawTransactions.filter(t => isPending(t.status));
+
+        // Pagination
+        const totalItems = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(totalItems / TX_PER_PAGE));
+        if (txPage > totalPages) txPage = totalPages;
+        if (txPage < 1) txPage = 1;
+
+        const startIdx = (txPage - 1) * TX_PER_PAGE;
+        const endIdx = Math.min(startIdx + TX_PER_PAGE, totalItems);
+        const pagedItems = filtered.slice(startIdx, endIdx);
+
+        if (infoEl) {
+          infoEl.textContent = totalItems === 0
+            ? 'Showing 0 transactions'
+            : `Showing ${startIdx + 1}–${endIdx} of ${totalItems} transaction${totalItems === 1 ? '' : 's'}`;
+        }
+        if (pageEl) pageEl.textContent = `Page ${txPage} of ${totalPages}`;
+        if (prevBtn) prevBtn.disabled = txPage <= 1;
+        if (nextBtn) nextBtn.disabled = txPage >= totalPages;
+
+        if (!listEl) return;
+
+        if (totalItems === 0) {
+          listEl.innerHTML = `
+            <div class="p-6 text-center text-slate-400 text-xs font-medium">
+              No ${txFilter === 'all' ? '' : txFilter} transactions recorded yet.
+            </div>
+          `;
+          return;
+        }
+
+        listEl.innerHTML = pagedItems.map(txn => {
+          let methodLabel = 'Card Payment';
+          if (txn.paymentMethod === 'wire') methodLabel = 'Bank Wire';
+          else if (txn.paymentMethod === 'phone') methodLabel = 'Mobile Wallet';
+          else if (txn.paymentMethod === 'credit') methodLabel = 'Credit Card';
+          else if (txn.paymentMethod === 'debit') methodLabel = 'Debit Card';
+
+          return `
+            <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm font-bold text-[#061C3D]">${methodLabel}</span>
+                <span class="text-sm font-extrabold text-[#061C3D]">+${formatMoney(txn.amount)}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-500">${formatDate(txn.createdAt)} • <span class="font-mono text-[11px]">${txn.referenceId}</span></span>
+                ${renderStatusBadge(txn.status)}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      window.setTxFilter = function(filter) {
+        txFilter = filter;
+        txPage = 1;
+        ['all', 'approved', 'pending'].forEach(f => {
+          const btn = document.getElementById(`txTab-${f}`);
+          if (btn) {
+            if (f === filter) {
+              btn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg bg-[#061C3D] text-white shadow-xs transition-all cursor-pointer';
+            } else {
+              btn.className = 'px-2.5 py-1 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition-all cursor-pointer';
+            }
+          }
+        });
+        renderTransactions();
+      };
+
+      window.changeTxPage = function(delta) {
+        txPage += delta;
+        renderTransactions();
+      };
+
+      // ────────── Main Data Loader ──────────
       async function loadInvestorDashboard() {
         try {
           const response = await fetch(`${API_BASE_URL}/dashboard`, {
@@ -369,101 +676,40 @@
           document.getElementById('dashboardWelcome').textContent =
             `Bonjour, ${fullName || 'Investor'}`;
 
-          // Stats from DB
+          // Stats from DB:
+          // 1. Current Active Portfolio: ONLY approved investments
           document.getElementById('dashboardPortfolioValue').textContent =
             formatMoney(stats.activePortfolio);
+
+          // 2. Pending Investments: total pending amount & count
+          const pendingValEl = document.getElementById('dashboardPendingValue');
+          if (pendingValEl) {
+            pendingValEl.textContent = formatMoney(stats.pendingInvestment || 0);
+          }
+          const pendingBadgeEl = document.getElementById('dashboardPendingBadge');
+          if (pendingBadgeEl) {
+            const pCount = stats.pendingCovenantsCount || stats.pendingCount || 0;
+            pendingBadgeEl.textContent = `${pCount} Pending`;
+          }
+
+          // 3. Cumulative Lifetime Funds: TOTAL investment by the user
           document.getElementById('dashboardTotalInvested').textContent =
             formatMoney(stats.totalInvested);
+
+          // 4. Latest Date
           document.getElementById('dashboardCreatedAt').textContent =
             formatDate(stats.latestInvestmentDate);
+
+          // 5. Account Status
           document.getElementById('dashboardAccountStatus').textContent =
             stats.accountStatus || (stats.totalInvested > 0 ? 'Active (Verified)' : 'Registered');
 
-          // Active Covenants Badge & List
-          const covenantsBadge = document.getElementById('dashboardActiveCovenantsBadge');
-          const covenantsList = document.getElementById('dashboardCovenantsList');
+          // Store for client-side filtering & pagination
+          rawCovenants = covenants || [];
+          rawTransactions = transactions || [];
 
-          if (covenantsBadge) {
-            covenantsBadge.textContent = `${stats.activeCovenantsCount || covenants?.length || 0} Active`;
-          }
-
-          if (covenantsList) {
-            if (!covenants || covenants.length === 0) {
-              covenantsList.innerHTML = `
-                <div class="p-8 text-center">
-                  <div class="w-12 h-12 mx-auto rounded-2xl bg-blue-50 text-[#061C3D] flex items-center justify-center mb-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                  </div>
-                  <h3 class="text-sm font-bold text-[#061C3D]">No Signed Covenants Recorded</h3>
-                  <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">Allocate funds into vetted Haitian trade or infrastructure pools to issue verified digital covenants.</p>
-                  <a href="payment 1.html" class="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#D92534] hover:bg-[#B91C1C] text-white text-xs font-bold rounded-xl transition-colors shadow-xs">
-                    <span>+ Make New Investment</span>
-                  </a>
-                </div>
-              `;
-            } else {
-              covenantsList.innerHTML = covenants.map(cov => `
-                <div class="p-5 sm:p-6 hover:bg-slate-50/50 transition-colors">
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div>
-                      <div class="text-sm font-bold text-[#061C3D] mb-1">${cov.poolName}</div>
-                      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                        <span>Pool ID: ${cov.poolId}</span>
-                        <span>•</span>
-                        <span class="font-mono text-slate-600 font-semibold">${cov.covenantNumber}</span>
-                        <span>•</span>
-                        <span>${formatDate(cov.createdAt)}</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <span class="text-lg font-extrabold text-[#061C3D]">${formatMoney(cov.amount)}</span>
-                      <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full capitalize">${cov.status || 'Active'}</span>
-                    </div>
-                  </div>
-                </div>
-              `).join('');
-            }
-          }
-
-          // Transactions List & Count
-          const txList = document.getElementById('dashboardTransactionsList');
-          const txCount = document.getElementById('dashboardTransactionsCount');
-
-          if (txCount) {
-            const count = stats.totalTransactionsCount || transactions?.length || 0;
-            txCount.textContent = `Showing ${count} transaction${count === 1 ? '' : 's'}`;
-          }
-
-          if (txList) {
-            if (!transactions || transactions.length === 0) {
-              txList.innerHTML = `
-                <div class="p-6 text-center text-slate-400 text-xs font-medium">
-                  No payment transactions recorded in database yet.
-                </div>
-              `;
-            } else {
-              txList.innerHTML = transactions.map(txn => {
-                let methodLabel = 'Card Payment';
-                if (txn.paymentMethod === 'wire') methodLabel = 'Bank Wire';
-                else if (txn.paymentMethod === 'phone') methodLabel = 'Mobile Wallet';
-                else if (txn.paymentMethod === 'credit') methodLabel = 'Credit Card';
-                else if (txn.paymentMethod === 'debit') methodLabel = 'Debit Card';
-
-                return `
-                  <div class="p-4 sm:p-5 hover:bg-slate-50/50 transition-colors">
-                    <div class="flex items-center justify-between mb-1.5">
-                      <span class="text-sm font-bold text-[#061C3D]">${methodLabel}</span>
-                      <span class="text-sm font-extrabold text-[#061C3D]">+${formatMoney(txn.amount)}</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <span class="text-xs text-slate-500">${formatDate(txn.createdAt)} • <span class="font-mono text-[11px]">${txn.referenceId}</span></span>
-                      <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">${txn.status}</span>
-                    </div>
-                  </div>
-                `;
-              }).join('');
-            }
-          }
+          renderCovenants();
+          renderTransactions();
 
         } catch (error) {
           console.error('Dashboard API error:', error);

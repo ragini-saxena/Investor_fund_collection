@@ -68,100 +68,10 @@
               <th class="py-3.5 px-6 text-right font-bold">ACTION</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
-            <tr class="hover:bg-slate-50/70 transition-colors">
-              <td class="py-4 px-6 font-semibold text-slate-900">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-[#EBF3FC] text-[#061C3D] font-bold text-xs flex items-center justify-center shrink-0">
-                    ML
-                  </div>
-                  <div>
-                    <a class="font-bold text-[#061C3D] hover:text-[#D92534] transition-colors" href="admin-registered-investors.html">Marie Laurant</a>
-                    <div class="text-[11px] text-slate-500 font-normal">mlaurant@diaspora.org</div>
-                  </div>
-                </div>
-              </td>
-              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-P091</td>
-              <td class="py-4 px-4 font-bold text-slate-900">$250,000 USD</td>
-              <td class="py-4 px-4">
-                <span class="inline-block px-2.5 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold">Active Investor</span>
-              </td>
-              <td class="py-4 px-6 text-right">
-                <a class="px-3.5 py-1.5 rounded-lg bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold transition-all" href="admin-registered-investors.html">
-                  View Profile
-                </a>
-              </td>
-            </tr>
-
-            <tr class="hover:bg-slate-50/70 transition-colors">
-              <td class="py-4 px-6 font-semibold text-slate-900">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
-                    JD
-                  </div>
-                  <div>
-                    <span class="font-bold text-[#061C3D]">Jean Dupuy</span>
-                    <div class="text-[11px] text-slate-500 font-normal">jean.dupuy@example.com</div>
-                  </div>
-                </div>
-              </td>
-              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-8291-HT</td>
-              <td class="py-4 px-4 font-bold text-slate-900">$1,100 – $1,500 USD</td>
-              <td class="py-4 px-4">
-                <span class="inline-block px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-bold">Onboarding Pending</span>
-              </td>
-              <td class="py-4 px-6 text-right">
-                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
-                  Message
-                </button>
-              </td>
-            </tr>
-
-            <tr class="hover:bg-slate-50/70 transition-colors">
-              <td class="py-4 px-6 font-semibold text-slate-900">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
-                    JL
-                  </div>
-                  <div>
-                    <span class="font-bold text-[#061C3D]">Jean-Luc Baptiste</span>
-                    <div class="text-[11px] text-slate-500 font-normal">j.baptiste@trusthaiti.ht</div>
-                  </div>
-                </div>
-              </td>
-              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-9921-HT</td>
-              <td class="py-4 px-4 font-bold text-slate-900">$50,000 USD</td>
-              <td class="py-4 px-4">
-                <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold">Tier 2 Inquired</span>
-              </td>
-              <td class="py-4 px-6 text-right">
-                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
-                  Message
-                </button>
-              </td>
-            </tr>
-
-            <tr class="hover:bg-slate-50/70 transition-colors">
-              <td class="py-4 px-6 font-semibold text-slate-900">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center shrink-0">
-                    MC
-                  </div>
-                  <div>
-                    <span class="font-bold text-[#061C3D]">Marie Carmel</span>
-                    <div class="text-[11px] text-slate-500 font-normal">carmel.m@portauprince.org</div>
-                  </div>
-                </div>
-              </td>
-              <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">IFC-3194-HT</td>
-              <td class="py-4 px-4 font-bold text-slate-900">$10,000 USD</td>
-              <td class="py-4 px-4">
-                <span class="inline-block px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 text-xs font-bold">Deposit Pending</span>
-              </td>
-              <td class="py-4 px-6 text-right">
-                <button class="px-3.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-bold transition-all" onclick="window.location.href='contact-messaging.html'" type="button">
-                  Message
-                </button>
+          <tbody class="divide-y divide-slate-100" id="potentialInvestorsTableBody">
+            <tr id="potentialInvestorsLoading">
+              <td colspan="5" class="py-12 text-center text-slate-400 text-xs animate-pulse">
+                Synchronizing investors from database…
               </td>
             </tr>
           </tbody>
@@ -172,5 +82,85 @@
 
   <!-- Scripts -->
   <script src="js/include.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const API_BASE = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
+      const fmtMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n || 0);
+
+      async function loadInvestors() {
+        const tbody = document.getElementById('potentialInvestorsTableBody');
+        try {
+          const res = await fetch(`${API_BASE}/admin/investors`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const { data } = await res.json();
+
+          const investors = data || [];
+          if (investors.length === 0) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="5" class="py-12 text-center text-slate-400 text-xs">
+                  No investors registered in database yet.
+                </td>
+              </tr>
+            `;
+            return;
+          }
+
+          tbody.innerHTML = investors.map(inv => {
+            const initials = `${inv.firstName?.[0] || ''}${inv.lastName?.[0] || ''}`.toUpperCase() || 'IF';
+            const pledgeStr = inv.totalInvested > 0
+              ? fmtMoney(inv.totalInvested)
+              : (inv.pledgeRangeLabel ? `${inv.pledgeRangeLabel} USD` : '$1,000 USD');
+
+            let statusCls = 'bg-blue-50 text-blue-700';
+            if (inv.status === 'Active Investor') statusCls = 'bg-amber-100 text-amber-900 border border-amber-300';
+            else if (inv.status === 'Deposit Pending') statusCls = 'bg-purple-50 text-purple-700';
+
+            return `
+              <tr class="hover:bg-slate-50/70 transition-colors">
+                <td class="py-4 px-6 font-semibold text-slate-900">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-[#061C3D] text-white font-bold text-xs flex items-center justify-center shrink-0">
+                      ${initials}
+                    </div>
+                    <div>
+                      <span class="font-bold text-[#061C3D]">${inv.fullName}</span>
+                      <div class="text-[11px] text-slate-500 font-normal">${inv.email}</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 font-mono font-bold text-[#1d4ed8]">${inv.investorId}</td>
+                <td class="py-4 px-4 font-bold text-slate-900">${pledgeStr}</td>
+                <td class="py-4 px-4">
+                  <span class="inline-block px-2.5 py-1 rounded-md text-xs font-bold ${statusCls}">
+                    ${inv.status}
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <a class="px-3.5 py-1.5 rounded-lg bg-[#061C3D] hover:bg-[#0B254E] text-white text-xs font-bold transition-all inline-block shadow-xs"
+                     href="admin-registered-investors.html?id=${encodeURIComponent(inv.investorId)}">
+                    View Profile
+                  </a>
+                </td>
+              </tr>
+            `;
+          }).join('');
+
+        } catch (err) {
+          console.error('Failed to load investors from API:', err);
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="5" class="py-8 text-center text-red-600 text-xs font-medium">
+                Could not connect to database API: ${err.message}. Ensure backend is running on port 4000.
+              </td>
+            </tr>
+          `;
+        }
+      }
+
+      loadInvestors();
+    })();
+  </script>
 </body>
 </html>

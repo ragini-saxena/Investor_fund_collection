@@ -75,7 +75,7 @@ export const createInvestment = async (
         paymentMethod,
         paymentReference,
         covenantNumber,
-        status = "active"
+        status = "pending"
     },
     db = pool
 ) => {
@@ -105,31 +105,37 @@ export const createInvestment = async (
 
 export const syncInvestorInvestedTotal = async (investorId, db = pool) => {
     const [stats] = await db.query(
-        `SELECT COALESCE(SUM(amount), 0) AS total,
-                COUNT(*) AS count
+        `SELECT
+            COALESCE(SUM(amount), 0) AS total_lifetime,
+            COALESCE(SUM(CASE WHEN status IN ('approved', 'active') THEN amount ELSE 0 END), 0) AS approved_total,
+            COUNT(CASE WHEN status IN ('approved', 'active') THEN 1 END) AS approved_count,
+            COUNT(*) AS count
          FROM investments
          WHERE investor_id = ?`,
         [investorId]
     );
-    const total = Number(stats[0]?.total || 0);
-    const isInvestor = total > 0 ? 1 : 0;
+    const totalLifetime = Number(stats[0]?.total_lifetime || 0);
+    const approvedTotal = Number(stats[0]?.approved_total || 0);
+    const isInvestor = (approvedTotal > 0 || totalLifetime > 0) ? 1 : 0;
 
     await db.query(
         `UPDATE investors
          SET total_invested = ?, is_investor = ?
          WHERE investor_id = ?`,
-        [total, isInvestor, investorId]
+        [totalLifetime, isInvestor, investorId]
     );
-    return { total, isInvestor };
+    return { total: totalLifetime, approvedTotal, isInvestor };
 };
 
 export const getInvestorDashboardStats = async (investorId, db = pool) => {
     const [rows] = await db.query(
         `SELECT
-            COALESCE(SUM(CASE WHEN status = 'active' THEN amount ELSE 0 END), 0) AS active_portfolio,
+            COALESCE(SUM(CASE WHEN status IN ('approved', 'active') THEN amount ELSE 0 END), 0) AS active_portfolio,
+            COALESCE(SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END), 0) AS pending_investment,
             COALESCE(SUM(amount), 0) AS total_invested,
             COUNT(*) AS total_transactions,
-            COUNT(CASE WHEN status = 'active' THEN 1 END) AS active_covenants,
+            COUNT(CASE WHEN status IN ('approved', 'active') THEN 1 END) AS approved_covenants,
+            COUNT(CASE WHEN status = 'pending' THEN 1 END) AS pending_covenants,
             MAX(created_at) AS latest_investment_date
          FROM investments
          WHERE investor_id = ?`,
@@ -288,4 +294,78 @@ export const findLatestInvestmentByInvestorId = async (investorId, db = pool) =>
         [investorId]
     );
     return rows[0] || null;
+};
+
+export const updateInvestmentStatus = async ({ id, status }, db = pool) => {
+    const isNumeric = !isNaN(Number(id));
+    const query = isNumeric
+        ? `UPDATE investments SET status = ?, updated_at = NOW() WHERE id = ?`
+        : `UPDATE investments SET status = ?, updated_at = NOW() WHERE reference_id = ?`;
+
+    const [result] = await db.query(query, [status, id]);
+    return result.affectedRows > 0;
+};
+
+export const findInvestmentById = async (id, db = pool) => {
+    const isNumeric = !isNaN(Number(id));
+    const query = isNumeric
+        ? `SELECT * FROM investments WHERE id = ? LIMIT 1`
+        : `SELECT * FROM investments WHERE reference_id = ? LIMIT 1`;
+    const [rows] = await db.query(query, [id]);
+    return rows[0] || null;
+};
+
+export const getAllInvestorsWithStats = async (db = pool) => {
+    const [rows] = await db.query(
+        `SELECT
+            inv.id,
+            inv.investor_id,
+            inv.first_name,
+            inv.last_name,
+            inv.email,
+            inv.whatsapp,
+            inv.phone,
+            inv.pledge_range_label,
+            inv.pledge_min,
+            inv.pledge_max,
+            inv.is_investor,
+            inv.total_invested,
+            inv.created_at,
+            COALESCE(SUM(CASE WHEN i.status IN ('approved', 'active') THEN i.amount ELSE 0 END), 0) AS active_portfolio,
+            COALESCE(SUM(CASE WHEN i.status = 'pending' THEN i.amount ELSE 0 END), 0) AS pending_amount,
+            COUNT(i.id) AS total_investments_count,
+            COUNT(CASE WHEN i.status = 'pending' THEN 1 END) AS pending_investments_count
+         FROM investors inv
+         LEFT JOIN investments i ON inv.investor_id = i.investor_id
+         GROUP BY inv.id
+         ORDER BY inv.created_at DESC`
+    );
+    return rows;
+};
+
+export const getAdminMetrics = async (db = pool) => {
+    const [invRows] = await db.query(
+        `SELECT
+            COUNT(*) AS total_investors,
+            COUNT(CASE WHEN total_invested = 0 AND is_investor = 0 THEN 1 END) AS potential_investors,
+            COUNT(CASE WHEN total_invested > 0 OR is_investor = 1 THEN 1 END) AS registered_active_investors
+         FROM investors`
+    );
+
+    const [transRows] = await db.query(
+        `SELECT
+            COALESCE(SUM(amount), 0) AS total_funds_received,
+            COALESCE(SUM(CASE WHEN status IN ('approved', 'active') THEN amount ELSE 0 END), 0) AS approved_funds,
+            COALESCE(SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END), 0) AS pending_funds,
+            COALESCE(SUM(CASE WHEN status = 'returned' THEN amount ELSE 0 END), 0) AS returned_funds,
+            COUNT(*) AS total_transactions,
+            COUNT(CASE WHEN status = 'pending' THEN 1 END) AS pending_approvals_count,
+            COUNT(CASE WHEN status IN ('approved', 'active') THEN 1 END) AS approved_transactions_count
+         FROM investments`
+    );
+
+    return {
+        investors: invRows[0] || {},
+        investments: transRows[0] || {}
+    };
 };

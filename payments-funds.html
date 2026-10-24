@@ -382,11 +382,15 @@
       </div>
 
       <div class="pt-4 flex flex-col gap-2.5">
+        <button id="drawerApproveBtn" type="button" onclick="approveCurrentDrawerTx()" class="hidden w-full h-11 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+          <span>Approve Investment into Escrow</span>
+        </button>
         <a id="drawerReceiptLink" href="payment receipt.html" class="w-full h-11 bg-[#061C3D] hover:bg-[#0B254E] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-2">
           <span>View Full Digital Receipt</span>
           <span>↗</span>
         </a>
-        <button type="button" onclick="closeDetailDrawer()" class="w-full h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition-colors">
+        <button type="button" onclick="closeDetailDrawer()" class="w-full h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition-colors cursor-pointer">
           Close Audit Window
         </button>
       </div>
@@ -456,7 +460,17 @@
         return `<a href="Funds Returned  Receipt.html" class="inline-flex items-center text-xs font-bold text-[#0B7A4B] hover:text-[#09633D] bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors">Deed ↗</a>`;
       }
       if (tx.status === 'pending') {
-        return `<button type="button" onclick="alert('Auditing transaction ${tx.referenceId} with BNC depository…')" class="inline-flex items-center text-xs font-bold text-amber-800 bg-amber-100 hover:bg-amber-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer">Audit ⚡</button>`;
+        return `
+          <div class="flex items-center justify-end gap-1.5">
+            <button type="button" onclick="event.stopPropagation(); approveInvestment('${tx.referenceId}')" class="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer shadow-xs" title="Approve investment into escrow">
+              <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+              <span>Approve</span>
+            </button>
+            <button type="button" onclick="event.stopPropagation(); openDetailDrawer('${tx.referenceId}')" class="inline-flex items-center text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1.5 rounded-lg transition-colors cursor-pointer">
+              Audit
+            </button>
+          </div>
+        `;
       }
       return `<a href="payment receipt.html?ref=${encodeURIComponent(tx.referenceId)}" class="inline-flex items-center text-xs font-bold text-[#061C3D] hover:text-[#D92534] bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">Receipt ↗</a>`;
     }
@@ -607,8 +621,11 @@
       document.querySelectorAll('.status-tab-btn')[0].click();
     }
 
+    let activeDrawerRef = null;
+
     // ────────── Detail Drawer ──────────
     function openDetailDrawer(ref) {
+      activeDrawerRef = ref;
       const tx = allTransactions.find(t => t.referenceId === ref);
 
       document.getElementById('drawerRefTitle').textContent = ref;
@@ -624,6 +641,16 @@
         case 'pending': statusEl.textContent = 'Pending'; statusEl.className = 'font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full'; break;
         case 'returned': statusEl.textContent = 'Returned'; statusEl.className = 'font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full'; break;
         default: statusEl.textContent = tx.status; statusEl.className = 'font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full';
+      }
+
+      // Show approve button only for pending transactions
+      const approveBtn = document.getElementById('drawerApproveBtn');
+      if (approveBtn) {
+        if (tx.status === 'pending') {
+          approveBtn.classList.remove('hidden');
+        } else {
+          approveBtn.classList.add('hidden');
+        }
       }
 
       document.getElementById('drawerAmount').textContent = `${fmt(tx.amount)} USD`;
@@ -642,8 +669,43 @@
     }
 
     function closeDetailDrawer() {
+      activeDrawerRef = null;
       document.getElementById('detailDrawerBackdrop').classList.add('hidden');
       document.getElementById('detailDrawer').classList.add('translate-x-full');
+    }
+
+    // ────────── Approve Investment Action ──────────
+    async function approveInvestment(ref) {
+      if (!confirm(`Confirm administrative clearance and approve investment ${ref} into sovereign escrow?`)) {
+        return;
+      }
+      try {
+        const token = localStorage.getItem('ifc_admin_token') || '';
+        const res = await fetch(`${API_BASE}/admin/investments/${encodeURIComponent(ref)}/status`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+          },
+          body: JSON.stringify({ status: 'approved' })
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || !result.success) {
+          throw new Error(result?.error?.message || result?.message || 'Failed to approve investment');
+        }
+        await loadLedger();
+        if (activeDrawerRef === ref) {
+          closeDetailDrawer();
+        }
+      } catch (err) {
+        alert(`Approval error: ${err.message}`);
+      }
+    }
+
+    async function approveCurrentDrawerTx() {
+      if (activeDrawerRef) {
+        await approveInvestment(activeDrawerRef);
+      }
     }
 
     // ────────── Export CSV (uses live data) ──────────

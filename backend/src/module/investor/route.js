@@ -81,5 +81,44 @@ router.get(
     investorController.getReceipt
 );
 
-export default router
+// ────────────────────────────────────────────────────────────────
+// Administrative Portal Routes (Super ID authentication & approvals)
+// ────────────────────────────────────────────────────────────────
+router.post(
+    "/admin/login",
+    investorController.adminLogin
+);
+
+router.get(
+    "/admin/stats",
+    investorController.getAdminStats
+);
+
+router.get(
+    "/admin/investors",
+    investorController.getAdminInvestors
+);
+
+router.get(
+    "/admin/investors/:id",
+    investorController.getAdminInvestorDetails
+);
+
+router.patch(
+    "/admin/investments/:id/status",
+    investorController.updateInvestmentStatus
+);
+
+router.post(
+    "/admin/investments/:id/status",
+    investorController.updateInvestmentStatus
+);
+
+// Convenience alias for investment approval
+router.patch(
+    "/investments/:id/status",
+    investorController.updateInvestmentStatus
+);
+
+export default router;
 

@@ -38,10 +38,10 @@
     <!-- Title, Status Badge & Contact CTA -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
       <div class="flex items-center flex-wrap gap-3.5">
-        <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight">
-          Marie Laurant
+        <h1 class="text-2xl sm:text-[32px] font-extrabold text-[#0a234f] tracking-tight" id="regInvestorName">
+          Loading Investor Profile…
         </h1>
-        <span class="px-3 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold tracking-wide">
+        <span class="px-3 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold tracking-wide" id="regInvestorBadge">
           Active Investor
         </span>
       </div>
@@ -65,16 +65,16 @@
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                   FIRST NAME
                 </span>
-                <span class="text-sm sm:text-[15px] font-semibold text-slate-900">
-                  Marie
+                <span class="text-sm sm:text-[15px] font-semibold text-slate-900" id="regFirstName">
+                  —
                 </span>
               </div>
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                   LAST NAME
                 </span>
-                <span class="text-sm sm:text-[15px] font-semibold text-slate-900">
-                  Laurant
+                <span class="text-sm sm:text-[15px] font-semibold text-slate-900" id="regLastName">
+                  —
                 </span>
               </div>
             </div>
@@ -83,8 +83,8 @@
               <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                 EMAIL ADDRESS
               </span>
-              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="mailto:mlaurant@diaspora.org">
-                mlaurant@diaspora.org
+              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="#" id="regEmail">
+                —
               </a>
             </div>
 
@@ -92,8 +92,8 @@
               <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                 WHATSAPP NUMBER
               </span>
-              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="tel:+13059981244">
-                +1 (305) 998-1244
+              <a class="text-sm sm:text-[15px] font-semibold text-slate-900 hover:text-blue-600 transition-colors" href="#" id="regWhatsapp">
+                —
               </a>
             </div>
           </div>
@@ -110,16 +110,16 @@
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                   INVESTOR ID
                 </span>
-                <span class="text-sm sm:text-[15px] font-bold text-[#1d4ed8]">
-                  IFC-P091
+                <span class="text-sm sm:text-[15px] font-bold text-[#1d4ed8]" id="regInvestorId">
+                  —
                 </span>
               </div>
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
                   STATUS
                 </span>
-                <span class="text-sm sm:text-[15px] font-bold text-[#16a34a]">
-                  Covenant Verified
+                <span class="text-sm sm:text-[15px] font-bold text-[#16a34a]" id="regStatusText">
+                  Verified
                 </span>
               </div>
             </div>
@@ -127,32 +127,32 @@
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                  SELECTED AMOUNT
+                  PLEDGED RANGE
                 </span>
-                <span class="text-lg sm:text-xl font-bold text-slate-900">
-                  $250,000
+                <span class="text-lg sm:text-xl font-bold text-slate-900" id="regSelectedAmount">
+                  $0
                 </span>
               </div>
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                  AMOUNT INVESTED
+                  ACTIVE PORTFOLIO
                 </span>
-                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]">
-                  $150,000
+                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]" id="regAmountInvested">
+                  $0
                 </span>
               </div>
             </div>
 
             <div>
               <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                TOTAL PORTFOLIO VALUE
+                CUMULATIVE LIFETIME FUNDS
               </span>
               <div class="flex items-baseline gap-2">
-                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]">
-                  $165,240
+                <span class="text-lg sm:text-xl font-bold text-[#1d4ed8]" id="regPortfolioValue">
+                  $0
                 </span>
-                <span class="text-xs sm:text-sm font-bold text-[#16a34a]">
-                  (+10.16% Yield)
+                <span class="text-xs sm:text-sm font-bold text-[#16a34a]" id="regPendingNotice">
+                  (0 Pending)
                 </span>
               </div>
             </div>
@@ -160,18 +160,18 @@
             <div class="grid grid-cols-2 gap-4 pt-1">
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                  JOIN DATE
+                  REGISTRATION DATE
                 </span>
-                <span class="text-xs sm:text-sm font-medium text-slate-700">
-                  Oct 11, 2025
+                <span class="text-xs sm:text-sm font-medium text-slate-700" id="regJoinDate">
+                  —
                 </span>
               </div>
               <div>
                 <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                  MATURITY DATE
+                  PORTAL STATUS
                 </span>
-                <span class="text-xs sm:text-sm font-medium text-slate-700">
-                  Oct 11, 2028
+                <span class="text-xs sm:text-sm font-medium text-slate-700" id="regMaturityDate">
+                  Active
                 </span>
               </div>
             </div>
@@ -235,44 +235,10 @@
                   <th class="pb-3 pl-4 font-bold">REFERENCE</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td class="py-4 pr-4 text-slate-700 font-medium whitespace-nowrap">
-                    Oct 11, 2025
-                  </td>
-                  <td class="py-4 px-4 font-bold text-slate-900 whitespace-nowrap">
-                    $50,000
-                  </td>
-                  <td class="py-4 px-4 text-slate-600 whitespace-nowrap">
-                    Wire Transfer
-                  </td>
-                  <td class="py-4 px-4 whitespace-nowrap">
-                    <span class="inline-block px-2.5 py-1 rounded-md bg-[#dcfce7] text-[#15803d] text-xs font-bold">
-                      Settled
-                    </span>
-                  </td>
-                  <td class="py-4 pl-4 text-slate-500 font-mono text-[11px] sm:text-xs whitespace-nowrap">
-                    REF-WT9012431
-                  </td>
-                </tr>
-
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td class="py-4 pr-4 text-slate-700 font-medium whitespace-nowrap">
-                    Oct 05, 2025
-                  </td>
-                  <td class="py-4 px-4 font-bold text-slate-900 whitespace-nowrap">
-                    $100,000
-                  </td>
-                  <td class="py-4 px-4 text-slate-600 whitespace-nowrap">
-                    ACH Transfer
-                  </td>
-                  <td class="py-4 px-4 whitespace-nowrap">
-                    <span class="inline-block px-2.5 py-1 rounded-md bg-[#dcfce7] text-[#15803d] text-xs font-bold">
-                      Settled
-                    </span>
-                  </td>
-                  <td class="py-4 pl-4 text-slate-500 font-mono text-[11px] sm:text-xs whitespace-nowrap">
-                    REF-ACH3149021
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm" id="regTransactionsBody">
+                <tr>
+                  <td colspan="5" class="py-8 text-center text-slate-400 text-xs animate-pulse">
+                    Synchronizing investor allocations…
                   </td>
                 </tr>
               </tbody>
@@ -285,5 +251,103 @@
 
   <!-- Scripts -->
   <script src="js/include.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const API_BASE = window.IFC_API_BASE_URL || 'http://localhost:4000/api/v1/investors';
+      const fmtMoney = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n || 0);
+      const fmtDate = (d) => d ? new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+
+      async function loadInvestorDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let investorId = urlParams.get('id');
+
+        try {
+          // If no specific ID in query, pick the latest investor from the list
+          if (!investorId) {
+            const listRes = await fetch(`${API_BASE}/admin/investors`);
+            const listData = await listRes.json();
+            if (listData?.data?.[0]?.investorId) {
+              investorId = listData.data[0].investorId;
+            }
+          }
+
+          if (!investorId) {
+            document.getElementById('regInvestorName').textContent = 'No Investors Found';
+            return;
+          }
+
+          const res = await fetch(`${API_BASE}/admin/investors/${encodeURIComponent(investorId)}`);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const { data } = await res.json();
+
+          const inv = data.investor || {};
+          const stats = data.stats || {};
+          const investments = data.investments || [];
+
+          const fullName = `${inv.firstName || ''} ${inv.lastName || ''}`.trim() || 'Registered Investor';
+          document.getElementById('regInvestorName').textContent = fullName;
+          document.getElementById('regFirstName').textContent = inv.firstName || '—';
+          document.getElementById('regLastName').textContent = inv.lastName || '—';
+
+          const emailEl = document.getElementById('regEmail');
+          emailEl.textContent = inv.email || '—';
+          emailEl.href = inv.email ? `mailto:${inv.email}` : '#';
+
+          const phoneEl = document.getElementById('regWhatsapp');
+          phoneEl.textContent = inv.whatsapp || inv.phone || '—';
+          phoneEl.href = inv.whatsapp ? `tel:${inv.whatsapp}` : '#';
+
+          document.getElementById('regInvestorId').textContent = inv.investorId || investorId;
+          document.getElementById('regSelectedAmount').textContent = inv.pledge?.rangeLabel ? `${inv.pledge.rangeLabel} USD` : '$1,000 USD';
+          document.getElementById('regAmountInvested').textContent = fmtMoney(stats.activePortfolio);
+          document.getElementById('regPortfolioValue').textContent = fmtMoney(stats.totalInvested);
+          document.getElementById('regPendingNotice').textContent = `(${fmtMoney(stats.pendingInvestment)} Pending)`;
+          document.getElementById('regJoinDate').textContent = fmtDate(inv.createdAt);
+
+          const badgeEl = document.getElementById('regInvestorBadge');
+          const isAct = stats.activePortfolio > 0 || inv.isInvestor;
+          badgeEl.textContent = isAct ? 'Active Investor' : (stats.pendingInvestment > 0 ? 'Deposit Pending' : 'Onboarding Pending');
+          badgeEl.className = isAct
+            ? 'px-3 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-xs font-bold tracking-wide'
+            : 'px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-bold tracking-wide';
+
+          // Table
+          const tbody = document.getElementById('regTransactionsBody');
+          if (investments.length === 0) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="5" class="py-8 text-center text-slate-400 text-xs">
+                  No allocations registered for this investor yet.
+                </td>
+              </tr>
+            `;
+          } else {
+            tbody.innerHTML = investments.map(i => {
+              const isPend = i.status === 'pending';
+              const stBadge = isPend
+                ? `<span class="inline-block px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-xs font-bold">Pending</span>`
+                : `<span class="inline-block px-2.5 py-0.5 rounded-md bg-[#dcfce7] text-[#15803d] text-xs font-bold">Approved</span>`;
+
+              return `
+                <tr class="hover:bg-slate-50/70 transition-colors">
+                  <td class="py-3.5 pr-4 text-slate-700 font-medium whitespace-nowrap">${fmtDate(i.createdAt)}</td>
+                  <td class="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">${fmtMoney(i.amount)}</td>
+                  <td class="py-3.5 px-4 text-slate-600 whitespace-nowrap capitalize">${i.paymentMethod}</td>
+                  <td class="py-3.5 px-4 whitespace-nowrap">${stBadge}</td>
+                  <td class="py-3.5 pl-4 text-slate-500 font-mono text-[11px] whitespace-nowrap">${i.referenceId}</td>
+                </tr>
+              `;
+            }).join('');
+          }
+
+        } catch (err) {
+          console.error('Failed to load investor profile from API:', err);
+        }
+      }
+
+      loadInvestorDetails();
+    })();
+  </script>
 </body>
 </html>
